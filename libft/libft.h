@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:49:53 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/05/22 16:45:10 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/05/24 15:25:04 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define LIBFT_H
 
 # define BUFF_SIZE 32
-# include <fcntl.h>
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include "ft_printf.h"
 
 typedef struct		s_list
 {
@@ -118,8 +119,7 @@ int					ft_str_isdigit(char *s);
 int					vlq_cmp(char *s1, char *s2);
 
 /*
-**				Added functions for Filler
+**				GNL
 */
-
 int					get_next_line(const int fd, char **line);
 #endif

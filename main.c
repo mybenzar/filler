@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   float_utils.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/15 09:05:33 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/05/15 09:05:59 by mybenzar         ###   ########.fr       */
+/*   Created: 2019/05/24 15:21:14 by mybenzar          #+#    #+#             */
+/*   Updated: 2019/05/24 19:36:42 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "filler.h"
 
-void	fill_prec(char *ret, char *str, int size)
+int	main(void)
 {
-	int j;
-	int i;
+	t_board	*board;
+	int		p_id;
 
-	i = 0;
-	j = ft_strlen(str);
-	while (i <= size && i < j)
-	{
-		ret[i] = str[i];
-		i += 1;
-	}
-	ret[i] = '\0';
+	if (!(board = (t_board*)malloc(sizeof(t_board))))
+		return (0);
+	p_id = get_player();
+	ft_printf("hello\n");
+	allocate_board(board);
+	get_board(board);
+	display_board(board);
+	free_board(board);
+	return (0);
 }
