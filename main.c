@@ -20,7 +20,7 @@ int	main(void)
 	if (!(board = (t_board*)malloc(sizeof(t_board))))
 		return (0);
 	p_id = get_player();
-	ft_printf("hello\n");
+	ft_printf("p_id = %d\n", p_id);
 	allocate_board(board);
 	get_board(board);
 	display_board(board);

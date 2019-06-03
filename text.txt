@@ -1,13 +1,4 @@
 $$$ exec p1 : [mybenzar]
-# -------------- VM  version 1.1 ------------- #
-#                                              #
-# 42 / filler VM Developped by: Hcao - Abanlin #
-#                                              #
-# -------------------------------------------- #
-launched players/carli.filler
-$$$ exec p1 : [players/carli.filler]
-launched players/superjeannot.filler
-$$$ exec p2 : [players/superjeannot.filler]
 Plateau 15 17:
     01234567890123456
 000 .................

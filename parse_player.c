@@ -12,19 +12,31 @@
 
 #include "filler.h"
 
-void	get_board(t_board *board)
+void	get_line(t_board *board)
 {
-	int i;
+	char	*line;
+	int		i;
 
 	i = 0;
-	get_dim(board);
-	ft_printf("board->height = %d, board->width = %d\n", board->height, board->width);
-	while (i < board->height)
+	if (get_next_line(FD, &line) <= 0)
 	{
-		if (get_next_line(FD, &board->tab[i]) < 0)
+		ft_strdel(&line);
+		return ;
+	}
+	while (line[i] == ' ')
+		i++;
+	if (i != 4)
+		return ;
+	while (line[i] != '\0')
+	{
+		if ((i - 4) % 10 + 48 != line[i] || i - 4 >= board->width)
+		{
+			ft_strdel(&line);
 			return ;
+		}
 		i++;
 	}
+	ft_strdel(&line);
 }
 
 void	get_dim(t_board *board)
@@ -42,6 +54,29 @@ void	get_dim(t_board *board)
 		return ;
 }
 
+void	get_board(t_board *board)
+{
+	int i;
+
+	i = 0;
+//	if (!(board = (t_board *)malloc(sizeof(t_board))))
+//		return ;
+	get_dim(board);
+	ft_printf("board->height = %d, board->width = %d\n", board->height, board->width);
+	get_line(board);
+	while (i < board->height)
+	{
+		if (get_next_line(FD, &board->tab[i]) < 0
+			|| ft_atoi(board->tab[i]) != i)
+		{
+			ft_strdel(&board->tab[i]);
+			free_board(board);
+			return ;
+		}
+		i++;
+	}
+}
+
 int		get_player(void)
 {
 	char	*line;
@@ -50,9 +85,11 @@ int		get_player(void)
 	if (get_next_line(FD, &line) < 0)
 		return (-1);
 	if (ft_strncmp(line, "$$$ exec p", 10) != 0
-		|| (!(id = ft_atoi(line + 10)) && id != 1 && id != 2))
+		|| (!(id = ft_atoi(line + 10))))
 		return (-1);
-	if (ft_strncmp(line + 15, "[mybenzar]", 10) != 0)
+	if (id != 1 && id != 2)
+		return (-1);
+	if (ft_strncmp(line + 11, " : [mybenzar]", 13) != 0)
 		return (-1);
 	ft_strdel(&line);
 	return (id);
