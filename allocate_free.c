@@ -12,6 +12,7 @@
 
 #include "filler.h"
 
+/*
 t_board		*allocate_board(t_board *board)
 {
 	int i;
@@ -21,11 +22,12 @@ t_board		*allocate_board(t_board *board)
 		return (NULL);
 	while (i < board->height)
 	{
-		if (!(board->tab[i] = (char*)malloc(sizeof(char) * board->width + 1)))
+		if (!(board->tab[i++] = (char*)malloc(sizeof(char) * board->width + 1)))
 			return (NULL);
 	}
 	return (board);
 }
+*/
 
 void		free_board(t_board *board)
 {

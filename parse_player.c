@@ -29,6 +29,7 @@ void	get_line(t_board *board)
 		return ;
 	while (line[i] != '\0')
 	{
+		ft_printf("i = %d\n", i);
 		if ((i - 4) % 10 + 48 != line[i] || i - 4 >= board->width)
 		{
 			ft_strdel(&line);
@@ -48,6 +49,7 @@ void	get_dim(t_board *board)
 	if (get_next_line(FD, &line) < 0
 		|| !(split = ft_strsplit(line, ' ')))
 		return ;
+//	ft_printf("split 1 = %s\n split 2 = %s\n", split[1], split[2]);
 	if (ft_strcmp(split[0], "Plateau") != 0
 		|| !(board->height = ft_atoi(split[1]))
 		|| !(board->width = ft_atoi(split[2])))
@@ -64,7 +66,7 @@ void	get_board(t_board *board)
 	get_dim(board);
 	ft_printf("board->height = %d, board->width = %d\n", board->height, board->width);
 	get_line(board);
-	while (i < board->height)
+	while (i < board->width)
 	{
 		if (get_next_line(FD, &board->tab[i]) < 0
 			|| ft_atoi(board->tab[i]) != i)

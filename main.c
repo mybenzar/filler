@@ -21,8 +21,9 @@ int	main(void)
 		return (0);
 	p_id = get_player();
 	ft_printf("p_id = %d\n", p_id);
-	allocate_board(board);
 	get_board(board);
+	ft_printf("hello\n");
+//	allocate_board(board);
 	display_board(board);
 	free_board(board);
 	return (0);
