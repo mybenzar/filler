@@ -6,19 +6,23 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/15 11:25:47 by mybenzar          #+#    #+#              #
-#    Updated: 2019/05/24 15:23:10 by mybenzar         ###   ########.fr        #
+#    Updated: 2019/06/11 14:21:56 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-FLAGS = -Wall -Wextra -Werror
+CC = clang
+CFLAGS += -Wall
+CFLAGS += -Werror
+CFLAGS += -Wextra
 NAME = libft.a
-HEADERS = libft.h
+INCLUDES = includes/
+HEADERS += $(INCLUDES)libft.h
+HEADERS += $(INCLUDES)ft_printf.h
 
 SRCS =	ft_bzero.c ft_itoa.c ft_memalloc.c ft_memccpy.c ft_memchr.c ft_toupper.c\
 		ft_memcmp.c ft_memcpy.c ft_memdel.c ft_memmove.c ft_strdup.c\
-		ft_strlen.c ft_strnew.c ft_strcpy.c ft_strncpy.c ft_strcat.c ft_strncat.c\
-		ft_strlcat.c ft_memset.c ft_putchar.c ft_putchar_fd.c ft_putendl_fd.c\
+		ft_strlen.c ft_strcpy.c ft_strncpy.c ft_strcat.c ft_strncat.c\
+		ft_strlcat.c ft_memset.c ft_putchar.c ft_putchar_fd.c \
 		ft_putendl_fd.c ft_putendl.c ft_putnbr.c ft_putnbr_fd.c ft_putstr.c\
 		ft_strchr.c ft_strclr.c ft_strcmp.c ft_strdel.c ft_putstr_fd.c\
 		ft_strequ.c ft_striter.c ft_striteri.c ft_strjoin.c ft_isdigit.c\
@@ -41,20 +45,23 @@ SRCS =	ft_bzero.c ft_itoa.c ft_memalloc.c ft_memccpy.c ft_memchr.c ft_toupper.c\
 		ft_round.c vlq_sum.c vlq_initialize.c vlq_conv.c vlq_shift.c\
 		vlq_mult.c vlq_calc_info.c ft_round_utils.c\
 
+vpath %.c srcs/
+
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) :
-	$(CC) -c $(FLAGS) $(SRCS) -I $(HEADERS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+
+$(OBJS): %.o: %.c $(HEADERS) Makefile
+	$(CC) -c $(CFLAGS) $< -I $(INCLUDES)
 
 clean :
-	rm -f $(OBJS)
+	$(RM) $(OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re : fclean all
 
