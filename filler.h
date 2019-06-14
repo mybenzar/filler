@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/05/24 19:36:43 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/14 10:34:46 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #define FD 1
 
-#include "libft/libft.h"
+#include "libft/includes/libft.h"
 
 typedef struct	s_board
 {

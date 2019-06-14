@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/05/24 19:36:41 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/14 10:44:13 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ void	get_line(t_board *board)
 		i++;
 	if (i != 4)
 		return ;
+	ft_printf("line[%d] = %s\n", line[i]);
 	while (line[i] != '\0')
 	{
-		ft_printf("i = %d\n", i);
-		if ((i - 4) % 10 + 48 != line[i] || i - 4 >= board->width)
+		ft_printf("i - 4 = %d\n", i - 4);
+		if ((i - 4) % 10 + 48 != line[i] || i - 4 >= board->height)
 		{
 			ft_strdel(&line);
 			return ;
@@ -49,7 +50,7 @@ void	get_dim(t_board *board)
 	if (get_next_line(FD, &line) < 0
 		|| !(split = ft_strsplit(line, ' ')))
 		return ;
-//	ft_printf("split 1 = %s\n split 2 = %s\n", split[1], split[2]);
+	ft_printf("split 1 = %s\n split 2 = %s\n", split[1], split[2]);
 	if (ft_strcmp(split[0], "Plateau") != 0
 		|| !(board->height = ft_atoi(split[1]))
 		|| !(board->width = ft_atoi(split[2])))

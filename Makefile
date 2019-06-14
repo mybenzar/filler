@@ -6,7 +6,7 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/22 11:56:55 by mybenzar          #+#    #+#              #
-#    Updated: 2019/05/24 19:12:27 by mybenzar         ###   ########.fr        #
+#    Updated: 2019/06/14 10:34:09 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CFLAGS	= -Wall -Wextra -Werror
 SOURCES = main.c parse_player.c allocate_free.c debug.c
 OBJECTS	= $(SOURCES:.c=.o)
 LIBPATH	= ./libft/
+LIBSRC = srcs/
 LIB		= $(LIBPATH)libft.a
 INC		= filler.h
 
@@ -27,7 +28,7 @@ $(NAME): $(LIB) $(OBJECTS) $(INC)
 	@echo "\033[92mCompiling filler executable.\033[0m" 
 	$(CC) $(CFLAGS) -L$(LIBPATH) -lft -o $(NAME) $(OBJECTS)
 
-$(LIB): $(LIBPATH)*.c
+$(LIB): $(LIBPATH)$(LIBSRC)*.c
 	make -C $(LIBPATH)
 
 clean:
