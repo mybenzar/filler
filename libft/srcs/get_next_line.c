@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 12:15:48 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/05/24 15:25:27 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/14 13:59:47 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_list	*find_fd(t_list **list, int fd)
 	return (tmp);
 }
 
-static char		*ft_strncat_and_free(char *s1, char *s2, int nb)
+static char		*ft_strncat_and_free(char *s1, char s2[BUFF_SIZE + 1], int nb)
 {
 	char *str;
 	char *tmp;
@@ -40,7 +40,7 @@ static char		*ft_strncat_and_free(char *s1, char *s2, int nb)
 		return (NULL);
 	ft_strcat(str, s1);
 	ft_strncat(str, s2, nb);
-	free(tmp);
+	ft_strdel(&tmp);
 	return (str);
 }
 
@@ -49,7 +49,8 @@ static char		*ft_strdup_and_free(char *str, int nb)
 	char *tmp;
 
 	tmp = str;
-	str = ft_strdup(str + nb);
+	if (!(str = ft_strdup(str + nb)))
+		return (NULL);
 	free(tmp);
 	return (str);
 }
@@ -57,7 +58,7 @@ static char		*ft_strdup_and_free(char *str, int nb)
 int				get_next_line(const int fd, char **line)
 {
 	static t_list	*statictmp;
-	char			buf[BUFF_SIZE + 1];
+	static char		buf[BUFF_SIZE + 1];
 	t_list			*tmp;
 	int				nb;
 
@@ -69,6 +70,7 @@ int				get_next_line(const int fd, char **line)
 	nb = 0;
 	while (((char*)tmp->content)[nb] && ((char*)tmp->content)[nb] != '\n')
 		nb++;
+//	ft_printf("in GNL, tmp->content = %s\n", tmp->content);
 	if (!(*line = ft_strnew(nb)))
 		return (-1);
 	ft_strncat(*line, tmp->content, nb);

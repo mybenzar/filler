@@ -6,13 +6,13 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/14 10:44:13 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/14 13:59:47 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	get_line(t_board *board)
+void	check_line(t_board *board)
 {
 	char	*line;
 	int		i;
@@ -23,15 +23,15 @@ void	get_line(t_board *board)
 		ft_strdel(&line);
 		return ;
 	}
+	ft_printf("line = %s\n", line);
 	while (line[i] == ' ')
 		i++;
 	if (i != 4)
 		return ;
-	ft_printf("line[%d] = %s\n", line[i]);
 	while (line[i] != '\0')
 	{
 		ft_printf("i - 4 = %d\n", i - 4);
-		if ((i - 4) % 10 + 48 != line[i] || i - 4 >= board->height)
+		if ((i - 4) % 10 + 48 != line[i] || i - 4 > board->width)
 		{
 			ft_strdel(&line);
 			return ;
@@ -57,6 +57,23 @@ void	get_dim(t_board *board)
 		return ;
 }
 
+void	clean_board(t_board *board)
+{
+	int		i;
+	char	*tmp;
+
+	i = -1;
+	while (++i < board->height)
+	{
+		if (!(tmp = ft_strdup(board->tab[i])))
+			return ;
+		ft_strdel(&board->tab[i]);
+		if (!(board->tab[i] = ft_strdup(tmp + 4)))
+			return ;
+		ft_strdel(&tmp);
+	}
+}
+
 void	get_board(t_board *board)
 {
 	int i;
@@ -64,10 +81,13 @@ void	get_board(t_board *board)
 	i = 0;
 //	if (!(board = (t_board *)malloc(sizeof(t_board))))
 //		return ;
+	if (!(board->tab = (char **)malloc(sizeof(char *))))
+		return ;
 	get_dim(board);
 	ft_printf("board->height = %d, board->width = %d\n", board->height, board->width);
-	get_line(board);
-	while (i < board->width)
+	check_line(board);
+	ft_printf("get_line v\n");
+	while (i < board->height)
 	{
 		if (get_next_line(FD, &board->tab[i]) < 0
 			|| ft_atoi(board->tab[i]) != i)
@@ -76,8 +96,11 @@ void	get_board(t_board *board)
 			free_board(board);
 			return ;
 		}
+		//ft_printf("atoi of board tab[%d] = %d\n", i, ft_atoi(board->tab[i]));
+		ft_printf("board->tab[%d] = %s\n", i, board->tab[i]);
 		i++;
 	}
+	clean_board(board);
 }
 
 int		get_player(void)
