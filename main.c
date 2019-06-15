@@ -16,8 +16,8 @@ void play(t_board *board, t_piece *piece, t_game *game)
 {
 	t_pos next_move;
 
-	game->player_nb = (game->player_nb == 1) ? 'O' : 'X';
-	game->ennemy_nb = (game->player_nb == 0) ? 'O' : 'X';
+	game->player = (game->player_nb == 1) ? 'O' : 'X';
+	game->ennemy = (game->player_nb == 0) ? 'O' : 'X';
 	next_move = strategy(board, piece);
 	ft_printf("%d %d\n", next_move.y, next_move.x);
 }

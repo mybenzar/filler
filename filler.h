@@ -16,9 +16,6 @@
 #include "libft/includes/libft.h"
 
 #define FD 1
-# define PLAYER_ONE "$$$ exec p1 : ["
-# define PLAYER_TWO "$$$ exec p2 : ["
-
 
 typedef struct	s_pos
 {
@@ -43,28 +40,26 @@ typedef struct s_piece
 
 typedef struct 		s_game
 {
-	int				player_nb;
-	int				ennemy_nb;
+	int				player;
+	int				ennemy;
+	s_pos			ennemy_pos;
 	int				end;
 	t_piece			*piece;
 	enum e_state	state;
 	enum e_play		play;
-	t_pos			thresh;
+	int				distance;
 }					t_game;
 
 enum			e_state
 {
 	E_EMPTY;
 	E_FULL;
-	E_QUART1;
-	E_QUART2;
-	E_QUART3;
-	E_QUART4;
 }
 
 enum			e_play
 {
 	E_ATTACK;
+	E_MIRROR;
 	E_DEFENSE;
 }
 
