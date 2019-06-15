@@ -13,7 +13,7 @@
 NAME	= mybenzar.filler
 CC		= gcc 
 CFLAGS	= -Wall -Wextra -Werror
-SOURCES = main.c parse_player.c allocate_free.c debug.c
+SOURCES = main.c parse_player.c allocate_free.c parse_piece.c strategy .c debug.c
 OBJECTS	= $(SOURCES:.c=.o)
 LIBPATH	= ./libft/
 LIBSRC = srcs/

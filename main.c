@@ -12,19 +12,41 @@
 
 #include "filler.h"
 
+void play(t_board *board, t_piece *piece, t_game *game)
+{
+	t_pos next_move;
+
+	game->player_nb = (game->player_nb == 1) ? 'O' : 'X';
+	game->ennemy_nb = (game->player_nb == 0) ? 'O' : 'X';
+	next_move = strategy(board, piece);
+	ft_printf("%d %d\n", next_move.y, next_move.x);
+}
+
 int	main(void)
 {
 	t_board	*board;
-	int		p_id;
+	t_game	*game;
+	char	*line;
 
-	if (!(board = (t_board*)malloc(sizeof(t_board))))
+	if (!(board = (t_board*)malloc(sizeof(t_board)))
+		|| !(game = (t_game*)malloc(sizeof(t_game))))
 		return (0);
-	p_id = get_player();
-	ft_printf("p_id = %d\n", p_id);
-	get_board(board);
-	ft_printf("hello\n");
-//	allocate_board(board);
+	line = NULL;
+	game->player_nb = get_player();
+//	ft_printf("player id = %d\n", game->player_nb);
+	while (game->end == 0)
+	{
+		if (get_board(board) != 0)
+		{
+			game->piece = get_piece();
+			return (0);
+	//		play(board, game);
+		}
+		else
+			game->end = 1;
+	}
 	display_board(board);
 	free_board(board);
+	free_game(game);
 	return (0);
 }

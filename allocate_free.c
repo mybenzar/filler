@@ -43,3 +43,21 @@ void		free_board(t_board *board)
 	board = NULL;
 
 }
+
+void		free_piece(t_piece *piece)
+{
+	free(piece->pos);
+	init_piece(piece);
+	piece->pos = NULL;
+	free(piece);
+	piece = NULL;
+}
+
+void		free_game(t_game *game)
+{
+	game->player_nb = 0;
+	game->end = 0;
+	free_piece(game->piece);
+	free(game);
+	game = NULL;
+}
