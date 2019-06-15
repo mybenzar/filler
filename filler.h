@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/14 10:34:46 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/15 15:02:43 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,53 @@
 
 typedef struct	s_pos
 {
-	int		x;
-	int		y;
+	int			x;
+	int			y;
 }				t_pos;
 
 typedef struct	s_board
 {
-	char	**tab;
-	int		width;
-	int		height;
+	char		**tab;
+	int			width;
+	int			height;
 }				t_board;
 
 typedef struct s_piece
 {
-	t_pos	*pos;
-	int		width;
-	int		height;
-	int		size;
+	t_pos		*pos;
+	int			width;
+	int			height;
+	int			size;
 }				t_piece;
 
-typedef struct s_game
+typedef struct 		s_game
 {
-	int		player_nb;
-	int		ennemy_nb;
-	int		end;
-	t_piece	*piece;		
-}				t_game;
+	int				player_nb;
+	int				ennemy_nb;
+	int				end;
+	t_piece			*piece;
+	enum e_state	state;
+	enum e_play		play;
+	t_pos			thresh;
+}					t_game;
+
+enum			e_state
+{
+	E_EMPTY;
+	E_FULL;
+	E_QUART1;
+	E_QUART2;
+	E_QUART3;
+	E_QUART4;
+}
+
+enum			e_play
+{
+	E_ATTACK;
+	E_DEFENSE;
+}
+
+typedef unsigned char	(*t_strategy)(t_game *);
 
 /*
 **	Parsing Functions

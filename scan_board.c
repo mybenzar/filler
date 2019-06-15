@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strategy.c                                         :+:      :+:    :+:   */
+/*   scan_board.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/15 15:02:42 by mybenzar         ###   ########.fr       */
+/*   Created: 2019/06/15 14:33:19 by mybenzar          #+#    #+#             */
+/*   Updated: 2019/06/15 15:02:45 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-t_pos	attack(t_board *board, t_game *game)
+void quarters(t_board *board, t_game *game)
 {
+	game->thresh.x = board->width / 4;
+	game->thresh.y = board->height / 4;
 	
 }
-
-t_pos	defense(t_board *board, t_game *game)
-{
-
-}
-
-t_pos strategy(t_board *board, t_game *game)
-{
-
-}
-
