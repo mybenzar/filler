@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/15 15:02:42 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/17 11:14:07 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ int		get_closest_op(t_board *b, t_game *game)
 
 	i = 0;
 	while (i < game->piece.size)
+	{
+		
+		count = ft_abs(game->ennemy_pos.x - x) + ft_abs(game->ennemy_pos.y - y)
+	}
 }
 
 t_pos	op_pieces_comp(t_board *b, t_game *game)
