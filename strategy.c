@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/18 12:18:46 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/18 16:55:20 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,18 +79,28 @@ void	get_closest_op(t_board *b, t_game *g)
 	g->target = target;
 }
 
+int		place_check(t_board *b, t_piece *piece)
+{
+	int x;
+	int y;
+
+	
+	x = g->target 
+}
+
 /*
 **	--> Attack : moves directly towards the closest opponent's piece
 **	and then triggers the mirror attack
 */
 
-t_pos	attack(t_board *board, t_game *game)
+t_pos	attack(t_board *board, t_game *game, t_piece *piece)
 {
 	get_closest_op(board, game);
+	//place_check(board, piece);
 	game->play = E_MIRROR;
 	return (g->target);
 }
-
+/*
 t_pos mirror(t_board *b, t_game *g)
 {
 	int i;
@@ -105,7 +115,7 @@ t_pos mirror(t_board *b, t_game *g)
 		}
 	}
 }
-
+*/
 /*
 **	--> Defense : Covers most of the field in diagonal in order to block oponent
 */

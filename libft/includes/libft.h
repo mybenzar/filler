@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:49:53 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/05/24 15:25:04 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/18 13:16:52 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,8 @@ int					vlq_cmp(char *s1, char *s2);
 **				GNL
 */
 int					get_next_line(const int fd, char **line);
+/*
+**				Added for Filler
+*/
+int					ft_abs(int nb);
 #endif

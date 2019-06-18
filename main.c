@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:21:14 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/18 12:06:40 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/18 16:55:20 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(void)
 		{
 			game->piece = get_piece();
 			return (0);
-	//		play(board, game);
+			play(board, game);
 		}
 		else
 			game->end = 1;
