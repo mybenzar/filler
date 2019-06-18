@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:21:14 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/15 15:02:43 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/18 12:06:40 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	main(void)
 	char	*line;
 
 	if (!(board = (t_board*)malloc(sizeof(t_board)))
-		|| !(game = (t_game*)malloc(sizeof(t_game))))
+		|| !(game = (t_game*)malloc(sizeof(t_game)))
+		|| !(vect = (t_vect*)malloc(sizeof(t_vect))))
 		return (0);
 	line = NULL;
 	game->player_nb = get_player();
