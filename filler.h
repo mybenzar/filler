@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/19 15:37:44 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/19 18:02:24 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,20 +80,24 @@ int						nb_adj_piece(char **tab, int x, int y);
 /*
 **	Memory Handlers
 */
+
 //t_board	*allocate_board(t_board *board);
 void					free_board(t_board *board);
 void					free_piece(t_piece *piece);
 void					free_game(t_game *game);
 void					init_piece(t_piece *piece);
 void					init_gb(t_game *game, t_board *board);
+
 /*
 **	Play Functions
 */
+
 void					strategy(t_board *b, t_game *g);
+
 /*
 **	Debug Functions
 */
 
 void					display_board(t_board *board);
-void					display_piece(t_board *board);
+void					display_piece(t_piece *piece);
 #endif

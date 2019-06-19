@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/19 14:51:04 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/19 17:32:26 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	get_dim(t_board *board)
 	if (get_next_line(FD, &line) < 0
 		|| !(split = ft_strsplit(line, ' ')))
 		return ;
-	ft_printf("for board split 1 = %s\n split 2 = %s\n", split[1], split[2]);
+//	ft_printf("for board split 1 = %s\n split 2 = %s\n", split[1], split[2]);
 	if (ft_strcmp(split[0], "Plateau") != 0
 		|| !(board->height = ft_atoi(split[1]))
 		|| !(board->width = ft_atoi(split[2])))
@@ -82,9 +82,9 @@ int		get_board(t_board *board)
 	get_dim(board);
 	if (!(board->tab = (char **)malloc(sizeof(char *) * board->height + 1)))
 		return (0);
-	ft_printf("board->height = %d, board->width = %d\n", board->height, board->width);
+//	ft_printf("board->height = %d, board->width = %d\n", board->height, board->width);
 	check_first_line(board);
-	ft_printf("get_line v\n");
+//	ft_printf("get_line v\n");
 	while (i < board->height)
 	{
 		if (get_next_line(FD, &board->tab[i]) < 0
@@ -97,7 +97,7 @@ int		get_board(t_board *board)
 			return (0);
 		}
 	//	ft_printf("atoi of board tab[%d] = %d\n", i, ft_atoi(board->tab[i]));
-		ft_printf("board->tab[%d] = %s\n", i, board->tab[i]);
+//		ft_printf("board->tab[%d] = %s\n", i, board->tab[i]);
 		i++;
 	}
 	board->tab[i] = NULL;

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 12:15:48 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/14 13:59:47 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/19 17:54:30 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,14 @@ int				get_next_line(const int fd, char **line)
 	nb = 0;
 	while (((char*)tmp->content)[nb] && ((char*)tmp->content)[nb] != '\n')
 		nb++;
-//	ft_printf("in GNL, tmp->content = %s\n", tmp->content);
+	ft_printf("in GNL, tmp->content = %s\n", tmp->content);
 	if (!(*line = ft_strnew(nb)))
 		return (-1);
 	ft_strncat(*line, tmp->content, nb);
 	if (((char*)tmp->content)[nb] == '\n')
 		nb++;
 	tmp->content = ft_strdup_and_free(tmp->content, nb);
+	ft_printf("in GNL, nb = %d\n", nb);
 	if (!nb)
 		return (0);
 	return (1);

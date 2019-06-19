@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/19 15:37:43 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/19 18:02:22 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,20 @@ char	**get_tab_piece(t_piece *piece)
 	get_dim_piece(piece);
 	if (!(tab = (char **)malloc(sizeof(char *) * piece->height + 1)))
 		return (NULL);
-	ft_printf("piece->height = %d, piece->width = %d\n", piece->height, piece->width);
 	while (i < piece->height)
 	{
-		if (get_next_line(FD, &tab[i]) < 0
+	//	ft_printf("piece->height = %d", piece->height);
+		if (get_next_line(FD, &tab[i]) <= 0
 			|| (int)ft_strlen(tab[i]) != piece->width)
 		{
+		//	ft_printf("i should not be here\n");
 			ft_strdel(&tab[i]);
-			free_piece(piece);
 			return (NULL);
 		}
 		i++;
+		ft_printf("i = %d\n", i);
 	}
+//	ft_printf("hello\n");
 	tab[i] = NULL;
 	return (tab);
 }
@@ -87,14 +89,14 @@ void	ft_left(t_piece *piece)
 	int p;
 
 	p = 0;
-	ft_printf("im in ft_left\n");
+//	ft_printf("im in ft_left\n");
 	while (p < piece->size)
 	{
 		while (piece->pos[p].x > 0)
 			piece->pos[p].x--;
 		while (piece->pos[p].y > 0)
 			piece->pos[p].y--;
-		ft_printf("new piece->pos[%d].x = %d, new piece->pos[%d].y = %d\n", p, piece->pos[p].x, p, piece->pos[p].y);
+//		ft_printf("new piece->pos[%d].x = %d, new piece->pos[%d].y = %d\n", p, piece->pos[p].x, p, piece->pos[p].y);
 		p++;
 	}
 }
@@ -109,6 +111,7 @@ int		get_pos(t_piece *piece, char **tab)
 	p = 0;
 	if (!(piece->pos = (t_pos*)malloc(sizeof(t_pos) * piece->size + 1)))
 		return (0);
+//	ft_printf("here\n");
 	while (tab[i] != NULL)
 	{
 		j = 0;
@@ -124,8 +127,6 @@ int		get_pos(t_piece *piece, char **tab)
 		}
 		i++;
 	}
-	ft_printf("here\n");
-	ft_left(piece);
 	return (1);
 }
 
@@ -181,7 +182,6 @@ t_piece	*get_piece(void)
 	t_piece *piece;
 	char 	**tab;
 
-	ft_printf("coucou\n");
 	if (!(piece = (t_piece*)malloc(sizeof(t_piece))))
 		return (NULL);
 	init_piece(piece);
@@ -189,8 +189,10 @@ t_piece	*get_piece(void)
 		|| get_piece_size(piece, tab) == 0
 		|| (get_pos(piece, tab) == 1 && check_piece(piece, tab) == 0))
 	{
-		free(piece);
+		free_piece(piece);
 		return (NULL);
 	}
+	ft_left(piece);
+	display_piece(piece);
 	return (piece);
 }
