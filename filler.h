@@ -77,6 +77,7 @@ void					get_dim_piece(t_piece *piece);
 char					**get_tab_piece(t_piece *piece);
 int						get_piece_size(t_piece *piece, char **tab);
 int						nb_adj_piece(char **tab, int x, int y);
+void					ft_left(t_piece *piece);
 /*
 **	Memory Handlers
 */

@@ -36,7 +36,7 @@ int	main(void)
 	{
 		if (get_board(board) != 0)
 		{
-//			display_board(board);
+			display_board(board);
 			board->piece = get_piece();
 //			ft_printf("piece parsed\n");
 			play(board, game);

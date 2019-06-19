@@ -47,7 +47,6 @@ char	**get_tab_piece(t_piece *piece)
 			return (NULL);
 		}
 		i++;
-		ft_printf("i = %d\n", i);
 	}
 //	ft_printf("hello\n");
 	tab[i] = NULL;
@@ -84,21 +83,50 @@ int	get_piece_size(t_piece *piece, char **tab)
 	return (1);
 }
 
+
 void	ft_left(t_piece *piece)
 {
 	int p;
+	int flag;
 
 	p = 0;
+	flag = 0;
 //	ft_printf("im in ft_left\n");
-	while (p < piece->size)
+	while (piece->pos[p].x > 0 && p < piece->width)
 	{
-		while (piece->pos[p].x > 0)
-			piece->pos[p].x--;
-		while (piece->pos[p].y > 0)
-			piece->pos[p].y--;
-//		ft_printf("new piece->pos[%d].x = %d, new piece->pos[%d].y = %d\n", p, piece->pos[p].x, p, piece->pos[p].y);
+		flag = 1;
+		if (piece->pos[p].x == 0)
+		{
+			flag = 0;
+			break ;
+		}
 		p++;
 	}
+	if (flag == 1)
+	{
+		p = -1;
+		while (++p < piece->size)
+			piece->pos[p].x -= 1;
+	}
+	p = 0;
+	flag = 0;
+	while (piece->pos[p].y > 0 && p < piece->height)
+	{
+		flag = 1;
+		if (piece->pos[p].y == 0)
+		{
+			flag = 0;
+			break ;
+		}
+		p++;
+	}
+	if (flag == 1)
+	{
+		p = -1;
+		while (++p < piece->size)
+			piece->pos[p].y -= 1;
+	}
+//		ft_printf("new piece->pos[%d].x = %d, new piece->pos[%d].y = %d\n", p, piece->pos[p].x, p, piece->pos[p].y);
 }
 
 int		get_pos(t_piece *piece, char **tab)
@@ -192,7 +220,7 @@ t_piece	*get_piece(void)
 		free_piece(piece);
 		return (NULL);
 	}
-	ft_left(piece);
+	//ft_left(piece);
 	display_piece(piece);
 	return (piece);
 }

@@ -70,14 +70,12 @@ int				get_next_line(const int fd, char **line)
 	nb = 0;
 	while (((char*)tmp->content)[nb] && ((char*)tmp->content)[nb] != '\n')
 		nb++;
-	ft_printf("in GNL, tmp->content = %s\n", tmp->content);
 	if (!(*line = ft_strnew(nb)))
 		return (-1);
 	ft_strncat(*line, tmp->content, nb);
 	if (((char*)tmp->content)[nb] == '\n')
 		nb++;
 	tmp->content = ft_strdup_and_free(tmp->content, nb);
-	ft_printf("in GNL, nb = %d\n", nb);
 	if (!nb)
 		return (0);
 	return (1);

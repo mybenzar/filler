@@ -41,6 +41,9 @@ int		compute_dist(t_board *b, t_game *g)
 					dist = ft_abs(g->ennemy_pos.x - x) + ft_abs(g->ennemy_pos.y - y);
 					g->target.x = j;
 					g->target.y = i;
+					ft_printf("\n--> in compute dist,");
+					ft_printf("g->target.x = %d\n", g->target.x);
+					ft_printf("g->target.y = %d\n", g->target.y);
 				}
 			}
 			j++;
@@ -59,6 +62,7 @@ void	get_closest_op(t_board *b, t_game *g)
 	int		tmp;
 
 	i = 0;
+	dist = b->height + b->width;
 	while (b->tab[i] != NULL)
 	{
 		j = 0;
@@ -71,14 +75,20 @@ void	get_closest_op(t_board *b, t_game *g)
 				if ((tmp = compute_dist(b, g)) && dist > tmp) 
 				{
 					dist = tmp;
-					target = g->target;
+					ft_printf("dist = %d\n", dist);
+					target.x = g->target.x;
+					target.y = g->target.y;
 				}
 			}
 			j++;
 		}
 		i++;
 	}
-	g->target = target;
+	g->target.x = target.x;
+	g->target.y = target.y;
+	ft_printf("\n--> in get closest op,");
+	ft_printf("g->target.x = %d\n", g->target.x);
+	ft_printf("g->target.y = %d\n", g->target.y);
 }
 
 /*
@@ -91,7 +101,15 @@ int		place_check(t_board *b, t_game *g)
 	int x;
 	int y;
 	int i;
+	t_pos tmp;
 
+	tmp.x = b->piece->pos[0].x;
+	tmp.y = b->piece->pos[0].y;
+	ft_printf("in place check, g->target.x = %d\n", g->target.x);
+	ft_printf("g->target.y = %d\n", g->target.y);
+	//ft_printf("before left b->piece->pos[0].x = %d\n", b->piece->pos[0].x);
+	ft_left(b->piece);
+	ft_printf("after left b->piece->pos[0].x = %d\n", b->piece->pos[0].x);
 	i = 1;
 	if (b->piece->width > b->width || b->piece->height > b->height)
 		return (0);
@@ -99,10 +117,17 @@ int		place_check(t_board *b, t_game *g)
 	{
 		x = b->piece->pos[i].x + g->target.x;
 		y = b->piece->pos[i].y + g->target.y;
+		ft_printf("b->piece->pos[%d].x = %d\n", i, b->piece->pos[i].x);
+		ft_printf("b->piece->pos[%d].y = %d\n", i, b->piece->pos[i].y);
+		ft_printf("x = %d and y = %d\n", x, y);
 		if (b->tab[y][x] != '.')
 			return (0);
 		i++;
 	}
+	g->target.x -= tmp.x;
+	ft_printf("g->target.x = %d\n", g->target.x);
+	ft_printf("tmp.x = %d\n", tmp.x);
+	g->target.y -= tmp.y;
 	return (1);
 }
 
@@ -115,7 +140,7 @@ t_pos	attack(t_board *board, t_game *game)
 {
 	get_closest_op(board, game);
 	if (place_check(board, game) != 0)
-		game->play = E_MIRROR;
+		game->play = E_MIRROR; 
 	return (game->target);
 }
 

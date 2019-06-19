@@ -47,8 +47,7 @@ void		free_board(t_board *board)
 	ft_strdel(board->tab);
 	while (i < board->height)
 		ft_strdel(&board->tab[i++]);
-	board->height = 0;
-	board->width = 0;
+	ft_bzero(board, sizeof(t_board));
 	free_piece(board->piece);
 	free(board);
 	board = NULL;
