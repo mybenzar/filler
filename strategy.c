@@ -6,12 +6,11 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/18 16:55:20 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/19 12:21:20 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-
 
 /*
 **	--> Find Closest Opponent's Piece : look for coordinates of closest 
@@ -79,13 +78,29 @@ void	get_closest_op(t_board *b, t_game *g)
 	g->target = target;
 }
 
-int		place_check(t_board *b, t_piece *piece)
+/*
+**	--> Place Check : checks if there is enough space to place the piece
+**	starting from the target coordinates
+*/
+
+int		place_check(t_board *b, t_game *g)
 {
 	int x;
 	int y;
+	int i;
 
-	
-	x = g->target 
+	i = 1;
+	if (p->width > b->width || p->height > b->height)
+		return (0);
+	while (i < p.size)
+	{
+		x = g->p.pos[i].x + g->target.x;
+		y = g->p.pos[i].y + g->target.y;
+		if (b->tab[y][x] != '.')
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 /*
@@ -93,47 +108,73 @@ int		place_check(t_board *b, t_piece *piece)
 **	and then triggers the mirror attack
 */
 
-t_pos	attack(t_board *board, t_game *game, t_piece *piece)
+t_pos	attack(t_board *board, t_game *game)
 {
 	get_closest_op(board, game);
-	//place_check(board, piece);
-	game->play = E_MIRROR;
+	if (place_check(board, game->piece) != 0)
+		game->play = E_MIRROR;
 	return (g->target);
 }
+
 /*
+**	--> Attack : moves directly towards the closest opponent's piece
+**	and then triggers the mirror attack
+*/
+
 t_pos mirror(t_board *b, t_game *g)
 {
 	int i;
 	int j;
+	int dist;
+	int tmp;
 
 	while (b->tab[i] != NULL)
 	{
 		j = 0;
 		while (g->tab[i][j] != '\0')
 		{
-			if (g->tab[i][j] == ft_)
+			if (g->tab[i][j] == ft_tolower(g->ennemy))
+			{
+				g->ennemy_pos.x = j;
+				g->ennemy_pos.y = i;
+				if ((tmp = compute_dist(b, g)) && dist > tmp) 
+				{
+					dist = tmp;
+					target = g->target;
+				}
+			}
+			j++;
 		}
+		i++;
 	}
+	g->play = E_ATTACK;
+	return (target);
 }
-*/
+
 /*
 **	--> Defense : Covers most of the field in diagonal in order to block oponent
+**	when reaches the corner, starts attacking again
+*/
+/*
+t_pos	defense(t_board *b, t_game *g)
+{
+	
+}
 */
 
-t_pos	defense(t_board *board, t_game *game)
-{
-
-}
 /*
 ** --> Strategy : if oponent is close then attack, if they're far, defend
 */
 
-t_pos strategy(t_board *board, t_game *game)
+t_pos strategy(t_board *b, t_game *g)
 {
 	static t_strategy	trigger_strategy[] = {attack, mirror, defense};
 
-	find_closest_op(board, game);
-	compute_distance(board, game);
-	trigger_strategy[game.play](board, game);
+	find_closest_op(b, g);
+	if (compute_distance(b, g) < ft_min(b->width / 4, b->height / 4))
+		g->play = E_ATTACK;
+//	else
+//		g->play = DEFENSE;
+	trigger_strategy[game.play](b, g);
 }
 

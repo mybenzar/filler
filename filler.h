@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/18 16:55:21 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/19 12:19:23 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,24 @@
 
 #define FD 1
 
+enum				e_state
+{
+	E_EMPTY,
+	E_FULL
+};
+
+enum				e_play
+{
+	E_ATTACK,
+	E_MIRROR,
+	E_DEFENSE
+};
+
 typedef struct		s_pos
 {
 	int				x;
 	int				y;
 }					t_pos;
-
-typedef struct		s_board
-{
-	char			**tab;
-	int				width;
-	int				height;
-}					t_board;
 
 typedef struct		s_piece
 {
@@ -37,6 +43,14 @@ typedef struct		s_piece
 	int				height;
 	int				size;
 }					t_piece;
+
+typedef struct		s_board
+{
+	char			**tab;
+	int				width;
+	int				height;
+	t_piece			piece;
+}					t_board;
 
 typedef struct 		s_game
 {
@@ -49,19 +63,6 @@ typedef struct 		s_game
 	t_pos			target;
 }					t_game;
 
-enum				e_state
-{
-	E_EMPTY;
-	E_FULL;
-}
-
-enum				e_play
-{
-	E_ATTACK;
-	E_MIRROR;
-	E_DEFENSE;
-}
-
 typedef unsigned char	(*t_strategy)(t_game *);
 
 /*
@@ -71,7 +72,7 @@ typedef unsigned char	(*t_strategy)(t_game *);
 int						get_board(t_board *board);
 void					get_dim(t_board *board);
 int						get_player(void);
-t_piece					*get_piece(void);
+t_piece					get_piece(void);
 void					get_dim_piece(t_piece *piece);
 char					**get_tab_piece(t_piece *piece);
 int						get_piece_size(t_piece *piece, char **tab);
@@ -81,16 +82,16 @@ int						nb_adj_piece(char **tab, int x, int y);
 */
 //t_board	*allocate_board(t_board *board);
 void					free_board(t_board *board);
-void					free_piece(t_piece *piece);
+void					free_piece(t_piece piece);
 void					free_game(t_game *game);
 void					init_piece(t_piece *piece);
 /*
 **	Play Functions
 */
-
+t_pos					strategy(t_board *b, t_game *g);
 /*
 **	Debug Functions
 */
 
-void	display_board(t_board *board);
+void					display_board(t_board *board);
 #endif

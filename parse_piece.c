@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/18 12:06:40 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/19 12:14:42 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,12 +157,12 @@ void	init_piece(t_piece *piece)
 	piece->size = 0;
 }
 
-t_piece	*get_piece(void)
+t_piece	get_piece(void)
 {
-	t_piece *piece;
+	t_piece piece;
 	char 	**tab;
 
-	if (!(piece = (t_piece*)malloc(sizeof(t_piece))))
+	if (!(piece = (t_piece)malloc(sizeof(t_piece))))
 		return (NULL);
 	init_piece(piece);
 	if ((tab = get_tab_piece(piece)) == NULL
