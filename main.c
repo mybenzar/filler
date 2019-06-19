@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:21:14 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/19 12:13:36 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/19 15:37:43 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,31 @@
 
 void play(t_board *board, t_game *game)
 {
-	t_pos next_move;
-
 	game->player = (game->player == 1) ? 'O' : 'X';
 	game->ennemy = (game->player == 0) ? 'O' : 'X';
-	next_move = strategy(board, game);
-	ft_printf("%d %d\n", next_move.y, next_move.x);
+	strategy(board, game);
+	ft_printf("\n\nmy result :");
+	ft_printf("%d %d\n", game->target.y, game->target.x);
 }
 
 int	main(void)
 {
 	t_board	*board;
 	t_game	*game;
-	char	*line;
 
 	if (!(board = (t_board*)malloc(sizeof(t_board)))
 		|| !(game = (t_game*)malloc(sizeof(t_game))))
 		return (0);
-	line = NULL;
+	init_gb(game, board);
 	game->player = get_player();
-//	ft_printf("player id = %d\n", game->player_nb);
+	ft_printf("player id = %d\n", game->player);
 	while (game->end == 0)
 	{
 		if (get_board(board) != 0)
 		{
 			board->piece = get_piece();
-			return (0);
+			ft_printf("piece parsed\n");
+			display_piece(board);
 			play(board, game);
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/19 12:14:42 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/19 15:37:43 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,23 @@ int	get_piece_size(t_piece *piece, char **tab)
 	return (1);
 }
 
+void	ft_left(t_piece *piece)
+{
+	int p;
+
+	p = 0;
+	ft_printf("im in ft_left\n");
+	while (p < piece->size)
+	{
+		while (piece->pos[p].x > 0)
+			piece->pos[p].x--;
+		while (piece->pos[p].y > 0)
+			piece->pos[p].y--;
+		ft_printf("new piece->pos[%d].x = %d, new piece->pos[%d].y = %d\n", p, piece->pos[p].x, p, piece->pos[p].y);
+		p++;
+	}
+}
+
 int		get_pos(t_piece *piece, char **tab)
 {
 	int i;
@@ -107,6 +124,8 @@ int		get_pos(t_piece *piece, char **tab)
 		}
 		i++;
 	}
+	ft_printf("here\n");
+	ft_left(piece);
 	return (1);
 }
 
@@ -157,12 +176,13 @@ void	init_piece(t_piece *piece)
 	piece->size = 0;
 }
 
-t_piece	get_piece(void)
+t_piece	*get_piece(void)
 {
-	t_piece piece;
+	t_piece *piece;
 	char 	**tab;
 
-	if (!(piece = (t_piece)malloc(sizeof(t_piece))))
+	ft_printf("coucou\n");
+	if (!(piece = (t_piece*)malloc(sizeof(t_piece))))
 		return (NULL);
 	init_piece(piece);
 	if ((tab = get_tab_piece(piece)) == NULL

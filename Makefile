@@ -6,14 +6,14 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/22 11:56:55 by mybenzar          #+#    #+#              #
-#    Updated: 2019/06/14 10:34:09 by mybenzar         ###   ########.fr        #
+#    Updated: 2019/06/19 14:12:59 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= mybenzar.filler
 CC		= gcc 
 CFLAGS	= -Wall -Wextra -Werror
-SOURCES = main.c parse_player.c allocate_free.c parse_piece.c strategy .c debug.c
+SOURCES = main.c parse_player.c allocate_free.c parse_piece.c strategy.c debug.c
 OBJECTS	= $(SOURCES:.c=.o)
 LIBPATH	= ./libft/
 LIBSRC = srcs/

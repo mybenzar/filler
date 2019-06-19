@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/14 13:59:47 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/19 14:51:04 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int		get_board(t_board *board)
 			return (0);
 		}
 	//	ft_printf("atoi of board tab[%d] = %d\n", i, ft_atoi(board->tab[i]));
-	//	ft_printf("board->tab[%d] = %s\n", i, board->tab[i]);
+		ft_printf("board->tab[%d] = %s\n", i, board->tab[i]);
 		i++;
 	}
 	board->tab[i] = NULL;

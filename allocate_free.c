@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:08:04 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/19 12:21:19 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/19 15:06:53 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ t_board		*allocate_board(t_board *board)
 	}
 	return (board);
 }
-
-
-void		free_piece(t_piece piece)
-{
-	free(piece.pos);
-	init_piece(&piece);
-	piece.pos = NULL;
-//	free(&piece);
-//	&piece = NULL;
-}
 */
+
+void		free_piece(t_piece *piece)
+{
+	free(piece->pos);
+	init_piece(piece);
+	piece->pos = NULL;
+	free(piece);
+	piece = NULL;
+}
+
 
 void		free_board(t_board *board)
 {
@@ -49,7 +49,7 @@ void		free_board(t_board *board)
 		ft_strdel(&board->tab[i++]);
 	board->height = 0;
 	board->width = 0;
-//	free_piece(board->piece);
+	free_piece(board->piece);
 	free(board);
 	board = NULL;
 
@@ -59,8 +59,12 @@ void		free_game(t_game *game)
 {
 	game->player = 0;
 	game->end = 0;
-	game->ennemy_pos = NULL;
-	game->target = NULL;
 	free(game);
 	game = NULL;
+}
+
+void	init_gb(t_game *game, t_board *board)
+{
+	ft_bzero(game, sizeof(t_game));
+	ft_bzero(board, sizeof(t_board));
 }
