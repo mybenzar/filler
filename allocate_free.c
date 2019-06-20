@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:08:04 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/20 11:48:29 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/20 15:07:41 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void		free_board(t_board *board)
 	int i;
 
 	i = 0;
-	ft_strdel(board->tab);
 	while (i < board->height)
 		ft_strdel(&board->tab[i++]);
+	ft_strdel(board->tab);
 	free_piece(board->piece);
 	ft_bzero(board, sizeof(t_board));
 	free(board);

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/20 11:54:03 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/20 15:07:40 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		get_board(t_board *board)
 	check_first_line(board);
 	while (i < board->height)
 	{
-		if (get_next_line(FD, &board->tab[i]) <= 0
+		if (get_next_line(FD, &board->tab[i]) < 0
 			|| ft_atoi(board->tab[i]) != i)
 		{
 			ft_strdel(&board->tab[i]);
@@ -101,14 +101,6 @@ int		get_player(void)
 	char	*line;
 	int		id;
 
-/*	
-	if (get_next_line(FD, &line) < 0)
-		return (-1);
-	ft_printf("line = %s\n", line);
-	if (ft_strncmp(line + 9, " [./mybenzar.filler]", 20) != 0)
-		return (-1);
-	ft_strdel(&line);
-*/
 	if (get_next_line(FD, &line) < 0)
 		return (-1);
 //	ft_printf("line = %s\n", line);

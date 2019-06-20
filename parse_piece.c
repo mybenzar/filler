@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/20 12:22:15 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/20 14:48:06 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	**get_tab_piece(t_piece *piece)
 		return (NULL);
 	while (i < piece->height)
 	{
-		if (get_next_line(FD, &tab[i]) <= 0
+		if (get_next_line(FD, &tab[i]) < 0
 			|| (int)ft_strlen(tab[i]) != piece->width)
 		{
 			ft_strdel(&tab[i]);
@@ -187,9 +187,9 @@ int		check_piece(t_piece *piece, char **tab)
 	y = piece->pos[0].y;
 	nb = nb_adj_piece(tab, x, y);
 	y = 0;
-	while (tab[y] != NULL)
-		ft_strdel(&tab[y++]);
-	ft_strdel(tab);
+//	while (tab[y] != NULL)
+//		ft_strdel(&tab[y++]);
+//	ft_strdel(tab);
 	if (nb != piece->size)
 		return (0);
 
@@ -215,7 +215,7 @@ t_piece	*get_piece(void)
 		|| get_piece_size(piece, tab) == 0
 		|| (get_pos(piece, tab) == 1 && check_piece(piece, tab) == 0))
 	{
-		free_piece(piece);
+	//	free_piece(piece);
 		return (NULL);
 	}
 //	display_piece(piece);
