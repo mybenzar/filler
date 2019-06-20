@@ -1,4 +1,4 @@
-$$$ exec p1 : [mybenzar]
+$$$ exec p1 : [./mybenzar.filler]
 Plateau 15 17:
     01234567890123456
 000 .................

@@ -42,12 +42,13 @@ char	**get_tab_piece(t_piece *piece)
 			|| (int)ft_strlen(tab[i]) != piece->width)
 		{
 			ft_strdel(&tab[i]);
+			ft_strdel(tab);
+			ft_printf("error in get tab piece\n");
 			return (NULL);
 		}
 		i++;
 	}
 	tab[i] = NULL;
-
 	return (tab);
 }
 
@@ -55,7 +56,10 @@ static int check_piece_elem(char c)
 {
 	if (c != 'X' && c != 'O' && c != 'x'
 		&& c != 'o' && c != '.')
+	{
+		ft_printf("error in check piece\n");
 		return (0);
+	}
 	return (1);
 }
 
@@ -134,7 +138,7 @@ int		get_pos(t_piece *piece, char **tab)
 
 	i = 0;
 	p = 0;
-	if (!(piece->pos = (t_pos*)malloc(sizeof(t_pos) * piece->size + 1)))
+	if (!(piece->pos = (t_pos*)malloc(sizeof(t_pos) * piece->size)))
 		return (0);
 	while (tab[i] != NULL)
 	{
@@ -151,7 +155,6 @@ int		get_pos(t_piece *piece, char **tab)
 		}
 		i++;
 	}
-
 	return (1);
 }
 
@@ -187,12 +190,14 @@ int		check_piece(t_piece *piece, char **tab)
 	y = piece->pos[0].y;
 	nb = nb_adj_piece(tab, x, y);
 	y = 0;
-//	while (tab[y] != NULL)
-//		ft_strdel(&tab[y++]);
-//	ft_strdel(tab);
+	while (tab[y] != NULL)
+		ft_strdel(&tab[y++]);
+	ft_strdel(tab);
 	if (nb != piece->size)
+	{
+		ft_printf("error in check piece\n");
 		return (0);
-
+	}
 	return (1);
 }
 
@@ -215,7 +220,8 @@ t_piece	*get_piece(void)
 		|| get_piece_size(piece, tab) == 0
 		|| (get_pos(piece, tab) == 1 && check_piece(piece, tab) == 0))
 	{
-	//	free_piece(piece);
+		ft_printf("error in get piece\n");
+		free_piece(piece);
 		return (NULL);
 	}
 //	display_piece(piece);

@@ -17,6 +17,11 @@
 **	oponent's piece in order to attack
 */
 
+int		get_distance(t_game *g, int x, int y)
+{
+	return (ft_abs(g->ennemy_pos.x - x) + ft_abs(g->ennemy_pos.y - y));
+}
+
 int		compute_dist(t_board *b, t_game *g)
 {
 	int	dist;
@@ -32,14 +37,15 @@ int		compute_dist(t_board *b, t_game *g)
 		{
 			if (b->tab[i][j] == g->player)
 			{
-				if (dist > ft_abs(g->ennemy_pos.x - j) + ft_abs(g->ennemy_pos.y - i))
+				if (dist > get_distance(g, j, i))
 				{
-					dist = ft_abs(g->ennemy_pos.x - j) + ft_abs(g->ennemy_pos.y - i);
+					dist = get_distance(g, j, i);
 					g->target.x = j;
 					g->target.y = i;
-//					ft_printf("\n--> in compute dist,");
-//					ft_printf("g->target.x = %d\n", g->target.x);
-//					ft_printf("g->target.y = %d\n", g->target.y);
+					ft_printf("\n--> in compute dist,");
+					ft_printf("g->player = %c\n", g->player);
+					ft_printf("g->target.x = %d\n", g->target.x);
+					ft_printf("g->target.y = %d\n", g->target.y);
 				}
 			}
 //			ft_printf("tab[%d][%d] = %c\n", i, j, b->tab[i][j]);
@@ -81,9 +87,9 @@ void	get_closest_op(t_board *b, t_game *g)
 		i++;
 	}
 	g->target = target;
-//	ft_printf("\n--> in get closest op,");
-//	ft_printf("g->target.x = %d\n", g->target.x);
-//	ft_printf("g->target.y = %d\n", g->target.y);
+	ft_printf("\n--> in get closest op,");
+	ft_printf("g->target.x = %d\n", g->target.x);
+	ft_printf("g->target.y = %d\n", g->target.y);
 }
 
 /*
@@ -104,11 +110,11 @@ int		place_check(t_board *b, t_game *g)
 
 	tmp.x = b->piece->pos[0].x;
 	tmp.y = b->piece->pos[0].y;
-//	ft_printf("\n --> in place check, g->target.x = %d\n", g->target.x);
-//	ft_printf("g->target.y = %d\n", g->target.y);
-//	ft_printf("before left b->piece->pos[0].x = %d\n", b->piece->pos[0].x);
+	ft_printf("\n --> in place check, g->target.x = %d\n", g->target.x);
+	ft_printf("g->target.y = %d\n", g->target.y);
+	ft_printf("before left b->piece->pos[0].x = %d\n", b->piece->pos[0].x);
 	ft_left(b->piece);
-//	ft_printf("after left b->piece->pos[0].x = %d\n", b->piece->pos[0].x);
+	ft_printf("after left b->piece->pos[0].x = %d\n", b->piece->pos[0].x);
 	i = 1;
 	if (b->piece->width > b->width || b->piece->height > b->height)
 		return (0);
@@ -117,16 +123,16 @@ int		place_check(t_board *b, t_game *g)
 		x = b->piece->pos[i].x + g->target.x;
 		y = b->piece->pos[i].y + g->target.y;
 		i++;
-//		ft_printf("b->piece->pos[%d].x = %d\n", i, b->piece->pos[i].x);
-//		ft_printf("b->piece->pos[%d].y = %d\n", i, b->piece->pos[i].y);
-//		ft_printf("x = %d and y = %d\n", x, y);
+		ft_printf("b->piece->pos[%d].x = %d\n", i, b->piece->pos[i].x);
+		ft_printf("b->piece->pos[%d].y = %d\n", i, b->piece->pos[i].y);
+		ft_printf("x = %d and y = %d\n", x, y);
 		if (b->tab[y][x] != '.')
 		{
 			if (b->tab[y][x] != '\0' && b->tab[y][x] != '/' && b->tab[y])
 			{
 				mark(b, g);
-//				ft_printf("\n --> in place check, x = %d, y = %d has been marked\n", x, y);
-//				display_board(b);
+				ft_printf("\n --> in place check, x = %d, y = %d has been marked\n", x, y);
+				display_board(b);
 				get_closest_op(b, g);
 			}
 	/*		if (b->tab[y][x + 1] != '\0')
@@ -140,8 +146,8 @@ int		place_check(t_board *b, t_game *g)
 		}
 	}
 	g->target.x -= tmp.x;
-//	ft_printf("g->target.x = %d\n", g->target.x);
-//	ft_printf("tmp.x = %d\n", tmp.x);
+	ft_printf("g->target.x = %d\n", g->target.x);
+	ft_printf("tmp.x = %d\n", tmp.x);
 	g->target.y -= tmp.y;
 	return (1);
 }

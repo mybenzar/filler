@@ -18,11 +18,7 @@ void play(t_board *board, t_game *game)
 	game->ennemy = (game->player == 0) ? 'O' : 'X';
 	strategy(board, game);
 //	ft_printf("\n\nmy result :");
-//	ft_printf("%d %d\n", game->target.y, game->target.x);
-	ft_putnbr(game->target.y);
-	ft_putchar(' ');
-	ft_putnbr(game->target.x);
-	ft_putchar('\n');
+	ft_printf("%d %d\n", game->target.y, game->target.x);
 	game->target.y = 0;
 	game->target.x = 0;
 }
@@ -38,7 +34,6 @@ int	main(void)
 //	fd = open("test", O_WRONLY, O_CREATE, 0644);
 	end = 0;
 	player_id = get_player();
-//	ft_printf("player id = %d\n", player_id);
 	while (end == 0)
 	{
 		if (!(board = (t_board*)malloc(sizeof(t_board)))
@@ -56,8 +51,8 @@ int	main(void)
 		}
 		else
 			end = 1;
-		free_board(board);
-		free_game(game);
+		//free_board(board);
+		//free_game(game);
 	}
 //	display_board(board);
 	return (0);
