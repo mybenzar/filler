@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 19:07:29 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/19 18:02:23 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/20 07:42:28 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	display_board(t_board *board)
 	int i;
 
 	i = 0;
+	ft_printf("board->height = %d, board->width = %d\n", board->height, board->width);
 	while (i < board->height)
 		ft_printf("%s\n", board->tab[i++]);
 }

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/19 18:02:22 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/20 12:22:15 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,16 @@ char	**get_tab_piece(t_piece *piece)
 		return (NULL);
 	while (i < piece->height)
 	{
-	//	ft_printf("piece->height = %d", piece->height);
 		if (get_next_line(FD, &tab[i]) <= 0
 			|| (int)ft_strlen(tab[i]) != piece->width)
 		{
-		//	ft_printf("i should not be here\n");
 			ft_strdel(&tab[i]);
 			return (NULL);
 		}
 		i++;
 	}
-//	ft_printf("hello\n");
 	tab[i] = NULL;
+
 	return (tab);
 }
 
@@ -80,6 +78,7 @@ int	get_piece_size(t_piece *piece, char **tab)
 		}
 		i++;
 	}
+
 	return (1);
 }
 
@@ -91,7 +90,6 @@ void	ft_left(t_piece *piece)
 
 	p = 0;
 	flag = 0;
-//	ft_printf("im in ft_left\n");
 	while (piece->pos[p].x > 0 && p < piece->width)
 	{
 		flag = 1;
@@ -126,7 +124,6 @@ void	ft_left(t_piece *piece)
 		while (++p < piece->size)
 			piece->pos[p].y -= 1;
 	}
-//		ft_printf("new piece->pos[%d].x = %d, new piece->pos[%d].y = %d\n", p, piece->pos[p].x, p, piece->pos[p].y);
 }
 
 int		get_pos(t_piece *piece, char **tab)
@@ -139,7 +136,6 @@ int		get_pos(t_piece *piece, char **tab)
 	p = 0;
 	if (!(piece->pos = (t_pos*)malloc(sizeof(t_pos) * piece->size + 1)))
 		return (0);
-//	ft_printf("here\n");
 	while (tab[i] != NULL)
 	{
 		j = 0;
@@ -155,6 +151,7 @@ int		get_pos(t_piece *piece, char **tab)
 		}
 		i++;
 	}
+
 	return (1);
 }
 
@@ -187,7 +184,7 @@ int		check_piece(t_piece *piece, char **tab)
 	int nb;
 
 	x = piece->pos[0].x;
-	y = piece->pos[1].x;
+	y = piece->pos[0].y;
 	nb = nb_adj_piece(tab, x, y);
 	y = 0;
 	while (tab[y] != NULL)
@@ -195,6 +192,7 @@ int		check_piece(t_piece *piece, char **tab)
 	ft_strdel(tab);
 	if (nb != piece->size)
 		return (0);
+
 	return (1);
 }
 
@@ -220,7 +218,6 @@ t_piece	*get_piece(void)
 		free_piece(piece);
 		return (NULL);
 	}
-	//ft_left(piece);
-	display_piece(piece);
+//	display_piece(piece);
 	return (piece);
 }

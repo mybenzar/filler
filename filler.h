@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/19 18:02:24 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/20 12:22:16 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ enum				e_play
 {
 	E_ATTACK,
 	E_MIRROR,
-	E_DEFENSE
+	E_SETTLE,
 };
 
 typedef struct		s_pos
