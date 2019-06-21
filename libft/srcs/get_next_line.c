@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 12:15:48 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/21 13:59:44 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/21 15:29:24 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static t_list	*find_fd(t_list **list, int fd)
 			return (tmp);
 		tmp = tmp->next;
 	}
-	if (!(tmp = ft_lstnew("\0", fd)))
+	if (!(tmp = (t_list*)malloc(sizeof(t_list)))
+		|| !(tmp->content = ft_strdup("\0")))
 		return (NULL);
 	ft_lstadd(list, tmp);
 	return (tmp);

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:21:14 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/21 13:59:44 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/21 15:00:58 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void play(t_board *board, t_game *game)
 	strategy(board, game);
 //	ft_printf("\n\nmy result :");
 	ft_printf("%d %d\n", game->target.y, game->target.x);
-	game->target.y = 0;
-	game->target.x = 0;
+//	game->target.y = 0;
+//	game->target.x = 0;
 }
 
 int	main(void)

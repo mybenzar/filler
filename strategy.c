@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/21 12:29:57 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/21 15:01:28 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,7 +220,7 @@ t_pos	settle(t_board *b, t_game *g)
 	y = 0;
 	x = y;
 	b->height = b->height;
-	return (g->target)
+	return (g->target);
 }
 
 /*
