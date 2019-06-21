@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/20 14:48:06 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/21 12:16:24 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	**get_tab_piece(t_piece *piece)
 
 	i = 0;
 	get_dim_piece(piece);
-	if (!(tab = (char **)malloc(sizeof(char *) * piece->height + 1)))
+	if (!(tab = (char **)malloc(sizeof(char *) * (piece->height + 1))))
 		return (NULL);
 	while (i < piece->height)
 	{

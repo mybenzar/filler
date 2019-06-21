@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/20 12:22:16 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/21 12:29:58 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "libft/includes/libft.h"
 
-#define FD 1
+#define FD 0
 
 enum				e_state
 {

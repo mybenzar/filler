@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/20 15:07:40 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/21 12:29:56 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	check_first_line(t_board *board)
 	int		i;
 
 	i = 0;
+	line = NULL;
 	if (get_next_line(FD, &line) <= 0)
 	{
 		ft_strdel(&line);
@@ -77,7 +78,7 @@ int		get_board(t_board *board)
 
 	i = 0;
 	get_dim(board);
-	if (!(board->tab = (char **)malloc(sizeof(char *) * board->height + 1)))
+	if (!(board->tab = (char **)malloc(sizeof(char *) * (board->height + 1))))
 		return (0);
 	check_first_line(board);
 	while (i < board->height)
@@ -101,6 +102,7 @@ int		get_player(void)
 	char	*line;
 	int		id;
 
+	line = NULL;
 	if (get_next_line(FD, &line) < 0)
 		return (-1);
 //	ft_printf("line = %s\n", line);

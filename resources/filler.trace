@@ -1,6 +1,7 @@
-seed = 6578
-O: error on input
+seed = 5753
 X: error on input
+./mybenzar.filler: Segfault at 0
+O: error on input
 players/superjeannot.filler won
 Score:
-0AGAINST14
+9AGAINST0
