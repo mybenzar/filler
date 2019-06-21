@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 12:15:48 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/21 11:31:57 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/21 13:59:44 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static t_list	*find_fd(t_list **list, int fd)
 			return (tmp);
 		tmp = tmp->next;
 	}
-	tmp = ft_lstnew("\0", fd);
+	if (!(tmp = ft_lstnew("\0", fd)))
+		return (NULL);
 	ft_lstadd(list, tmp);
 	return (tmp);
 }
@@ -51,7 +52,7 @@ static char		*ft_strdup_and_free(char *str, int nb)
 	tmp = str;
 	if (!(str = ft_strdup(str + nb)))
 		return (NULL);
-	free(tmp);
+	ft_strdel(&tmp);
 	return (str);
 }
 
