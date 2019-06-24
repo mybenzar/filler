@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/21 15:29:23 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 12:46:42 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,8 +139,12 @@ int		get_pos(t_piece *piece, char **tab)
 
 	i = 0;
 	p = 0;
-	if (!(piece->pos = (t_pos*)malloc(sizeof(t_pos) * piece->size)))
+	if (!(piece->pos = (t_posi*)malloc(sizeof(t_posi) * piece->size)))
 		return (0);
+	//ft_printf("adress of piece pos = %p\n", &piece->pos);
+	//ft_printf("adress of piece pos[0] = %p\n", &piece->pos[0]);
+	//ft_printf("adress of piece pos[0].x = %p\n", &piece->pos[0].x);
+	//ft_printf("adress of piece pos[1] = %p\n", &piece->pos[1]);
 	while (tab[i] != NULL)
 	{
 		j = 0;
@@ -188,6 +192,7 @@ int		check_piece(t_piece *piece, char **tab)
 	int nb;
 
 	x = piece->pos[0].x;
+	//ft_printf(" piece->pos[0].x = %p\n", &piece->pos[0].x);
 	y = piece->pos[0].y;
 	nb = nb_adj_piece(tab, x, y);
 	y = 0;
@@ -214,14 +219,26 @@ t_piece	*get_piece(void)
 	t_piece *piece;
 	char 	**tab;
 
-	if (!(piece = (t_piece*)malloc(sizeof(t_piece))))
+	if (!(piece = (t_piece*)ft_memalloc(sizeof(t_piece))))
 		return (NULL);
-	init_piece(piece);
-	if ((tab = get_tab_piece(piece)) == NULL
-		|| get_piece_size(piece, tab) == 0
-		|| (get_pos(piece, tab) == 1 && check_piece(piece, tab) == 0))
+	//init_piece(piece);
+	if ((tab = get_tab_piece(piece)) == NULL)
 	{
-		ft_printf("error in get piece\n");
+		free_piece(piece);
+		return (NULL);
+	}
+	if (get_piece_size(piece, tab) == 0)
+	{
+		free_piece(piece);
+		return (NULL);
+	}
+	if (get_pos(piece, tab) == 0)
+	{
+		free_piece(piece);
+		return (NULL);
+	}
+	if (check_piece(piece, tab) == 0)
+	{
 		free_piece(piece);
 		return (NULL);
 	}

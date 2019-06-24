@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/21 15:29:24 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 12:46:44 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@ enum				e_play
 	E_SETTLE,
 };
 
-typedef struct		s_pos
+typedef struct		s_posi
 {
 	int				x;
 	int				y;
-}					t_pos;
+}					t_posi;
 
 typedef struct		s_piece
 {
-	t_pos			*pos;
+	t_posi			*pos;
 	int				width;
 	int				height;
 	int				size;
@@ -56,14 +56,14 @@ typedef struct 		s_game
 {
 	int				player;
 	int				ennemy;
-	t_pos			ennemy_pos;
+	t_posi			ennemy_pos;
 	int				end;
 	enum e_state	state;
 	enum e_play		play;
-	t_pos			target;
+	t_posi			target;
 }					t_game;
 
-typedef t_pos	(*t_strategy)(t_board *, t_game *);
+typedef t_posi	(*t_strategy)(t_board *, t_game *);
 
 /*
 **	Parsing Functions
@@ -94,7 +94,7 @@ void					init_gb(t_game *game, t_board *board);
 */
 
 void					strategy(t_board *b, t_game *g);
-
+void					play(t_board *board, t_game *game);
 /*
 **	Debug Functions
 */

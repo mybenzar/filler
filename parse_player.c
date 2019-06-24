@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/21 15:29:25 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 10:57:32 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,23 @@ void	get_dim(t_board *board)
 {
 	char *line;
 	char **split;
+	char *tmp;
 
 	line = NULL;
+
 	if (get_next_line(FD, &line) < 0
-		|| !(split = ft_strsplit(line, ' ')))
+		|| !(split = ft_strsplit(line, ' '))
+		|| !(tmp = ft_strdup("Plateau")))
 		return ;
-	if (ft_strcmp(split[0], "Plateau") != 0
+	if (ft_strcmp(split[0], tmp) != 0
 		|| !(board->height = ft_atoi(split[1]))
 		|| !(board->width = ft_atoi(split[2])))
 		return ;
+	ft_strdel(&tmp);
+	ft_strdel(split);
+	ft_strdel(&split[0]);
+	ft_strdel(&split[1]);
+	ft_strdel(&split[2]);
 }
 
 void	clean_board(t_board *board)
@@ -75,8 +83,10 @@ void	clean_board(t_board *board)
 int		get_board(t_board *board)
 {
 	int i;
+	int j;
 
 	i = 0;
+	j = 0;
 	get_dim(board);
 	if (!(board->tab = (char**)malloc(sizeof(char*) * (board->height + 1))))
 		return (0);
@@ -86,8 +96,9 @@ int		get_board(t_board *board)
 		if (get_next_line(FD, &board->tab[i]) < 0
 			|| ft_atoi(board->tab[i]) != i)
 		{
-			ft_strdel(&board->tab[i]);
-			free_board(board);
+			while (j <= i)
+				ft_strdel(&board->tab[j++]);
+			ft_strdel(board->tab);
 			return (0);
 		}
 		i++;

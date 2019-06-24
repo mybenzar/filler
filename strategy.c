@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/21 15:01:28 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 12:10:05 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	get_closest_op(t_board *b, t_game *g)
 	int 	i;
 	int 	j;
 	int		dist;
-	t_pos	target;
+	t_posi	target;
 	int		tmp;
 
 	i = 0;
@@ -106,7 +106,7 @@ int		place_check(t_board *b, t_game *g)
 	int x;
 	int y;
 	int i;
-	t_pos tmp;
+	t_posi tmp;
 
 	tmp.x = b->piece->pos[0].x;
 	tmp.y = b->piece->pos[0].y;
@@ -157,7 +157,7 @@ int		place_check(t_board *b, t_game *g)
 **	and then triggers the mirror attack
 */
 
-t_pos	attack(t_board *board, t_game *game)
+t_posi	attack(t_board *board, t_game *game)
 {
 	get_closest_op(board, game);
 	if (place_check(board, game) != 0)
@@ -175,13 +175,13 @@ t_pos	attack(t_board *board, t_game *game)
 **	and then triggers the mirror attack
 */
 
-t_pos mirror(t_board *b, t_game *g)
+t_posi mirror(t_board *b, t_game *g)
 {
 	int i;
 	int j;
 	int dist;
 	int tmp;
-	t_pos target;
+	t_posi target;
 
 	i = 0;
 	while (b->tab[i] != NULL)
@@ -212,7 +212,7 @@ t_pos mirror(t_board *b, t_game *g)
 **	when reaches the corner, starts attacking again
 */
 
-t_pos	settle(t_board *b, t_game *g)
+t_posi	settle(t_board *b, t_game *g)
 {
 	int x;
 	int y;
@@ -234,8 +234,8 @@ void strategy(t_board *b, t_game *g)
 	get_closest_op(b, g);
 	if (compute_dist(b, g) < ft_min(b->width / 4, b->height / 4))
 		g->play = E_ATTACK;
-//	else
-//		g->play = DEFENSE;
+	else
+		g->play = E_SETTLE;
 	trigger_strategy[g->play](b, g);
 }
 
