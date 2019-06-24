@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 13:58:03 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 19:29:57 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ void	get_dim_piece(t_piece *piece)
 	if (get_next_line(FD, &line) < 0
 		|| !(split = ft_strsplit(line, ' ')))
 		return ;
+	DD(line);
+	// DD(split[1]);
+	// DD(split[2]);
 	if (ft_strcmp(split[0], "Piece") != 0
 		|| !(piece->height = ft_atoi(split[1]))
 		|| !(piece->width = ft_atoi(split[2])))
@@ -31,15 +34,18 @@ char	**get_tab_piece(t_piece *piece)
 {
 	int		i;
 	char	**tab;
+	char	*line;
 
+	line = NULL;
 	i = 0;
 	get_dim_piece(piece);
 	if (!(tab = (char **)malloc(sizeof(char *) * (size_t)(piece->height + 1))))
 		return (NULL);
+	DN(piece->height);
 	while (i < piece->height)
 	{
 		tab[i] = NULL;
-		if (get_next_line(FD, &tab[i]) < 0
+		if (get_next_line(FD, &line) < 0
 			|| (int)ft_strlen(tab[i]) != piece->width)
 		{
 			ft_strdel(&tab[i]);
@@ -47,7 +53,10 @@ char	**get_tab_piece(t_piece *piece)
 			ft_printf("error in get tab piece\n");
 			return (NULL);
 		}
+		tab[i] = ft_strdup(line);
+		free(line);
 		i++;
+		DD(tab[i]);
 	}
 	tab[i] = NULL;
 	return (tab);
@@ -70,8 +79,10 @@ int	get_piece_size(t_piece *piece, char **tab)
 	int j;
 
 	i = 0;
+	DD("--");
 	while (tab[i] != NULL)
 	{
+		DD("**");
 		j = 0;
 		while (tab[i][j] != '\0')
 		{
@@ -83,7 +94,8 @@ int	get_piece_size(t_piece *piece, char **tab)
 		}
 		i++;
 	}
-
+	if (piece->size == 0)
+		return (0);
 	return (1);
 }
 
@@ -95,7 +107,9 @@ void	ft_left(t_piece *piece)
 
 	p = 0;
 	flag = 0;
-	while (piece->pos[p].x > 0 && p < piece->width)
+	if (DEBUG)
+		ft_printf("\n--> im in ft_left\n");
+	while (p < piece->size && piece->pos[p].x > 0)
 	{
 		flag = 1;
 		if (piece->pos[p].x == 0)
@@ -113,7 +127,7 @@ void	ft_left(t_piece *piece)
 	}
 	p = 0;
 	flag = 0;
-	while (piece->pos[p].y > 0 && p < piece->height)
+	while (p < piece->size && piece->pos[p].y > 0)
 	{
 		flag = 1;
 		if (piece->pos[p].y == 0)
@@ -129,38 +143,8 @@ void	ft_left(t_piece *piece)
 		while (++p < piece->size)
 			piece->pos[p].y -= 1;
 	}
-}
-
-static int		get_pos(t_piece *piece, char **tab)
-{
-	int i;
-	int j;
-	int p;
-
-	i = 0;
-	p = 0;
-	if (!(piece->pos = (t_posi*)malloc(sizeof(t_posi) * (size_t)piece->size)))
-		return (0);
-	//ft_printf("adress of piece pos = %p\n", &piece->pos);
-	//ft_printf("adress of piece pos[0] = %p\n", &piece->pos[0]);
-	//ft_printf("adress of piece pos[0].x = %p\n", &piece->pos[0].x);
-	//ft_printf("adress of piece pos[1] = %p\n", &piece->pos[1]);
-	while (tab[i] != NULL)
-	{
-		j = 0;
-		while (tab[i][j] != '\0')
-		{
-			if (tab[i][j] == '*')
-			{
-				piece->pos[p].x = j;
-				piece->pos[p].y = i;
-				p++;
-			}
-			j++;
-		}
-		i++;
-	}
-	return (1);
+	if (DEBUG)
+		display_piece(piece);
 }
 
 int		nb_adj_piece(char **tab, int x, int y)
@@ -183,6 +167,37 @@ int		nb_adj_piece(char **tab, int x, int y)
 		return (count);
 	}
 	return (0);
+}
+
+static int		get_pos(t_piece *piece, char **tab)
+{
+	int i;
+	int j;
+	int p;
+
+	i = 0;
+	p = 0;
+	if (!(piece->pos = (t_posi*)malloc(sizeof(t_posi) * (size_t)piece->size)))
+	{
+		DD("1");
+		return (0);
+	}
+	while (tab[i] != NULL)
+	{
+		j = 0;
+		while (tab[i][j] != '\0')
+		{
+			if (tab[i][j] == '*')
+			{
+				piece->pos[p].x = j;
+				piece->pos[p].y = i;
+				p++;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
 
 static int		check_piece(t_piece *piece, char **tab)
@@ -220,28 +235,34 @@ t_piece	*get_piece(void)
 	char 	**tab;
 
 	if (!(piece = (t_piece*)ft_memalloc(sizeof(t_piece))))
+	{
+		DD("malloc");
 		return (NULL);
-	//init_piece(piece);
+	}
 	if ((tab = get_tab_piece(piece)) == NULL)
 	{
+		DD("get_tab_piece");
 		free_piece(piece);
 		return (NULL);
 	}
 	if (get_piece_size(piece, tab) == 0)
 	{
+		DD("get_piece_size");
 		free_piece(piece);
 		return (NULL);
 	}
-	if (get_pos(piece, tab) == 0)
+	DN(piece->size);	
+	if (piece->size == 0 || get_pos(piece, tab) == 0)
 	{
+		DD("get_pos");
 		free_piece(piece);
 		return (NULL);
 	}
 	if (check_piece(piece, tab) == 0)
 	{
+		DD("check_piece");
 		free_piece(piece);
 		return (NULL);
 	}
-//	display_piece(piece);
 	return (piece);
 }

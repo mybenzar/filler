@@ -6,7 +6,7 @@
 /*   By: malavent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 14:09:08 by malavent          #+#    #+#             */
-/*   Updated: 2019/06/24 13:50:20 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 15:29:19 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <inttypes.h>
 # define F_TYPE "diouxXcspf"
 # define VALID "0123456789#0.+- hlLdiouxXcspf"
-# define DEBUG 0
 
 typedef enum	e_modif
 {

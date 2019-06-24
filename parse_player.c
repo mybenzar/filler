@@ -6,13 +6,13 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 13:54:33 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 19:30:00 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	check_first_line(t_board *board)
+static void	check_first_line(t_board *board)
 {
 	char	*line;
 	int		i;
@@ -105,6 +105,8 @@ int		get_board(t_board *board)
 	}
 	board->tab[i] = NULL;
 	clean_board(board);
+//	if (DEBUG)
+//		display_board(board);
 	return (1);
 }
 
@@ -116,7 +118,6 @@ int		get_player(void)
 	line = NULL;
 	if (get_next_line(FD, &line) < 0)
 		return (-1);
-//	ft_printf("line = %s\n", line);
 	if (ft_strncmp(line, "$$$ exec p", 10) != 0
 		|| (!(id = ft_atoi(line + 10))))
 		return (-1);
@@ -125,5 +126,7 @@ int		get_player(void)
 	if (ft_strncmp(line + 11, " : [./mybenzar.filler]", 22) != 0)
 		return (-1);
 	ft_strdel(&line);
+	if (DEBUG)
+		ft_printf("player id = %d\n", id);
 	return (id);
 }

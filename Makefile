@@ -6,17 +6,24 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/22 11:56:55 by mybenzar          #+#    #+#              #
-#    Updated: 2019/06/24 13:55:27 by mybenzar         ###   ########.fr        #
+#    Updated: 2019/06/24 18:56:12 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= mybenzar.filler
-CC		= gcc 
+CC		= clang 
 CFLAGS += -Wall
 CFLAGS += -Werror
 CFLAGS += -Wextra 
-CFLAGS += -Weverything -pedantic
-CFLAGS += -fsanitize=address,undefined
+# CFLAGS += -Weverything -pedantic 
+SAN ?= 1
+DEB ?= 1
+ifeq ($(SAN), 1)
+	CFLAGS += -fsanitize=address,undefined
+endif
+ifeq ($(DEB), 1)
+	CFLAGS += -D DEB
+endif
 CFLAGS += -g3
 #CFLAGS += -Wno-missing-prototypes
 SOURCES = main.c parse_player.c allocate_free.c parse_piece.c strategy.c debug.c

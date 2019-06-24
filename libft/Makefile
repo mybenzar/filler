@@ -6,7 +6,7 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/15 11:25:47 by mybenzar          #+#    #+#              #
-#    Updated: 2019/06/21 11:23:12 by mybenzar         ###   ########.fr        #
+#    Updated: 2019/06/24 17:37:05 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,11 @@ CC = clang
 CFLAGS += -Wall
 CFLAGS += -Werror
 CFLAGS += -Wextra
+SAN ?= 1
+ifeq ($(SAN), 1)
 CFLAGS += -fsanitize=address,undefined
 CFLAGS += -g3
+endif
 NAME = libft.a
 INCLUDES = includes/
 HEADERS += $(INCLUDES)libft.h

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 14:03:19 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 19:29:56 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 
 #include "libft/includes/libft.h"
 
+#define DUMP char *line = NULL; int ret = 0; while ((ret = get_next_line(FD, &line) != -1000)) { DD(line); if (ret < 0) exit(0); }
+#define DD(x) ft_putendl_fd(x, 2)
+#define DN(x) ft_putendl_fd(ft_itoa(x), 2)
+
 #define FD 0
+#define DEBUG 0
 
 enum				e_state
 {
@@ -25,8 +30,7 @@ enum				e_state
 
 enum				e_play
 {
-	E_ATTACK,
-	E_MIRROR,
+	E_ATTACK,	E_MIRROR,
 	E_SETTLE,
 };
 
