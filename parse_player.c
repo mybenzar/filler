@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 19:30:00 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 19:46:37 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,6 @@ int		get_board(t_board *board)
 	}
 	board->tab[i] = NULL;
 	clean_board(board);
-//	if (DEBUG)
-//		display_board(board);
 	return (1);
 }
 
@@ -126,7 +124,5 @@ int		get_player(void)
 	if (ft_strncmp(line + 11, " : [./mybenzar.filler]", 22) != 0)
 		return (-1);
 	ft_strdel(&line);
-	if (DEBUG)
-		ft_printf("player id = %d\n", id);
 	return (id);
 }

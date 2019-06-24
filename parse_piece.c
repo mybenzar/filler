@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 19:29:57 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 20:08:24 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	get_dim_piece(t_piece *piece)
 		|| !(split = ft_strsplit(line, ' ')))
 		return ;
 	DD(line);
-	// DD(split[1]);
-	// DD(split[2]);
 	if (ft_strcmp(split[0], "Piece") != 0
 		|| !(piece->height = ft_atoi(split[1]))
 		|| !(piece->width = ft_atoi(split[2])))
@@ -100,22 +98,20 @@ int	get_piece_size(t_piece *piece, char **tab)
 }
 
 
-void	ft_left(t_piece *piece)
+int	ft_left(t_piece *piece)
 {
 	int p;
 	int flag;
 
 	p = 0;
 	flag = 0;
-	if (DEBUG)
-		ft_printf("\n--> im in ft_left\n");
 	while (p < piece->size && piece->pos[p].x > 0)
 	{
 		flag = 1;
 		if (piece->pos[p].x == 0)
 		{
 			flag = 0;
-			break ;
+			return (0);
 		}
 		p++;
 	}
@@ -133,7 +129,7 @@ void	ft_left(t_piece *piece)
 		if (piece->pos[p].y == 0)
 		{
 			flag = 0;
-			break ;
+			return (0);
 		}
 		p++;
 	}
@@ -143,8 +139,7 @@ void	ft_left(t_piece *piece)
 		while (++p < piece->size)
 			piece->pos[p].y -= 1;
 	}
-	if (DEBUG)
-		display_piece(piece);
+	return (1);
 }
 
 int		nb_adj_piece(char **tab, int x, int y)
@@ -207,7 +202,6 @@ static int		check_piece(t_piece *piece, char **tab)
 	int nb;
 
 	x = piece->pos[0].x;
-	//ft_printf(" piece->pos[0].x = %p\n", &piece->pos[0].x);
 	y = piece->pos[0].y;
 	nb = nb_adj_piece(tab, x, y);
 	y = 0;

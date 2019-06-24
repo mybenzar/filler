@@ -6,12 +6,11 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 12:15:48 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 13:43:27 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 19:37:24 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static t_list	*find_fd(t_list **list, int fd)
 {
@@ -68,15 +67,15 @@ int				get_next_line(const int fd, char **line)
 	if (fd < 0 || !line || read(fd, buf, 0) < 0 || BUFF_SIZE < 0)
 		return (-1);
 	tmp = find_fd(&statictmp, fd);
-	while (!(ft_strchr(tmp->content, '\n')) && !(ft_strchr(tmp->content, EOF)) && (nb = read(fd, buf, BUFF_SIZE)))
+	while (!(ft_strchr(tmp->content, '\n')) && (nb = read(fd, buf, BUFF_SIZE)))
 		tmp->content = ft_strncat_and_free(tmp->content, buf, nb);
 	nb = 0;
-	while (((char*)tmp->content)[nb] && ((char*)tmp->content)[nb] != '\n' &&  ((char*)tmp->content)[nb] != EOF)
+	while (((char*)tmp->content)[nb] && ((char*)tmp->content)[nb] != '\n')
 		nb++;
 	if (!(*line = ft_strnew(nb)))
 		return (-1);
 	ft_strncat(*line, tmp->content, nb);
-	if (((char*)tmp->content)[nb] == '\n' || ((char*)tmp->content)[nb] == EOF)
+	if (((char*)tmp->content)[nb] == '\n')
 		nb++;
 	tmp->content = ft_strdup_and_free(tmp->content, nb);
 	if (!nb)

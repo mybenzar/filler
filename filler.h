@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 19:29:56 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 20:08:24 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void					get_dim_piece(t_piece *piece);
 char					**get_tab_piece(t_piece *piece);
 int						get_piece_size(t_piece *piece, char **tab);
 int						nb_adj_piece(char **tab, int x, int y);
-void					ft_left(t_piece *piece);
+int					ft_left(t_piece *piece);
 /*
 **	Memory Handlers
 */
