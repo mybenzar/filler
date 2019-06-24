@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 12:46:44 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 14:03:19 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "libft/includes/libft.h"
 
-#define FD 1
+#define FD 0
 
 enum				e_state
 {
@@ -42,6 +42,7 @@ typedef struct		s_piece
 	int				width;
 	int				height;
 	int				size;
+	char			pad[4];
 }					t_piece;
 
 typedef struct		s_board

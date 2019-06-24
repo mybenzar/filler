@@ -6,7 +6,7 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/22 11:56:55 by mybenzar          #+#    #+#              #
-#    Updated: 2019/06/24 12:35:36 by mybenzar         ###   ########.fr        #
+#    Updated: 2019/06/24 13:55:27 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,10 @@ CC		= gcc
 CFLAGS += -Wall
 CFLAGS += -Werror
 CFLAGS += -Wextra 
-#CFLAGS += -Weverything -pedantic
+CFLAGS += -Weverything -pedantic
 CFLAGS += -fsanitize=address,undefined
 CFLAGS += -g3
+#CFLAGS += -Wno-missing-prototypes
 SOURCES = main.c parse_player.c allocate_free.c parse_piece.c strategy.c debug.c
 OBJECTS	= $(SOURCES:.c=.o)
 LIBPATH	= ./libft/

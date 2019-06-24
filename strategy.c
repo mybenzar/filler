@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 12:10:05 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 14:03:20 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 **	oponent's piece in order to attack
 */
 
-int		get_distance(t_game *g, int x, int y)
+static int		get_distance(t_game *g, int x, int y)
 {
 	return (ft_abs(g->ennemy_pos.x - x) + ft_abs(g->ennemy_pos.y - y));
 }
 
-int		compute_dist(t_board *b, t_game *g)
+static int		compute_dist(t_board *b, t_game *g)
 {
 	int	dist;
 	int i;
@@ -56,7 +56,7 @@ int		compute_dist(t_board *b, t_game *g)
 	return (dist);
 }
 
-void	get_closest_op(t_board *b, t_game *g)
+static void	get_closest_op(t_board *b, t_game *g)
 {
 	int 	i;
 	int 	j;
@@ -66,6 +66,7 @@ void	get_closest_op(t_board *b, t_game *g)
 
 	i = 0;
 	dist = b->height + b->width;
+	target.x = 0;
 	while (b->tab[i] != NULL)
 	{
 		j = 0;
@@ -97,11 +98,11 @@ void	get_closest_op(t_board *b, t_game *g)
 **	starting from the target coordinates
 */
 
-void	mark(t_board *b, t_game *g)
+static void		mark(t_board *b, t_game *g)
 {
 	b->tab[g->target.y][g->target.x] = '/';
 }
-int		place_check(t_board *b, t_game *g)
+static int		place_check(t_board *b, t_game *g)
 {
 	int x;
 	int y;
@@ -157,7 +158,7 @@ int		place_check(t_board *b, t_game *g)
 **	and then triggers the mirror attack
 */
 
-t_posi	attack(t_board *board, t_game *game)
+static t_posi	attack(t_board *board, t_game *game)
 {
 	get_closest_op(board, game);
 	if (place_check(board, game) != 0)
@@ -175,7 +176,7 @@ t_posi	attack(t_board *board, t_game *game)
 **	and then triggers the mirror attack
 */
 
-t_posi mirror(t_board *b, t_game *g)
+static t_posi mirror(t_board *b, t_game *g)
 {
 	int i;
 	int j;
@@ -184,6 +185,8 @@ t_posi mirror(t_board *b, t_game *g)
 	t_posi target;
 
 	i = 0;
+	dist = 0;
+	target.x = 0;
 	while (b->tab[i] != NULL)
 	{
 		j = 0;
@@ -212,7 +215,7 @@ t_posi mirror(t_board *b, t_game *g)
 **	when reaches the corner, starts attacking again
 */
 
-t_posi	settle(t_board *b, t_game *g)
+static t_posi	settle(t_board *b, t_game *g)
 {
 	int x;
 	int y;

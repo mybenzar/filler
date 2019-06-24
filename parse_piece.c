@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 12:46:42 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/24 13:58:03 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	**get_tab_piece(t_piece *piece)
 
 	i = 0;
 	get_dim_piece(piece);
-	if (!(tab = (char **)malloc(sizeof(char *) * (piece->height + 1))))
+	if (!(tab = (char **)malloc(sizeof(char *) * (size_t)(piece->height + 1))))
 		return (NULL);
 	while (i < piece->height)
 	{
@@ -131,7 +131,7 @@ void	ft_left(t_piece *piece)
 	}
 }
 
-int		get_pos(t_piece *piece, char **tab)
+static int		get_pos(t_piece *piece, char **tab)
 {
 	int i;
 	int j;
@@ -139,7 +139,7 @@ int		get_pos(t_piece *piece, char **tab)
 
 	i = 0;
 	p = 0;
-	if (!(piece->pos = (t_posi*)malloc(sizeof(t_posi) * piece->size)))
+	if (!(piece->pos = (t_posi*)malloc(sizeof(t_posi) * (size_t)piece->size)))
 		return (0);
 	//ft_printf("adress of piece pos = %p\n", &piece->pos);
 	//ft_printf("adress of piece pos[0] = %p\n", &piece->pos[0]);
@@ -185,7 +185,7 @@ int		nb_adj_piece(char **tab, int x, int y)
 	return (0);
 }
 
-int		check_piece(t_piece *piece, char **tab)
+static int		check_piece(t_piece *piece, char **tab)
 {
 	int x;
 	int y;
