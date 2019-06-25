@@ -6,44 +6,55 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 20:08:24 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/25 12:08:18 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	get_dim_piece(t_piece *piece)
+static int	get_dim_piece(t_piece *piece)
 {
 	char *line;
 	char **split;
+	char *tmp;
 
 	line = NULL;
+	split = NULL;
+	if (!(tmp = ft_strdup("Piece")))
+		return (0);
 	if (get_next_line(FD, &line) < 0
 		|| !(split = ft_strsplit(line, ' ')))
-		return ;
-	DD(line);
+		return (0);
 	if (ft_strcmp(split[0], "Piece") != 0
 		|| !(piece->height = ft_atoi(split[1]))
 		|| !(piece->width = ft_atoi(split[2])))
-		return ;
+		return (0);
+	if (piece->height == 0 || piece->width == 0 || ft_isdigit(piece->height)
+		|| ft_isdigit(piece->width))
+		return (0);
+	ft_strdel(&tmp);
+	ft_strdel(&line);
+	ft_strdel(&split[0]);
+	ft_strdel(&split[1]);
+	ft_strdel(&split[2]);
+	ft_strdel(split);
+	return (1);
 }
 
-char	**get_tab_piece(t_piece *piece)
+static char	**get_tab_piece(t_piece *piece)
 {
 	int		i;
 	char	**tab;
-	char	*line;
 
-	line = NULL;
 	i = 0;
-	get_dim_piece(piece);
+	if (get_dim_piece(piece) == 0)
+		return (NULL);
 	if (!(tab = (char **)malloc(sizeof(char *) * (size_t)(piece->height + 1))))
 		return (NULL);
-	DN(piece->height);
 	while (i < piece->height)
 	{
 		tab[i] = NULL;
-		if (get_next_line(FD, &line) < 0
+		if (get_next_line(FD, &tab[i]) < 0
 			|| (int)ft_strlen(tab[i]) != piece->width)
 		{
 			ft_strdel(&tab[i]);
@@ -51,10 +62,7 @@ char	**get_tab_piece(t_piece *piece)
 			ft_printf("error in get tab piece\n");
 			return (NULL);
 		}
-		tab[i] = ft_strdup(line);
-		free(line);
 		i++;
-		DD(tab[i]);
 	}
 	tab[i] = NULL;
 	return (tab);
@@ -77,10 +85,8 @@ int	get_piece_size(t_piece *piece, char **tab)
 	int j;
 
 	i = 0;
-	DD("--");
 	while (tab[i] != NULL)
 	{
-		DD("**");
 		j = 0;
 		while (tab[i][j] != '\0')
 		{
@@ -173,10 +179,7 @@ static int		get_pos(t_piece *piece, char **tab)
 	i = 0;
 	p = 0;
 	if (!(piece->pos = (t_posi*)malloc(sizeof(t_posi) * (size_t)piece->size)))
-	{
-		DD("1");
 		return (0);
-	}
 	while (tab[i] != NULL)
 	{
 		j = 0;
@@ -245,7 +248,6 @@ t_piece	*get_piece(void)
 		free_piece(piece);
 		return (NULL);
 	}
-	DN(piece->size);	
 	if (piece->size == 0 || get_pos(piece, tab) == 0)
 	{
 		DD("get_pos");

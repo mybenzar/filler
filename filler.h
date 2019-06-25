@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 20:08:24 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/25 12:08:19 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,18 @@ enum				e_state
 
 enum				e_play
 {
-	E_ATTACK,	E_MIRROR,
+	E_ATTACK,
+	E_MIRROR,
 	E_SETTLE,
+};
+
+enum				e_parse
+{
+	E_GET_TAB,
+	E_GET_SIZE,
+	E_GET_POS,
+	E_CHECK,
+	E_END
 };
 
 typedef struct		s_posi
@@ -75,11 +85,8 @@ typedef t_posi	(*t_strategy)(t_board *, t_game *);
 */
 
 int						get_board(t_board *board);
-void					get_dim(t_board *board);
 int						get_player(void);
 t_piece					*get_piece(void);
-void					get_dim_piece(t_piece *piece);
-char					**get_tab_piece(t_piece *piece);
 int						get_piece_size(t_piece *piece, char **tab);
 int						nb_adj_piece(char **tab, int x, int y);
 int					ft_left(t_piece *piece);

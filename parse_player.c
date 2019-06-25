@@ -6,13 +6,13 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 19:46:37 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/25 12:08:17 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-static void	check_first_line(t_board *board)
+static int	check_first_line(t_board *board)
 {
 	char	*line;
 	int		i;
@@ -22,48 +22,46 @@ static void	check_first_line(t_board *board)
 	if (get_next_line(FD, &line) <= 0)
 	{
 		ft_strdel(&line);
-		return ;
+		return (0);
 	}
 	while (line[i] == ' ')
 		i++;
 	if (i != 4)
-		return ;
+		return (0);
 	while (line[i] != '\0')
 	{
 		if ((i - 4) % 10 + 48 != line[i] || i - 4 > board->width)
 		{
 			ft_strdel(&line);
-			return ;
+			return (0);
 		}
 		i++;
 	}
 	ft_strdel(&line);
+	return (1);
 }
 
-void	get_dim(t_board *board)
+static int	get_dim(t_board *board)
 {
-	char *line;
-	char **split;
-	char *tmp;
+	char	*line;
+	char	**split;
 
 	line = NULL;
-
-	if (get_next_line(FD, &line) < 0
-		|| !(split = ft_strsplit(line, ' '))
-		|| !(tmp = ft_strdup("Plateau")))
-		return ;
-	if (ft_strcmp(split[0], tmp) != 0
-		|| !(board->height = ft_atoi(split[1]))
-		|| !(board->width = ft_atoi(split[2])))
-		return ;
-	ft_strdel(&tmp);
-	ft_strdel(split);
-	ft_strdel(&split[0]);
-	ft_strdel(&split[1]);
-	ft_strdel(&split[2]);
+	if (get_next_line(FD, &line) < 0)
+		return (0);
+	if (ft_strncmp(line, "Plateau", 7) != 0)
+		return (0);
+	if (!(split = ft_strsplit(line + 8, ' '))
+		|| !(board->height = ft_atoi(split[0]))
+		|| !(board->width = ft_atoi(split[1]))
+		return (0);
+	if (board->height == 0 || board->width == 0 || ft_isdigit(board->height)
+		|| ft_isdigit(board->width))
+		return (0);
+	return (1);
 }
 
-static void	clean_board(t_board *board)
+static int	clean_board(t_board *board)
 {
 	int		i;
 	char	*tmp;
@@ -72,12 +70,13 @@ static void	clean_board(t_board *board)
 	while (++i < board->height)
 	{
 		if (!(tmp = ft_strdup(board->tab[i])))
-			return ;
+			return (0);
 		ft_strdel(&board->tab[i]);
 		if (!(board->tab[i] = ft_strdup(tmp + 4)))
-			return ;
+			return (0);
 		ft_strdel(&tmp);
 	}
+	return (1);
 }
 
 int		get_board(t_board *board)
@@ -87,10 +86,12 @@ int		get_board(t_board *board)
 
 	i = 0;
 	j = 0;
-	get_dim(board);
+	if (get_dim(board) == 0)
+		return (0);
 	if (!(board->tab = (char**)malloc(sizeof(char*) * (size_t)(board->height + 1))))
 		return (0);
-	check_first_line(board);
+	if (check_first_line(board) == 0)
+		return (0);
 	while (i < board->height)
 	{
 		if (get_next_line(FD, &board->tab[i]) < 0
@@ -104,7 +105,8 @@ int		get_board(t_board *board)
 		i++;
 	}
 	board->tab[i] = NULL;
-	clean_board(board);
+	if (clean_board(board) == 0)
+		return (0);
 	return (1);
 }
 
