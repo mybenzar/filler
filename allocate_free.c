@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:08:04 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 12:46:51 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/25 16:00:34 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	init_gb(t_game *game, t_board *board)
 //	ft_bzero(board, sizeof(t_board));
 	game->ennemy_pos.x = 0;
 	game->ennemy_pos.y = 0;
+	game->round = 0;
 	game->target.x = 0;
 	game->target.y = 0;
 	board->width = 0;

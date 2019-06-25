@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:21:14 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/25 12:08:19 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/25 16:52:28 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 void play(t_board *board, t_game *game)
 {
 	game->player = (game->player == 1) ? 'O' : 'X';
-	game->ennemy = (game->player != 1) ? 'O' : 'X';
+	game->ennemy = (game->player == 'O') ? 'X' : 'O';
 	strategy(board, game);
-	ft_printf("%d %d\n", game->target.y, game->target.x);
+	game->round++;
+	dprintf(2, "game->round = %d\n", game->round);
+	dprintf(2, "coordinates = %d %d\n", game->place.y, game->place.x);
+	display_board(board);
+	ft_printf("%d %d\n", game->place.y, game->place.x);
 }
 
 int	main(void)
@@ -43,11 +47,7 @@ int	main(void)
 		if (get_board(board) != 0)
 		{
 			if (!(board->piece = get_piece()))
-			{
-				DD("main");
-				while (1) ;
 				return (0);
-			}
 			play(board, game);
 		}
 		else

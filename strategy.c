@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/24 20:08:23 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/25 16:52:28 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 /*
 **	--> Find Closest Opponent's Piece : look for coordinates of closest 
 **	oponent's piece in order to attack
+**		>> get_distance computes the sum of the distance between coordinates
+**		>> compute_dist compares distances between the target and the player
+**		>> get_closest_op for each ennemy, finds the closest player coordinates
 */
 
 static int		get_distance(t_game *g, int x, int y)
@@ -40,8 +43,8 @@ static int		compute_dist(t_board *b, t_game *g)
 				if (dist > get_distance(g, j, i))
 				{
 					dist = get_distance(g, j, i);
-					g->target.x = j;
-					g->target.y = i;
+					g->place.x = j;
+					g->place.y = i;
 				}
 			}
 			j++;
@@ -56,13 +59,13 @@ static void	get_closest_op(t_board *b, t_game *g)
 	int 	i;
 	int 	j;
 	int		dist;
-	t_posi	target;
+	t_posi	place;
 	int		tmp;
 
 	i = 0;
 	dist = b->height + b->width;
-	target.x = 0;
-	target.y = 0;
+	place.x = 0;
+	place.y = 0;
 	while (b->tab[i] != NULL)
 	{
 		j = 0;
@@ -72,17 +75,17 @@ static void	get_closest_op(t_board *b, t_game *g)
 			{
 				g->ennemy_pos.x = j;
 				g->ennemy_pos.y = i;
-				if ((tmp = compute_dist(b, g)) && dist > tmp) 
+				if ((tmp = compute_dist(b, g)) && dist > tmp && dist != 0) 
 				{
 					dist = tmp;
-					target = g->target;
+					place = g->place;
 				}
 			}
 			j++;
 		}
 		i++;
 	}
-	g->target = target;
+	g->place = place;
 }
 
 /*
@@ -96,10 +99,10 @@ static void		mark(t_board *b, t_game *g)
 }
 static int		place_check(t_board *b, t_game *g)
 {
-	int x;
-	int y;
-	int i;
-	t_posi tmp;
+	int		x;
+	int 	y;
+	int 	i;
+	t_posi	tmp;
 
 	tmp.x = b->piece->pos[0].x;
 	tmp.y = b->piece->pos[0].y;
@@ -110,23 +113,25 @@ static int		place_check(t_board *b, t_game *g)
 		return (0);
 	while (i < b->piece->size)
 	{
-		x = b->piece->pos[i].x + g->target.x;
-		y = b->piece->pos[i].y + g->target.y;
+		x = b->piece->pos[i].x + g->place.x;
+		y = b->piece->pos[i].y + g->place.y;
 		i++;
 		if (b->tab[y][x] != '.')
 		{
 			if (b->tab[y][x] != '\0' && b->tab[y][x] != '/' && b->tab[y])
 			{
 				mark(b, g);
-				get_closest_op(b, g);
+				get_closest_op(b, g); 
+				if (place_check(b, g) == 0)
+					return (0);
 			}
 			if (b->tab[y][x] == '\0' && b->tab[y] == NULL)
 				return (0);
 			i = 1;
 		}
 	}
-	g->target.x -= tmp.x;
-	g->target.y -= tmp.y;
+	g->place.x -= tmp.x;
+	g->place.y -= tmp.y;
 	return (1);
 }
 
@@ -138,14 +143,15 @@ static int		place_check(t_board *b, t_game *g)
 static t_posi	attack(t_board *board, t_game *game)
 {
 	get_closest_op(board, game);
-	if (place_check(board, game) != 0)
-		game->play = E_MIRROR;
-/*	else
+	if (place_check(board, game) == 0)
 	{
-		
-		game->play = E_SETTLE;
-	}*/
-	return (game->target);
+		dprintf(2, "place check failed and this is gonna exit\n");
+		game->place.x = 0;
+		game->place.y = 0;
+	}
+	/*else
+		game->play = E_SETTLE;*/
+	return (game->place);
 }
 
 /*
@@ -189,17 +195,16 @@ static t_posi mirror(t_board *b, t_game *g)
 
 /*
 **	--> Settle : Covers most of the field in diagonal in order to block oponent
-**	when reaches the corner, starts attacking again
+**	when reaches the top right corner and then the bottom left corner, starts 
+**	attacking again
 */
 
 static t_posi	settle(t_board *b, t_game *g)
 {
-	int x;
-	int y;
-
-	y = 0;
-	x = y;
-	b->height = b->height;
+	g->target.x = 0;
+	g->target.y = b->width;
+	compute_dist(b, g);
+	
 	return (g->target);
 }
 
@@ -211,11 +216,12 @@ void strategy(t_board *b, t_game *g)
 {
 	static t_strategy	trigger_strategy[] = {attack, mirror, settle};
 
-	get_closest_op(b, g);
+	trigger_strategy[g->play](b, g);
+/*
 	if (compute_dist(b, g) < ft_min(b->width / 4, b->height / 4))
 		g->play = E_ATTACK;
 	else
 		g->play = E_SETTLE;
-	trigger_strategy[g->play](b, g);
+*/
 }
 

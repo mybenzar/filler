@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/25 12:08:19 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/25 16:04:47 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 #define FD 0
 #define DEBUG 0
+#include <stdio.h>
 
 enum				e_state
 {
@@ -76,6 +77,8 @@ typedef struct 		s_game
 	enum e_state	state;
 	enum e_play		play;
 	t_posi			target;
+	t_posi			place;
+	int				round;
 }					t_game;
 
 typedef t_posi	(*t_strategy)(t_board *, t_game *);

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/25 12:08:17 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/25 14:40:40 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	get_dim(t_board *board)
 		return (0);
 	if (!(split = ft_strsplit(line + 8, ' '))
 		|| !(board->height = ft_atoi(split[0]))
-		|| !(board->width = ft_atoi(split[1]))
+		|| !(board->width = ft_atoi(split[1])))
 		return (0);
 	if (board->height == 0 || board->width == 0 || ft_isdigit(board->height)
 		|| ft_isdigit(board->width))
