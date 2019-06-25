@@ -31,9 +31,9 @@ enum				e_state
 
 enum				e_play
 {
+	E_SETTLE,
 	E_ATTACK,
 	E_MIRROR,
-	E_SETTLE,
 };
 
 enum				e_parse
@@ -78,10 +78,9 @@ typedef struct 		s_game
 	enum e_play		play;
 	t_posi			target;
 	t_posi			place;
-	int				round;
 }					t_game;
 
-typedef t_posi	(*t_strategy)(t_board *, t_game *);
+typedef int	(*t_strategy)(t_board *, t_game *);
 
 /*
 **	Parsing Functions

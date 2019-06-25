@@ -78,7 +78,6 @@ void	init_gb(t_game *game, t_board *board)
 //	ft_bzero(board, sizeof(t_board));
 	game->ennemy_pos.x = 0;
 	game->ennemy_pos.y = 0;
-	game->round = 0;
 	game->target.x = 0;
 	game->target.y = 0;
 	board->width = 0;

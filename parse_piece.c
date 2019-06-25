@@ -65,6 +65,7 @@ static char	**get_tab_piece(t_piece *piece)
 		i++;
 	}
 	tab[i] = NULL;
+	display_piece(piece);
 	return (tab);
 }
 

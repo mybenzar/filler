@@ -17,8 +17,7 @@ void play(t_board *board, t_game *game)
 	game->player = (game->player == 1) ? 'O' : 'X';
 	game->ennemy = (game->player == 'O') ? 'X' : 'O';
 	strategy(board, game);
-	game->round++;
-	dprintf(2, "game->round = %d\n", game->round);
+	dprintf(2, "\n\n im in play \n");
 	dprintf(2, "coordinates = %d %d\n", game->place.y, game->place.x);
 	display_board(board);
 	ft_printf("%d %d\n", game->place.y, game->place.x);
@@ -37,12 +36,12 @@ int	main(void)
 	DUMP
 */
 	player_id = get_player();
+	if (!(board = (t_board*)ft_memalloc(sizeof(t_board)))
+		|| !(game = (t_game*)ft_memalloc(sizeof(t_game))))
+		return (0);
 	while (end == 0)
 	{
-		if (!(board = (t_board*)ft_memalloc(sizeof(t_board)))
-			|| !(game = (t_game*)ft_memalloc(sizeof(t_game))))
-			return (0);
-		init_gb(game, board);
+		//init_gb(game, board);
 		game->player = player_id;
 		if (get_board(board) != 0)
 		{
@@ -52,8 +51,8 @@ int	main(void)
 		}
 		else
 			end = 1;
-		free_board(board);
-		free_game(game);
 	}
-	return (0);
+	free_board(board);
+	free_game(game);
+	return (1);
 }
