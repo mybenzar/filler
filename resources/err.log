@@ -3,18 +3,24 @@ board->piece->height = 1
 board->piece->width = 3
 
 
---------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
 
-g->place.x = 2
- g->place.y = 8
 
  im in place check
+
+before b->piece->pos[0].x = 0
+before b->piece->pos[0].y = 0
 b->piece->pos[1].x = 1 + g->place.x = 2
 b->piece->pos[1].y = 0 + g->place.y = 8
 tab[8][3] = .
 b->piece->pos[2].x = 2 + g->place.x = 2
 b->piece->pos[2].y = 0 + g->place.y = 8
 tab[8][4] = .
+when quitting check place: 
+ g->place.x = 2, g->place.y = 8
+
+after ->piece->pos[0].x = 0
+after->piece->pos[0].y = 0
 
 
  im in play 
@@ -44,15 +50,21 @@ board->piece->height = 2
 board->piece->width = 2
 
 
---------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
 
-g->place.x = 4
- g->place.y = 8
 
  im in place check
+
+before b->piece->pos[0].x = 0
+before b->piece->pos[0].y = 1
 b->piece->pos[1].x = 1 + g->place.x = 4
 b->piece->pos[1].y = 0 + g->place.y = 8
 tab[8][5] = .
+when quitting check place: 
+ g->place.x = 4, g->place.y = 7
+
+after ->piece->pos[0].x = 0
+after->piece->pos[0].y = 1
 
 
  im in play 
@@ -82,18 +94,24 @@ board->piece->height = 2
 board->piece->width = 2
 
 
---------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
 
-g->place.x = 5
- g->place.y = 8
 
  im in place check
+
+before b->piece->pos[0].x = 0
+before b->piece->pos[0].y = 0
 b->piece->pos[1].x = 1 + g->place.x = 5
 b->piece->pos[1].y = 0 + g->place.y = 8
 tab[8][6] = .
 b->piece->pos[2].x = 0 + g->place.x = 5
 b->piece->pos[2].y = 1 + g->place.y = 8
 tab[9][5] = .
+when quitting check place: 
+ g->place.x = 5, g->place.y = 8
+
+after ->piece->pos[0].x = 0
+after->piece->pos[0].y = 0
 
 
  im in play 
@@ -123,12 +141,13 @@ board->piece->height = 2
 board->piece->width = 3
 
 
---------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
 
-g->place.x = 6
- g->place.y = 8
 
  im in place check
+
+before b->piece->pos[0].x = 1
+before b->piece->pos[0].y = 0
 b->piece->pos[1].x = 1 + g->place.x = 6
 b->piece->pos[1].y = 0 + g->place.y = 8
 tab[8][7] = .
@@ -136,6 +155,9 @@ tab[8][7] = .
 new g->place.x = 5, new g->place.y = 9
 
  im in place check
+
+before b->piece->pos[0].x = 1
+before b->piece->pos[0].y = 0
 b->piece->pos[1].x = 1 + g->place.x = 5
 b->piece->pos[1].y = 0 + g->place.y = 9
 tab[9][6] = .
@@ -148,19 +170,29 @@ tab[10][5] = .
 b->piece->pos[4].x = 1 + g->place.x = 5
 b->piece->pos[4].y = 1 + g->place.y = 9
 tab[10][6] = .
-b->piece->pos[2].x = -1 + g->place.x = 5
+when quitting check place: 
+ g->place.x = 4, g->place.y = 9
+
+after ->piece->pos[0].x = 1
+after->piece->pos[0].y = 0
+b->piece->pos[2].x = -1 + g->place.x = 4
 b->piece->pos[2].y = 1 + g->place.y = 9
-tab[10][4] = .
-b->piece->pos[3].x = 0 + g->place.x = 5
+tab[10][3] = .
+b->piece->pos[3].x = 0 + g->place.x = 4
 b->piece->pos[3].y = 1 + g->place.y = 9
-tab[10][5] = .
-b->piece->pos[4].x = 1 + g->place.x = 5
+tab[10][4] = .
+b->piece->pos[4].x = 1 + g->place.x = 4
 b->piece->pos[4].y = 1 + g->place.y = 9
-tab[10][6] = .
+tab[10][5] = .
+when quitting check place: 
+ g->place.x = 3, g->place.y = 9
+
+after ->piece->pos[0].x = 1
+after->piece->pos[0].y = 0
 
 
  im in play 
-coordinates = 9 4
+coordinates = 9 3
 board->height = 15, board->width = 17
 .................
 .................
@@ -186,25 +218,31 @@ board->piece->height = 2
 board->piece->width = 3
 
 
---------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
 
-g->place.x = 6
- g->place.y = 10
 
  im in place check
-b->piece->pos[1].x = -1 + g->place.x = 6
+
+before b->piece->pos[0].x = 1
+before b->piece->pos[0].y = 0
+b->piece->pos[1].x = -1 + g->place.x = 5
 b->piece->pos[1].y = 1 + g->place.y = 10
-tab[11][5] = .
-b->piece->pos[2].x = 0 + g->place.x = 6
+tab[11][4] = .
+b->piece->pos[2].x = 0 + g->place.x = 5
 b->piece->pos[2].y = 1 + g->place.y = 10
-tab[11][6] = .
-b->piece->pos[3].x = 1 + g->place.x = 6
+tab[11][5] = .
+b->piece->pos[3].x = 1 + g->place.x = 5
 b->piece->pos[3].y = 1 + g->place.y = 10
-tab[11][7] = .
+tab[11][6] = .
+when quitting check place: 
+ g->place.x = 4, g->place.y = 10
+
+after ->piece->pos[0].x = 1
+after->piece->pos[0].y = 0
 
 
  im in play 
-coordinates = 10 5
+coordinates = 10 4
 board->height = 15, board->width = 17
 .................
 .................
@@ -215,8 +253,8 @@ board->height = 15, board->width = 17
 .................
 .................
 ..OOOOO..........
-.....OO..........
-....OOO..........
+....OO...........
+...OOO...........
 ..........XXXXX..
 ..............X..
 .................
@@ -230,21 +268,71 @@ board->piece->height = 2
 board->piece->width = 3
 
 
---------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
 
-g->place.x = 7
- g->place.y = 11
 
  im in place check
+
+before b->piece->pos[0].x = 1
+before b->piece->pos[0].y = 0
+b->piece->pos[1].x = 1 + g->place.x = 6
+b->piece->pos[1].y = 0 + g->place.y = 11
+tab[11][7] = .
+b->piece->pos[2].x = -1 + g->place.x = 6
+b->piece->pos[2].y = 1 + g->place.y = 11
+tab[12][5] = .
+b->piece->pos[3].x = 0 + g->place.x = 6
+b->piece->pos[3].y = 1 + g->place.y = 11
+tab[12][6] = .
+when quitting check place: 
+ g->place.x = 5, g->place.y = 11
+
+after ->piece->pos[0].x = 1
+after->piece->pos[0].y = 0
+
+
+ im in play 
+coordinates = 11 5
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+..OOOOO..........
+....OO...........
+...OOO....X......
+....OOO..XXXXXX..
+..............X..
+.................
+.................
+
+
+________________end of turn 
+
+board->piece->size = 0
+board->piece->height = 1
+board->piece->width = 3
+
+
+--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
+
+
+ im in place check
+
+before b->piece->pos[0].x = 1
+before b->piece->pos[0].y = 0
 b->piece->pos[1].x = 1 + g->place.x = 7
 b->piece->pos[1].y = 0 + g->place.y = 11
 tab[11][8] = .
-b->piece->pos[2].x = -1 + g->place.x = 7
-b->piece->pos[2].y = 1 + g->place.y = 11
-tab[12][6] = .
-b->piece->pos[3].x = 0 + g->place.x = 7
-b->piece->pos[3].y = 1 + g->place.y = 11
-tab[12][7] = .
+when quitting check place: 
+ g->place.x = 6, g->place.y = 11
+
+after ->piece->pos[0].x = 1
+after->piece->pos[0].y = 0
 
 
  im in play 
@@ -259,69 +347,10 @@ board->height = 15, board->width = 17
 .................
 .................
 ..OOOOO..........
-.....OO..........
-....OOO...X......
-.....OOO.XXXXXX..
-..............X..
-.................
-.................
-
-
-________________end of turn 
-
-board->piece->size = 0
-board->piece->height = 1
-board->piece->width = 3
-
-
---------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
-
-g->place.x = 8
- g->place.y = 11
-
- im in place check
--->entered the recursive loop
-new g->place.x = 7, new g->place.y = 11
-
- im in place check
--->entered the recursive loop
-new g->place.x = 6, new g->place.y = 11
-
- im in place check
--->entered the recursive loop
-new g->place.x = 7, new g->place.y = 12
-
- im in place check
-b->piece->pos[1].x = 1 + g->place.x = 7
-b->piece->pos[1].y = 0 + g->place.y = 12
-tab[12][8] = .
-b->piece->pos[1].x = 1 + g->place.x = 7
-b->piece->pos[1].y = 0 + g->place.y = 12
-tab[12][8] = .
-b->piece->pos[1].x = 1 + g->place.x = 7
-b->piece->pos[1].y = 0 + g->place.y = 12
-tab[12][8] = .
-b->piece->pos[1].x = 1 + g->place.x = 7
-b->piece->pos[1].y = 0 + g->place.y = 12
-tab[12][8] = .
-
-
- im in play 
-coordinates = 12 6
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..OOOOO..........
-.....OO..........
-....OOO...XX.....
-.....OOOOXXXXXX..
-......OO......X..
+....OO...........
+...OOO....XX.....
+....OOOO.XXXXXX..
+.....OO.......X..
 .................
 .................
 
@@ -333,15 +362,187 @@ board->piece->height = 2
 board->piece->width = 2
 
 
---------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
 
-g->place.x = 8
- g->place.y = 12
 
  im in place check
-b->piece->pos[1].x = 1 + g->place.x = 8
-b->piece->pos[1].y = 0 + g->place.y = 12
+
+before b->piece->pos[0].x = 0
+before b->piece->pos[0].y = 0
+-->entered the recursive loop
+new g->place.x = 7, new g->place.y = 11
+
+ im in place check
+
+before b->piece->pos[0].x = 0
+before b->piece->pos[0].y = 0
+-->entered the recursive loop
+new g->place.x = 6, new g->place.y = 11
+
+ im in place check
+
+before b->piece->pos[0].x = 0
+before b->piece->pos[0].y = 0
+-->entered the recursive loop
+new g->place.x = 5, new g->place.y = 10
+
+ im in place check
+
+before b->piece->pos[0].x = 0
+before b->piece->pos[0].y = 0
+b->piece->pos[1].x = 1 + g->place.x = 5
+b->piece->pos[1].y = 0 + g->place.y = 10
+tab[10][6] = .
+when quitting check place: 
+ g->place.x = 5, g->place.y = 10
+
+after ->piece->pos[0].x = 0
+after->piece->pos[0].y = 0
+b->piece->pos[1].x = 1 + g->place.x = 5
+b->piece->pos[1].y = 0 + g->place.y = 10
+tab[10][6] = .
+when quitting check place: 
+ g->place.x = 5, g->place.y = 10
+
+after ->piece->pos[0].x = 0
+after->piece->pos[0].y = 0
+b->piece->pos[1].x = 1 + g->place.x = 5
+b->piece->pos[1].y = 0 + g->place.y = 10
+tab[10][6] = .
+when quitting check place: 
+ g->place.x = 5, g->place.y = 10
+
+after ->piece->pos[0].x = 0
+after->piece->pos[0].y = 0
+b->piece->pos[1].x = 1 + g->place.x = 5
+b->piece->pos[1].y = 0 + g->place.y = 10
+tab[10][6] = .
+when quitting check place: 
+ g->place.x = 5, g->place.y = 10
+
+after ->piece->pos[0].x = 0
+after->piece->pos[0].y = 0
+
+
+ im in play 
+coordinates = 10 5
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+..OOOOO..........
+....OO...........
+...OOO...XXX.....
+....OOOOOXXXXXX..
+.....OO.......X..
+.................
+.................
+
+
+________________end of turn 
+
+board->piece->size = 0
+board->piece->height = 2
+board->piece->width = 3
+
+
+--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
+
+
+ im in place check
+
+before b->piece->pos[0].x = 2
+before b->piece->pos[0].y = 0
+b->piece->pos[1].x = 0 + g->place.x = 8
+b->piece->pos[1].y = 1 + g->place.y = 11
+tab[12][8] = .
+b->piece->pos[2].x = 1 + g->place.x = 8
+b->piece->pos[2].y = 1 + g->place.y = 11
 tab[12][9] = .
+when quitting check place: 
+ g->place.x = 6, g->place.y = 11
+
+after ->piece->pos[0].x = 2
+after->piece->pos[0].y = 0
+
+
+ im in play 
+coordinates = 11 6
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+..OOOOO..........
+....OO....X......
+...OOOO..XXX.....
+....OOOOOXXXXXX..
+.....OO.......X..
+.................
+.................
+
+
+________________end of turn 
+
+board->piece->size = 0
+board->piece->height = 2
+board->piece->width = 2
+
+
+--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
+
+
+ im in place check
+
+before b->piece->pos[0].x = 0
+before b->piece->pos[0].y = 0
+-->entered the recursive loop
+new g->place.x = 7, new g->place.y = 11
+
+ im in place check
+
+before b->piece->pos[0].x = 0
+before b->piece->pos[0].y = 0
+-->entered the recursive loop
+new g->place.x = 8, new g->place.y = 12
+
+ im in place check
+
+before b->piece->pos[0].x = 0
+before b->piece->pos[0].y = 0
+b->piece->pos[1].x = 0 + g->place.x = 8
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][8] = .
+when quitting check place: 
+ g->place.x = 8, g->place.y = 12
+
+after ->piece->pos[0].x = 0
+after->piece->pos[0].y = 0
+b->piece->pos[1].x = 0 + g->place.x = 8
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][8] = .
+when quitting check place: 
+ g->place.x = 8, g->place.y = 12
+
+after ->piece->pos[0].x = 0
+after->piece->pos[0].y = 0
+b->piece->pos[1].x = 0 + g->place.x = 8
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][8] = .
+when quitting check place: 
+ g->place.x = 8, g->place.y = 12
+
+after ->piece->pos[0].x = 0
+after->piece->pos[0].y = 0
 
 
  im in play 
@@ -355,52 +556,11 @@ board->height = 15, board->width = 17
 .................
 .................
 .................
-..OOOOO..........
-.....OO..........
-....OOO..XXX.....
-.....OOOOXXXXXX..
-......OOO.....X..
-.................
-.................
-
-
-________________end of turn 
-
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 3
-
-
---------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
-
-g->place.x = 9
- g->place.y = 12
-
- im in place check
-b->piece->pos[1].x = 0 + g->place.x = 9
-b->piece->pos[1].y = 1 + g->place.y = 12
-tab[13][9] = .
-b->piece->pos[2].x = 1 + g->place.x = 9
-b->piece->pos[2].y = 1 + g->place.y = 12
-tab[13][10] = .
-
-
- im in play 
-coordinates = 12 7
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..OOOOO..........
-.....OO...X......
-....OOO..XXX.....
-.....OOOOXXXXXX..
-......OOOO....X..
+..OOOOO...X......
+....OO...XX......
+...OOOO..XXX.....
+....OOOOOXXXXXX..
+.....OOOO.....X..
 .................
 .................
 
@@ -410,140 +570,102 @@ ________________end of turn
 board->piece->size = 0
 board->piece->height = 2
 board->piece->width = 2
-
-
---------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
-
-g->place.x = 9
- g->place.y = 13
-
- im in place check
-b->piece->pos[1].x = 0 + g->place.x = 9
-b->piece->pos[1].y = 1 + g->place.y = 13
-tab[14][9] = .
-
-
- im in play 
-coordinates = 13 9
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..OOOOO...X......
-.....OO..XX......
-....OOO..XXX.....
-.....OOOOXXXXXX..
-......OOOO....X..
-........OO.......
-.................
-
-
-________________end of turn 
-
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 2
-
-
---------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
-
-g->place.x = 9
- g->place.y = 14
-
- im in place check
-
-
--->board has been reseted, new board:
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..OOOOO...X......
-.....OO..XXX.....
-....OOO..XXX.....
-.....OOOOXXXXXX..
-......OOOO....X..
-........OO.......
-.........O.......
 
 
 --------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
 
 
  im in place check
--->entered the recursive loop
-new g->place.x = 9, new g->place.y = 12
 
- im in place check
+before b->piece->pos[0].x = 1
+before b->piece->pos[0].y = 0
 -->entered the recursive loop
 new g->place.x = 7, new g->place.y = 11
 
  im in place check
+
+before b->piece->pos[0].x = 1
+before b->piece->pos[0].y = 0
 -->entered the recursive loop
 new g->place.x = 8, new g->place.y = 12
 
  im in place check
--->entered the recursive loop
-new g->place.x = 9, new g->place.y = 13
 
- im in place check
--->entered the recursive loop
-new g->place.x = 6, new g->place.y = 9
-
- im in place check
+before b->piece->pos[0].x = 1
+before b->piece->pos[0].y = 0
 -->entered the recursive loop
 new g->place.x = 6, new g->place.y = 10
 
  im in place check
+
+before b->piece->pos[0].x = 1
+before b->piece->pos[0].y = 0
 -->entered the recursive loop
 new g->place.x = 6, new g->place.y = 11
 
  im in place check
+
+before b->piece->pos[0].x = 1
+before b->piece->pos[0].y = 0
 -->entered the recursive loop
 new g->place.x = 7, new g->place.y = 12
 
  im in place check
+
+before b->piece->pos[0].x = 1
+before b->piece->pos[0].y = 0
 b->piece->pos[1].x = 0 + g->place.x = 7
 b->piece->pos[1].y = 1 + g->place.y = 12
 tab[13][7] = .
-b->piece->pos[1].x = 0 + g->place.x = 7
+when quitting check place: 
+ g->place.x = 6, g->place.y = 12
+
+after ->piece->pos[0].x = 1
+after->piece->pos[0].y = 0
+b->piece->pos[1].x = 0 + g->place.x = 6
 b->piece->pos[1].y = 1 + g->place.y = 12
-tab[13][7] = .
-b->piece->pos[1].x = 0 + g->place.x = 7
+tab[13][6] = .
+when quitting check place: 
+ g->place.x = 5, g->place.y = 12
+
+after ->piece->pos[0].x = 1
+after->piece->pos[0].y = 0
+b->piece->pos[1].x = 0 + g->place.x = 5
 b->piece->pos[1].y = 1 + g->place.y = 12
-tab[13][7] = .
-b->piece->pos[1].x = 0 + g->place.x = 7
+tab[13][5] = .
+when quitting check place: 
+ g->place.x = 4, g->place.y = 12
+
+after ->piece->pos[0].x = 1
+after->piece->pos[0].y = 0
+b->piece->pos[1].x = 0 + g->place.x = 4
 b->piece->pos[1].y = 1 + g->place.y = 12
-tab[13][7] = .
-b->piece->pos[1].x = 0 + g->place.x = 7
+tab[13][4] = .
+when quitting check place: 
+ g->place.x = 3, g->place.y = 12
+
+after ->piece->pos[0].x = 1
+after->piece->pos[0].y = 0
+b->piece->pos[1].x = 0 + g->place.x = 3
 b->piece->pos[1].y = 1 + g->place.y = 12
-tab[13][7] = .
-b->piece->pos[1].x = 0 + g->place.x = 7
+tab[13][3] = .
+when quitting check place: 
+ g->place.x = 2, g->place.y = 12
+
+after ->piece->pos[0].x = 1
+after->piece->pos[0].y = 0
+b->piece->pos[1].x = 0 + g->place.x = 2
 b->piece->pos[1].y = 1 + g->place.y = 12
-tab[13][7] = .
-b->piece->pos[1].x = 0 + g->place.x = 7
-b->piece->pos[1].y = 1 + g->place.y = 12
-tab[13][7] = .
-b->piece->pos[1].x = 0 + g->place.x = 7
-b->piece->pos[1].y = 1 + g->place.y = 12
-tab[13][7] = .
-b->piece->pos[1].x = 0 + g->place.x = 7
-b->piece->pos[1].y = 1 + g->place.y = 12
-tab[13][7] = .
+tab[13][2] = .
+when quitting check place: 
+ g->place.x = 1, g->place.y = 12
+
+after ->piece->pos[0].x = 1
+after->piece->pos[0].y = 0
 
 
  im in play 
-coordinates = 12 7
+coordinates = 12 1
 board->height = 15, board->width = 17
 .................
 .................
@@ -554,12 +676,12 @@ board->height = 15, board->width = 17
 .................
 .................
 ..OOOOO...X......
-.....OO..XXX.....
-....OOO..XXX.....
-.....OOOOXXXXXX..
-......OOOO....X..
-........OO.......
-.........O.......
+....OO...XXX.....
+...OOOO..XXX.....
+....OOOOOXXXXXX..
+.....OOOO.....X..
+........O........
+.................
 
 
 ________________end of turn 

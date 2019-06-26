@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/26 10:00:30 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/26 12:01:59 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ enum				e_state
 
 enum				e_play
 {
-	E_SETTLE,
 	E_ATTACK,
+	E_SETTLE,
 	E_MIRROR,
 };
 

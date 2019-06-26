@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/26 10:00:29 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/26 12:01:59 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,32 +137,51 @@ static int	count_char(t_board *b, char c)
 	}
 	return (count);
 }
+
+static t_piece	*piece_cpy(t_piece *src)
+{
+	int		i;
+	t_piece *dest;
+
+	i = -1;
+	if (!(dest = (t_piece*)ft_memalloc(sizeof(t_piece)))
+		|| !(dest->pos = (t_posi*)malloc(sizeof(t_posi) * (size_t)src->size)))
+		return (NULL);
+	dest->size = src->size;
+	while (++i < src->size)
+	{
+		dest->pos[i].x = src->pos[i].x;
+		dest->pos[i].y = src->pos[i].y;
+	}
+	dest->width = src->width;
+	dest->height = src->height;
+	return (dest);
+}
+
 static int		place_check(t_board *b, t_game *g)
 {
 	int		x;
 	int 	y;
 	int 	i;
-	t_posi	tmp;
-	int		flag;
+	t_piece	*p_rel;
 
-	dprintf(2, "\n im in place check\n");
-	flag = 0;
-	tmp.x = b->piece->pos[0].x;
-	tmp.y = b->piece->pos[0].y;
-	if (ft_left(b->piece) == 0)
-		return (0);
 	i = 1;
-	if (b->piece->width > b->width || b->piece->height > b->height)
+	p_rel = piece_cpy(b->piece);
+	dprintf(2, "\n im in place check\n");
+	dprintf(2, "\nbefore b->piece->pos[0].x = %d\n", b->piece->pos[0].x); 
+	dprintf(2, "before b->piece->pos[0].y = %d\n", b->piece->pos[0].y); 
+	if (ft_left(p_rel) == 0
+		|| p_rel->width > b->width || p_rel->height > b->height)
 		return (0);
 	while (i < b->piece->size)
 	{
-		place_right(g, &x, &y, b->piece->pos[i]);
+		place_right(g, &x, &y, p_rel->pos[i]);
 		if (x >= b->width || y >= b->height || count_char(b, g->player) == 0)
 			return (0);
 		else if (b->tab[y][x] == '.')
 		{
-			dprintf(2, "b->piece->pos[%d].x = %d + g->place.x = %d\n", i, b->piece->pos[i].x, g->place.x); 
-			dprintf(2, "b->piece->pos[%d].y = %d + g->place.y = %d\n", i, b->piece->pos[i].y, g->place.y); 
+			dprintf(2, "b->piece->pos[%d].x = %d + g->place.x = %d\n", i, p_rel->pos[i].x, g->place.x); 
+			dprintf(2, "b->piece->pos[%d].y = %d + g->place.y = %d\n", i, p_rel->pos[i].y, g->place.y); 
 			dprintf(2, "tab[%d][%d] = %c\n", y, x, b->tab[y][x]);
 			i++;
 		}
@@ -176,8 +195,12 @@ static int		place_check(t_board *b, t_game *g)
 				return (0);
 		}
 	}
-	g->place.x -= tmp.x;
-	g->place.y -= tmp.y;
+	free_piece(p_rel);
+	g->place.x -= b->piece->pos[0].x;
+	g->place.y -= b->piece->pos[0].y;
+	dprintf(2, "when quitting check place: \n g->place.x = %d, g->place.y = %d\n", g->place.x, g->place.y);
+	dprintf(2, "\nafter ->piece->pos[0].x = %d\n", b->piece->pos[0].x); 
+	dprintf(2, "after->piece->pos[0].y = %d\n", b->piece->pos[0].y); 
 	return (1);
 }
 
@@ -195,7 +218,7 @@ static int	attack(t_board *board, t_game *game)
 		/*dprintf(2, "place check failed and this is gonna exit\n");
 		game->place.x = 0;
 		game->place.y = 0;i*/
-		game->play = E_MIRROR;
+		game->play = E_SETTLE;
 		return (0);
 	}
 	return (1);
@@ -310,7 +333,7 @@ static int	settle(t_board *b, t_game *g)
 
 void strategy(t_board *b, t_game *g)
 {
-	static t_strategy	trigger_strategy[] = {settle, attack, mirror};
+	static t_strategy	trigger_strategy[] = {attack, settle, mirror};
 	int					i;
 
 	i = 0;
