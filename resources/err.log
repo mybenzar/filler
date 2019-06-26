@@ -1,12 +1,20 @@
 board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 1
-settle has been triggered
+board->piece->height = 1
+board->piece->width = 3
+
+
+--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+
 g->place.x = 2
  g->place.y = 8
 
  im in place check
-tab[9][2] = .
+b->piece->pos[1].x = 1 + g->place.x = 2
+b->piece->pos[1].y = 0 + g->place.y = 8
+tab[8][3] = .
+b->piece->pos[2].x = 2 + g->place.x = 2
+b->piece->pos[2].y = 0 + g->place.y = 8
+tab[8][4] = .
 
 
  im in play 
@@ -27,140 +35,28 @@ board->height = 15, board->width = 17
 ..............X..
 .................
 .................
+
+
+________________end of turn 
+
 board->piece->size = 0
 board->piece->height = 2
-board->piece->width = 1
-settle has been triggered
-g->place.x = 2
- g->place.y = 8
-
- im in place check
-tab[9][2] = O
-
- im in place check
-tab[10][2] = .
-tab[10][2] = .
+board->piece->width = 2
 
 
- im in play 
-coordinates = 9 2
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-../..............
-..O..............
-.................
-.................
-.............XX..
-.................
-.................
-board->piece->size = 0
-board->piece->height = 1
-board->piece->width = 3
-settle has been triggered
-g->place.x = 2
- g->place.y = 8
+--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
 
- im in place check
-tab[8][3] = .
-
-
- im in play 
-coordinates = 8 2
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..O..............
-..O..............
-..O..........X...
-.............X...
-.............XX..
-.................
-.................
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 3
-settle has been triggered
-g->place.x = 3
- g->place.y = 8
-
- im in place check
-tab[9][4] = .
-
-
- im in play 
-coordinates = 8 1
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..OO.............
-..O..............
-..O.........XX...
-.............X...
-.............XX..
-.................
-.................
-board->piece->size = 0
-board->piece->height = 1
-board->piece->width = 3
-settle has been triggered
-g->place.x = 3
- g->place.y = 8
-
- im in place check
-tab[8][4] = .
-
-
- im in play 
-coordinates = 8 2
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..OO.............
-..OO.............
-..O........XXX...
-.............X...
-.............XX..
-.................
-.................
-board->piece->size = 0
-board->piece->height = 1
-board->piece->width = 3
-settle has been triggered
 g->place.x = 4
  g->place.y = 8
 
  im in place check
+b->piece->pos[1].x = 1 + g->place.x = 4
+b->piece->pos[1].y = 0 + g->place.y = 8
 tab[8][5] = .
-tab[8][6] = .
 
 
  im in play 
-coordinates = 8 4
+coordinates = 7 4
 board->height = 15, board->width = 17
 .................
 .................
@@ -171,88 +67,33 @@ board->height = 15, board->width = 17
 .................
 .................
 ..OOO............
-..OO.............
-..O.......XXXX...
-.............X...
-.............XX..
 .................
 .................
+..............X..
+..............X..
+.................
+.................
+
+
+________________end of turn 
+
 board->piece->size = 0
 board->piece->height = 2
-board->piece->width = 3
-settle has been triggered
-g->place.x = 6
+board->piece->width = 2
+
+
+--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+
+g->place.x = 5
  g->place.y = 8
 
  im in place check
-tab[8][7] = .
-
-
- im in play 
-coordinates = 7 5
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..OOOOO..........
-..OO.............
-..O.......XXXX...
-..........X..X...
-.............XX..
-.................
-.................
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 3
-settle has been triggered
-g->place.x = 7
- g->place.y = 8
-
- im in place check
-tab[8][8] = .
-tab[8][9] = .
-
-
- im in play 
-coordinates = 8 7
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..OOOOOO.........
-..OO......X......
-..O.......XXXX...
-..........X..X...
-.............XX..
-.................
-.................
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 3
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
-
- im in place check
-tab[9][8] = .
-tab[9][9] = .
-tab[9][10] = X
-
- im in place check
-tab[9][6] = .
-tab[9][7] = .
-tab[9][8] = .
-tab[9][7] = .
+b->piece->pos[1].x = 1 + g->place.x = 5
+b->piece->pos[1].y = 0 + g->place.y = 8
+tab[8][6] = .
+b->piece->pos[2].x = 0 + g->place.x = 5
+b->piece->pos[2].y = 1 + g->place.y = 8
+tab[9][5] = .
 
 
  im in play 
@@ -266,388 +107,60 @@ board->height = 15, board->width = 17
 .................
 .................
 .................
-..OOOOOOO/X......
-..OO......X......
-..O.......XXXX...
-..........X..X...
+..OOOO...........
+.................
+.................
 .............XX..
+..............X..
 .................
 .................
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 1
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
-
- im in place check
-tab[9][9] = .
 
 
- im in play 
-coordinates = 8 9
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..OOOOOOOOXX.....
-..OO.OOO..XX.....
-..O.......XXXX...
-..........X..X...
-.............XX..
-.................
-.................
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 1
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
+________________end of turn 
 
- im in place check
-tab[9][9] = O
-
- im in place check
-tab[10][9] = .
-tab[10][9] = .
-
-
- im in play 
-coordinates = 9 9
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..OOOOOOO/XX.....
-..OO.OOO.OXX.....
-..O.......XXXX...
-..........XXXX...
-.............XX..
-.................
-.................
-board->piece->size = 0
-board->piece->height = 1
-board->piece->width = 3
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
-
- im in place check
-tab[8][10] = X
-
- im in place check
-tab[9][10] = X
-
- im in place check
-tab[10][10] = X
-
- im in place check
-tab[8][9] = /
-
- im in place check
-tab[8][8] = /
-
- im in place check
-tab[9][8] = .
-tab[9][8] = .
-tab[9][8] = .
-tab[9][8] = .
-tab[9][8] = .
-tab[9][8] = .
-
-
- im in play 
-coordinates = 9 6
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..OOOOO///XXX....
-..OO.OOO./XX.....
-..O....../XXXX...
-..........XXXX...
-.............XX..
-.................
-.................
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 1
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
-
- im in place check
-tab[9][9] = O
-
- im in place check
-tab[10][9] = O
-
- im in place check
-tab[11][9] = .
-tab[11][9] = .
-tab[11][9] = .
-
-
- im in play 
-coordinates = 10 9
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..........X......
-..OOOOOOO/XXX....
-..OO.OOOO/XX.....
-..O......OXXXX...
-..........XXXX...
-.............XX..
-.................
-.................
-board->piece->size = 0
-board->piece->height = 1
-board->piece->width = 2
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
-
- im in place check
-tab[8][10] = X
-
- im in place check
-tab[9][10] = X
-
- im in place check
-tab[10][10] = X
-
- im in place check
-tab[11][10] = X
-
- im in place check
-tab[8][9] = /
-
- im in place check
-tab[9][9] = /
-
- im in place check
-tab[8][8] = /
-
- im in place check
-tab[9][8] = /
-
- im in place check
-tab[8][7] = /
-
- im in place check
-tab[9][7] = /
-
- im in place check
-tab[8][6] = /
-
- im in place check
-tab[9][6] = /
-
- im in place check
-tab[8][5] = /
-
- im in place check
-tab[8][4] = /
-
- im in place check
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-tab[9][4] = .
-
-
- im in play 
-coordinates = 9 3
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..........X......
-..O///////XXXX...
-..OO./////XXXX...
-..O....../XXXX...
-........./XXXX...
-.............XX..
-.................
-.................
 board->piece->size = 0
 board->piece->height = 2
 board->piece->width = 3
-settle has been triggered
-g->place.x = 9
+
+
+--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+
+g->place.x = 6
  g->place.y = 8
 
  im in place check
-tab[8][11] = X
+b->piece->pos[1].x = 1 + g->place.x = 6
+b->piece->pos[1].y = 0 + g->place.y = 8
+tab[8][7] = .
+-->entered the recursive loop
+new g->place.x = 5, new g->place.y = 9
 
  im in place check
-tab[9][11] = X
-
- im in place check
-tab[10][11] = X
-
- im in place check
-tab[11][11] = X
-
- im in place check
-tab[8][10] = X
-
- im in place check
-tab[9][10] = X
-
- im in place check
-tab[8][9] = /
-
- im in place check
-tab[9][9] = /
-
- im in place check
-tab[8][8] = /
-
- im in place check
-tab[9][8] = /
-
- im in place check
-tab[8][7] = /
-
- im in place check
-tab[9][7] = /
-
- im in place check
-tab[8][6] = /
-
- im in place check
-tab[9][6] = /
-
- im in place check
-tab[8][5] = /
-
- im in place check
-tab[9][5] = /
-
- im in place check
-tab[8][4] = /
-
- im in place check
-tab[9][4] = /
-
- im in place check
+b->piece->pos[1].x = 1 + g->place.x = 5
+b->piece->pos[1].y = 0 + g->place.y = 9
+tab[9][6] = .
+b->piece->pos[2].x = -1 + g->place.x = 5
+b->piece->pos[2].y = 1 + g->place.y = 9
 tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
+b->piece->pos[3].x = 0 + g->place.x = 5
+b->piece->pos[3].y = 1 + g->place.y = 9
+tab[10][5] = .
+b->piece->pos[4].x = 1 + g->place.x = 5
+b->piece->pos[4].y = 1 + g->place.y = 9
+tab[10][6] = .
+b->piece->pos[2].x = -1 + g->place.x = 5
+b->piece->pos[2].y = 1 + g->place.y = 9
 tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
-tab[10][4] = .
-tab[11][2] = .
-tab[11][3] = .
-tab[11][4] = .
+b->piece->pos[3].x = 0 + g->place.x = 5
+b->piece->pos[3].y = 1 + g->place.y = 9
+tab[10][5] = .
+b->piece->pos[4].x = 1 + g->place.x = 5
+b->piece->pos[4].y = 1 + g->place.y = 9
+tab[10][6] = .
 
 
  im in play 
-coordinates = 10 2
+coordinates = 9 4
 board->height = 15, board->width = 17
 .................
 .................
@@ -655,40 +168,43 @@ board->height = 15, board->width = 17
 .................
 .................
 .................
-..........X......
-..........X......
-..////////XXXX...
-..////////XXXX...
-..O....../XXXX...
-........./XXXX...
-.............XX..
 .................
 .................
+..OOOOO..........
+.....O...........
+.................
+...........XXXX..
+..............X..
+.................
+.................
+
+
+________________end of turn 
+
 board->piece->size = 0
 board->piece->height = 2
-board->piece->width = 1
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
+board->piece->width = 3
+
+
+--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+
+g->place.x = 6
+ g->place.y = 10
 
  im in place check
-tab[9][9] = O
-
- im in place check
-tab[10][9] = O
-
- im in place check
-tab[11][9] = O
-
- im in place check
-tab[12][9] = .
-tab[12][9] = .
-tab[12][9] = .
-tab[12][9] = .
+b->piece->pos[1].x = -1 + g->place.x = 6
+b->piece->pos[1].y = 1 + g->place.y = 10
+tab[11][5] = .
+b->piece->pos[2].x = 0 + g->place.x = 6
+b->piece->pos[2].y = 1 + g->place.y = 10
+tab[11][6] = .
+b->piece->pos[3].x = 1 + g->place.x = 6
+b->piece->pos[3].y = 1 + g->place.y = 10
+tab[11][7] = .
 
 
  im in play 
-coordinates = 11 9
+coordinates = 10 5
 board->height = 15, board->width = 17
 .................
 .................
@@ -696,66 +212,140 @@ board->height = 15, board->width = 17
 .................
 .................
 .................
-..........X......
-.........XX......
-..OOOOOOO/XXXX...
-..OOOOOOO/XXXX...
-..O.O..../XXXX...
-..OOO....OXXXX...
-.............XX..
 .................
 .................
+..OOOOO..........
+.....OO..........
+....OOO..........
+..........XXXXX..
+..............X..
+.................
+.................
+
+
+________________end of turn 
+
+board->piece->size = 0
+board->piece->height = 2
+board->piece->width = 3
+
+
+--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+
+g->place.x = 7
+ g->place.y = 11
+
+ im in place check
+b->piece->pos[1].x = 1 + g->place.x = 7
+b->piece->pos[1].y = 0 + g->place.y = 11
+tab[11][8] = .
+b->piece->pos[2].x = -1 + g->place.x = 7
+b->piece->pos[2].y = 1 + g->place.y = 11
+tab[12][6] = .
+b->piece->pos[3].x = 0 + g->place.x = 7
+b->piece->pos[3].y = 1 + g->place.y = 11
+tab[12][7] = .
+
+
+ im in play 
+coordinates = 11 6
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+..OOOOO..........
+.....OO..........
+....OOO...X......
+.....OOO.XXXXXX..
+..............X..
+.................
+.................
+
+
+________________end of turn 
+
+board->piece->size = 0
+board->piece->height = 1
+board->piece->width = 3
+
+
+--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+
+g->place.x = 8
+ g->place.y = 11
+
+ im in place check
+-->entered the recursive loop
+new g->place.x = 7, new g->place.y = 11
+
+ im in place check
+-->entered the recursive loop
+new g->place.x = 6, new g->place.y = 11
+
+ im in place check
+-->entered the recursive loop
+new g->place.x = 7, new g->place.y = 12
+
+ im in place check
+b->piece->pos[1].x = 1 + g->place.x = 7
+b->piece->pos[1].y = 0 + g->place.y = 12
+tab[12][8] = .
+b->piece->pos[1].x = 1 + g->place.x = 7
+b->piece->pos[1].y = 0 + g->place.y = 12
+tab[12][8] = .
+b->piece->pos[1].x = 1 + g->place.x = 7
+b->piece->pos[1].y = 0 + g->place.y = 12
+tab[12][8] = .
+b->piece->pos[1].x = 1 + g->place.x = 7
+b->piece->pos[1].y = 0 + g->place.y = 12
+tab[12][8] = .
+
+
+ im in play 
+coordinates = 12 6
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+..OOOOO..........
+.....OO..........
+....OOO...XX.....
+.....OOOOXXXXXX..
+......OO......X..
+.................
+.................
+
+
+________________end of turn 
+
 board->piece->size = 0
 board->piece->height = 2
 board->piece->width = 2
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
+
+
+--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+
+g->place.x = 8
+ g->place.y = 12
 
  im in place check
-tab[8][10] = X
-
- im in place check
-tab[9][10] = X
-
- im in place check
-tab[10][10] = X
-
- im in place check
-tab[11][10] = X
-
- im in place check
-tab[8][9] = /
-
- im in place check
-tab[9][9] = /
-
- im in place check
-tab[12][10] = .
-tab[13][9] = .
-tab[13][10] = .
-tab[12][10] = .
-tab[13][9] = .
-tab[13][10] = .
-tab[12][10] = .
-tab[13][9] = .
-tab[13][10] = .
-tab[12][10] = .
-tab[13][9] = .
-tab[13][10] = .
-tab[12][10] = .
-tab[13][9] = .
-tab[13][10] = .
-tab[12][10] = .
-tab[13][9] = .
-tab[13][10] = .
-tab[12][10] = .
-tab[13][9] = .
-tab[13][10] = .
+b->piece->pos[1].x = 1 + g->place.x = 8
+b->piece->pos[1].y = 0 + g->place.y = 12
+tab[12][9] = .
 
 
  im in play 
-coordinates = 12 9
+coordinates = 12 8
 board->height = 15, board->width = 17
 .................
 .................
@@ -763,44 +353,40 @@ board->height = 15, board->width = 17
 .................
 .................
 .................
-..........XX.....
-.........XXXX....
-..OOOOOO//XXXX...
-..OOOOOO//XXXX...
-..O.O..../XXXX...
-..OOO..../XXXX...
-.........O...XX..
 .................
 .................
+..OOOOO..........
+.....OO..........
+....OOO..XXX.....
+.....OOOOXXXXXX..
+......OOO.....X..
+.................
+.................
+
+
+________________end of turn 
+
 board->piece->size = 0
-board->piece->height = 1
+board->piece->height = 2
 board->piece->width = 3
-settle has been triggered
+
+
+--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+
 g->place.x = 9
- g->place.y = 8
+ g->place.y = 12
 
  im in place check
-tab[8][10] = X
-
- im in place check
-tab[9][10] = X
-
- im in place check
-tab[10][10] = X
-
- im in place check
-tab[11][10] = X
-
- im in place check
-tab[12][11] = .
-tab[12][11] = .
-tab[12][11] = .
-tab[12][11] = .
-tab[12][11] = .
+b->piece->pos[1].x = 0 + g->place.x = 9
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][9] = .
+b->piece->pos[2].x = 1 + g->place.x = 9
+b->piece->pos[2].y = 1 + g->place.y = 12
+tab[13][10] = .
 
 
  im in play 
-coordinates = 12 9
+coordinates = 12 7
 board->height = 15, board->width = 17
 .................
 .................
@@ -808,121 +394,33 @@ board->height = 15, board->width = 17
 .................
 .................
 .................
-.........XXX.....
-.........XXXX....
-..OOOOOOO/XXXX...
-..OOOOOOO/XXXX...
-..O.O..../XXXX...
-..OOO..../XXXX...
-.........OO..XX..
-.........OO......
 .................
+.................
+..OOOOO..........
+.....OO...X......
+....OOO..XXX.....
+.....OOOOXXXXXX..
+......OOOO....X..
+.................
+.................
+
+
+________________end of turn 
+
 board->piece->size = 0
 board->piece->height = 2
 board->piece->width = 2
-settle has been triggered
+
+
+--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+
 g->place.x = 9
- g->place.y = 8
+ g->place.y = 13
 
  im in place check
-tab[8][10] = X
-
- im in place check
-tab[8][9] = /
-
- im in place check
-tab[9][10] = X
-
- im in place check
-tab[10][10] = X
-
- im in place check
-tab[11][10] = X
-
- im in place check
-tab[12][11] = O
-
- im in place check
-tab[12][12] = .
-tab[12][12] = .
-tab[12][12] = .
-tab[12][12] = .
-tab[12][12] = .
-tab[12][12] = .
-tab[12][12] = .
-
-
- im in play 
-coordinates = 12 11
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.........XXX.....
-........XXXXX....
-..OOOOOO//XXXX...
-..OOOOOOO/XXXX...
-..O.O..../XXXX...
-..OOO..../XXXX...
-.........O/O.XX..
-.........OO......
-.................
-board->piece->size = 0
-board->piece->height = 1
-board->piece->width = 3
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
-
- im in place check
-tab[8][10] = X
-
- im in place check
-tab[8][9] = /
-
- im in place check
-tab[9][10] = X
-
- im in place check
-tab[10][10] = X
-
- im in place check
-tab[11][10] = X
-
- im in place check
-tab[12][11] = O
-
- im in place check
-tab[12][12] = O
-
- im in place check
-tab[12][13] = X
-
- im in place check
-tab[8][8] = /
-
- im in place check
-tab[9][9] = /
-
- im in place check
-tab[12][10] = /
-
- im in place check
-tab[13][11] = .
-tab[13][11] = .
-tab[13][11] = .
-tab[13][11] = .
-tab[13][11] = .
-tab[13][11] = .
-tab[13][11] = .
-tab[13][11] = .
-tab[13][11] = .
-tab[13][11] = .
-tab[13][11] = .
-tab[13][11] = .
+b->piece->pos[1].x = 0 + g->place.x = 9
+b->piece->pos[1].y = 1 + g->place.y = 13
+tab[14][9] = .
 
 
  im in play 
@@ -934,102 +432,33 @@ board->height = 15, board->width = 17
 .................
 .................
 .................
-........XXXX.....
-........XXXXX....
-..OOOOO///XXXX...
-..OOOOOO//XXXX...
-..O.O..../XXXX...
-..OOO..../XXXX...
-.........////XX..
-.........OO......
 .................
+.................
+..OOOOO...X......
+.....OO..XX......
+....OOO..XXX.....
+.....OOOOXXXXXX..
+......OOOO....X..
+........OO.......
+.................
+
+
+________________end of turn 
+
 board->piece->size = 0
 board->piece->height = 2
 board->piece->width = 2
-settle has been triggered
+
+
+--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------
+
 g->place.x = 9
- g->place.y = 8
+ g->place.y = 14
 
  im in place check
-tab[8][10] = X
-
- im in place check
-tab[8][9] = /
-
- im in place check
-tab[9][10] = X
-
- im in place check
-tab[10][10] = X
-
- im in place check
-tab[11][10] = X
-
- im in place check
-tab[12][11] = O
-
- im in place check
-tab[12][12] = O
-
- im in place check
-tab[12][13] = X
-
- im in place check
-tab[8][8] = /
-
- im in place check
-tab[9][9] = /
-
- im in place check
-tab[12][10] = /
-
- im in place check
-tab[13][11] = O
-
- im in place check
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
-tab[13][12] = .
-tab[14][11] = .
-tab[14][12] = .
 
 
- im in play 
-coordinates = 13 11
+-->board has been reseted, new board:
 board->height = 15, board->width = 17
 .................
 .................
@@ -1037,556 +466,101 @@ board->height = 15, board->width = 17
 .................
 .................
 .................
-........XXXXX....
-........XXXXX....
-..OOOOO///XXXX...
-..OOOOOO//XXXX...
-..O.O..../XXXX...
-..OOO..../XXXX...
-.........////XX..
-.........O/O.....
 .................
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 1
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
+.................
+..OOOOO...X......
+.....OO..XXX.....
+....OOO..XXX.....
+.....OOOOXXXXXX..
+......OOOO....X..
+........OO.......
+.........O.......
+
+
+--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
+
 
  im in place check
-tab[9][9] = O
+-->entered the recursive loop
+new g->place.x = 9, new g->place.y = 12
 
  im in place check
-tab[9][8] = O
+-->entered the recursive loop
+new g->place.x = 7, new g->place.y = 11
 
  im in place check
-tab[10][9] = O
+-->entered the recursive loop
+new g->place.x = 8, new g->place.y = 12
 
  im in place check
-tab[11][9] = O
+-->entered the recursive loop
+new g->place.x = 9, new g->place.y = 13
 
  im in place check
-tab[12][9] = O
+-->entered the recursive loop
+new g->place.x = 6, new g->place.y = 9
 
  im in place check
-tab[13][10] = O
+-->entered the recursive loop
+new g->place.x = 6, new g->place.y = 10
 
  im in place check
-tab[13][11] = O
+-->entered the recursive loop
+new g->place.x = 6, new g->place.y = 11
 
  im in place check
-tab[13][12] = O
+-->entered the recursive loop
+new g->place.x = 7, new g->place.y = 12
 
  im in place check
-tab[9][7] = O
-
- im in place check
-tab[10][8] = .
-tab[10][8] = .
-tab[10][8] = .
-tab[10][8] = .
-tab[10][8] = .
-tab[10][8] = .
-tab[10][8] = .
-tab[10][8] = .
-tab[10][8] = .
-tab[10][8] = .
+b->piece->pos[1].x = 0 + g->place.x = 7
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][7] = .
+b->piece->pos[1].x = 0 + g->place.x = 7
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][7] = .
+b->piece->pos[1].x = 0 + g->place.x = 7
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][7] = .
+b->piece->pos[1].x = 0 + g->place.x = 7
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][7] = .
+b->piece->pos[1].x = 0 + g->place.x = 7
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][7] = .
+b->piece->pos[1].x = 0 + g->place.x = 7
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][7] = .
+b->piece->pos[1].x = 0 + g->place.x = 7
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][7] = .
+b->piece->pos[1].x = 0 + g->place.x = 7
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][7] = .
+b->piece->pos[1].x = 0 + g->place.x = 7
+b->piece->pos[1].y = 1 + g->place.y = 12
+tab[13][7] = .
 
 
  im in play 
-coordinates = 9 8
+coordinates = 12 7
 board->height = 15, board->width = 17
 .................
 .................
 .................
 .................
 .................
-.......XX........
-.......XXXXXX....
-........XXXXX....
-..OOOOO///XXXX...
-..OOOOOOO/XXXX...
-..O.O..../XXXX...
-..OOO..../XXXX...
-.........O///XX..
-.........OOOO....
-...........OO....
-board->piece->size = 0
-board->piece->height = 1
-board->piece->width = 3
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
-
- im in place check
-tab[8][10] = X
-
- im in place check
-tab[8][9] = /
-
- im in place check
-tab[9][10] = X
-
- im in place check
-tab[10][10] = X
-
- im in place check
-tab[11][10] = X
-
- im in place check
-tab[12][11] = O
-
- im in place check
-tab[12][12] = O
-
- im in place check
-tab[12][13] = X
-
- im in place check
-tab[8][8] = /
-
- im in place check
-tab[9][9] = /
-
- im in place check
-tab[10][9] = /
-
- im in place check
-tab[12][10] = /
-
- im in place check
-tab[13][11] = O
-
- im in place check
-tab[13][12] = O
-
- im in place check
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-tab[13][13] = .
-tab[13][14] = .
-
-
- im in play 
-coordinates = 13 12
-board->height = 15, board->width = 17
 .................
 .................
 .................
-.................
-.................
-.......XX........
-.......XXXXXX....
-........XXXXXX...
-..OOOOO///XXXX...
-..OOOOOO//XXXX...
-..O.O...//XXXX...
-..OOO..../XXXX...
-.........////XX..
-.........O//O....
-...........OO....
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 1
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
+..OOOOO...X......
+.....OO..XXX.....
+....OOO..XXX.....
+.....OOOOXXXXXX..
+......OOOO....X..
+........OO.......
+.........O.......
 
- im in place check
-tab[9][9] = O
 
- im in place check
-tab[9][7] = O
+________________end of turn 
 
- im in place check
-tab[9][8] = O
-
- im in place check
-tab[10][9] = O
-
- im in place check
-tab[11][9] = O
-
- im in place check
-tab[12][9] = O
-
- im in place check
-tab[13][10] = O
-
- im in place check
-tab[13][11] = O
-
- im in place check
-tab[13][12] = O
-
- im in place check
-tab[14][13] = .
-tab[14][13] = .
-tab[14][13] = .
-tab[14][13] = .
-tab[14][13] = .
-tab[14][13] = .
-tab[14][13] = .
-tab[14][13] = .
-tab[14][13] = .
-tab[14][13] = .
-
-
- im in play 
-coordinates = 13 13
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.......XX........
-.......XXXXXX....
-.......XXXXXXX...
-..OOOOO///XXXX...
-..OOOOOOO/XXXX...
-..O.O...O/XXXX...
-..OOO..../XXXX...
-.........O///XX..
-.........OOOOOO..
-...........OO....
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 1
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
-
- im in place check
-tab[9][9] = O
-
- im in place check
-tab[9][7] = O
-
- im in place check
-tab[9][8] = O
-
- im in place check
-tab[10][9] = O
-
- im in place check
-tab[11][9] = O
-
- im in place check
-tab[12][9] = O
-
- im in place check
-tab[13][10] = O
-
- im in place check
-tab[13][11] = O
-
- im in place check
-tab[13][12] = O
-
- im in place check
-tab[14][13] = O
-
- im in place check
-tab[14][14] = .
-tab[14][14] = .
-tab[14][14] = .
-tab[14][14] = .
-tab[14][14] = .
-tab[14][14] = .
-tab[14][14] = .
-tab[14][14] = .
-tab[14][14] = .
-tab[14][14] = .
-tab[14][14] = .
-
-
- im in play 
-coordinates = 13 14
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.......XX.X......
-.......XXXXXX....
-.......XXXXXXX...
-..OOOOO///XXXX...
-..OOOOOOO/XXXX...
-..O.O...O/XXXX...
-..OOO..../XXXX...
-.........O///XX..
-.........OOOO/O..
-...........OOO...
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 1
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
-
- im in place check
-tab[9][9] = O
-
- im in place check
-tab[9][7] = O
-
- im in place check
-tab[9][8] = O
-
- im in place check
-tab[10][9] = O
-
- im in place check
-tab[11][9] = O
-
- im in place check
-tab[12][9] = O
-
- im in place check
-tab[13][10] = O
-
- im in place check
-tab[13][11] = O
-
- im in place check
-tab[13][12] = O
-
- im in place check
-tab[14][13] = O
-
- im in place check
-tab[14][14] = O
-
- im in place check
-tab[9][6] = O
-
- im in place check
-tab[10][7] = .
-tab[10][7] = .
-tab[10][7] = .
-tab[10][7] = .
-tab[10][7] = .
-tab[10][7] = .
-tab[10][7] = .
-tab[10][7] = .
-tab[10][7] = .
-tab[10][7] = .
-tab[10][7] = .
-tab[10][7] = .
-tab[10][7] = .
-
-
- im in play 
-coordinates = 9 7
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.......XX.X......
-.......XXXXXXX...
-.......XXXXXXX...
-..OOOO////XXXX...
-..OOOOOOO/XXXX...
-..O.O...O/XXXX...
-..OOO..../XXXX...
-.........O///XX..
-.........OOOO//..
-...........OOOO..
-board->piece->size = 0
-board->piece->height = 1
-board->piece->width = 3
-settle has been triggered
-g->place.x = 9
- g->place.y = 8
-
- im in place check
-tab[8][10] = X
-
- im in place check
-tab[8][8] = O
-
- im in place check
-tab[8][9] = /
-
- im in place check
-tab[9][10] = X
-
- im in place check
-tab[10][10] = X
-
- im in place check
-tab[11][10] = X
-
- im in place check
-tab[12][11] = O
-
- im in place check
-tab[12][12] = O
-
- im in place check
-tab[12][13] = X
-
- im in place check
-tab[13][14] = O
-
- im in place check
-tab[13][15] = .
-tab[13][15] = .
-tab[13][15] = .
-tab[13][15] = .
-tab[13][15] = .
-tab[13][15] = .
-tab[13][15] = .
-tab[13][15] = .
-tab[13][15] = .
-tab[13][15] = .
-tab[13][15] = .
-
-
- im in play 
-coordinates = 13 13
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.......XX.XXX....
-.......XXXXXXX...
-.......XXXXXXX...
-..OOOOO///XXXX...
-..OOOOOOO/XXXX...
-..O.O..OO/XXXX...
-..OOO..../XXXX...
-.........O///XX..
-.........OOOO/O..
-...........OOOO..
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 1
-settle has been triggered
-g->place.x = 15
- g->place.y = 13
-
- im in place check
-tab[14][15] = .
-
-
- im in play 
-coordinates = 13 15
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.......XX.XXXX...
-.......XXXXXXX...
-.......XXXXXXX...
-..OOOOOOOOXXXX...
-..OOOOOOOOXXXX...
-..O.O..OOOXXXX...
-..OOO....OXXXX...
-.........OOOOXX..
-.........OOOOOOO.
-...........OOOO..
-board->piece->size = 0
-board->piece->height = 2
-board->piece->width = 3
-settle has been triggered
-g->place.x = 15
- g->place.y = 13
-
- im in place check
-tab[14][15] = O
-
- im in place check
-tab[9][7] = O
-
- im in place check
-tab[9][8] = O
-
- im in place check
-tab[9][9] = O
-
- im in place check
-tab[10][9] = O
-
- im in place check
-tab[11][9] = O
-
- im in place check
-tab[12][9] = O
-
- im in place check
-tab[13][10] = O
-
- im in place check
-tab[13][11] = O
-
- im in place check
-tab[13][12] = O
-
- im in place check
-tab[14][13] = O
-
- im in place check
-tab[14][14] = O
-
- im in place check
-tab[9][6] = O
-
- im in place check
-tab[10][7] = O
-
- im in place check
-tab[10][8] = O
-
- im in place check
-tab[11][8] = .
-tab[11][9] = /
-
- im in place check
-tab[13][9] = O
-
- im in place check
-tab[14][10] = .
-tab[14][11] = O
-
- im in place check
-tab[14][11] = O
-
- im in place check
-tab[14][12] = O
-
- im in place check

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/25 16:52:28 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/26 10:00:29 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,56 @@ static void		mark(t_board *b, int x, int y)
 {
 	b->tab[y][x] = '/';
 }
+/*
+static int		place_left(t_game *g, int *x, int *y, t_posi pos)
+{
+	if (pos.x - g->place.x >= 0 && pos.y - g->place.y >= 0)
+	{
+		*x = pos.x - g->place.x;
+		*y = pos.y - g->place.y;
+		return (1);
+	}
+	return (0);
+}
+*/
+static int		place_right(t_game *g, int *x, int *y, t_posi pos)
+{
+	*x = pos.x + g->place.x;
+	*y = pos.y + g->place.y;
+	return (1);
+}
 
+static int	count_char(t_board *b, char c)
+{
+	int		i;
+	int 	j;
+	int		count;
+
+	i = 0;
+	count = 0;
+	while (b->tab[i] != NULL)
+	{
+		j = 0;
+		while (b->tab[i][j] != '\0')
+		{
+			if (b->tab[i][j] == c)
+				count++;
+			j++;
+		}
+		i++;
+	}
+	return (count);
+}
 static int		place_check(t_board *b, t_game *g)
 {
 	int		x;
 	int 	y;
 	int 	i;
 	t_posi	tmp;
+	int		flag;
 
 	dprintf(2, "\n im in place check\n");
+	flag = 0;
 	tmp.x = b->piece->pos[0].x;
 	tmp.y = b->piece->pos[0].y;
 	if (ft_left(b->piece) == 0)
@@ -115,18 +156,22 @@ static int		place_check(t_board *b, t_game *g)
 		return (0);
 	while (i < b->piece->size)
 	{
-		x = b->piece->pos[i].x + g->place.x;
-		y = b->piece->pos[i].y + g->place.y;
-		dprintf(2, "tab[%d][%d] = %c\n", y, x, b->tab[y][x]);
-		if (b->tab[y][x] == '.')
-			i++;
-		else if (b->tab[y][x] == '\0' && b->tab[y] == NULL)
+		place_right(g, &x, &y, b->piece->pos[i]);
+		if (x >= b->width || y >= b->height || count_char(b, g->player) == 0)
 			return (0);
-		else
-			//(b->tab[y][x] == g->ennemy || b->tab[y][x] == ft_tolower(g->ennemy))
+		else if (b->tab[y][x] == '.')
 		{
+			dprintf(2, "b->piece->pos[%d].x = %d + g->place.x = %d\n", i, b->piece->pos[i].x, g->place.x); 
+			dprintf(2, "b->piece->pos[%d].y = %d + g->place.y = %d\n", i, b->piece->pos[i].y, g->place.y); 
+			dprintf(2, "tab[%d][%d] = %c\n", y, x, b->tab[y][x]);
+			i++;
+		}
+		else
+		{
+			dprintf(2, "-->entered the recursive loop\n");
 			mark(b, g->place.x, g->place.y);
 			get_closest_op(b, g);
+			dprintf(2, "new g->place.x = %d, new g->place.y = %d\n", g->place.x, g->place.y);
 			if (place_check(b, g) == 0)
 				return (0);
 		}
@@ -143,7 +188,7 @@ static int		place_check(t_board *b, t_game *g)
 
 static int	attack(t_board *board, t_game *game)
 {
-	dprintf(2, "\nattack has been triggered\n");
+	dprintf(2, "\n\n--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------\n\n");
 	get_closest_op(board, game);
 	if (place_check(board, game) == 0)
 	{
@@ -169,7 +214,7 @@ static int  mirror(t_board *b, t_game *g)
 	int tmp;
 	t_posi place;
 
-	dprintf(2, "\nmirror has been triggered\n");
+	dprintf(2, "\n\n--------------->>>MIRROR TRIGGERED<<<<<<<<<<<<<<---------------\n\n");
 	i = 0;
 	dist = 0;
 	place.x = 0;
@@ -208,23 +253,48 @@ static int  mirror(t_board *b, t_game *g)
 **	attacking again
 */
 
+static void	reset_board(t_board *b, t_game *g)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (b->tab[i] != NULL)
+	{
+		j = 0;
+		while (b->tab[i][j] != '\0')
+		{
+			if (b->tab[i][j] == '/')
+				b->tab[i][j] = g->player;
+			j++;
+		}
+		i++;
+	}
+}
+
 static int	settle(t_board *b, t_game *g)
 {
-	dprintf(2, "settle has been triggered\n");
-	g->target.y = 0;
-	g->target.x = b->height;
+	dprintf(2, "\n\n--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------\n\n");
+	g->target.y = b->height;
+	g->target.x = b->width;
 	compute_dist(b, g);
 	dprintf(2, "g->place.x = %d\n g->place.y = %d\n", g->place.x, g->place.y);
 	if (place_check(b, g) == 0)
 	{
+		reset_board(b, g);
+		dprintf(2, "\n\n-->board has been reseted, new board:\n");
+		display_board(b);
 		g->play = E_ATTACK;
 		return (0);
 	}
-	if (g->place.x == 0 && g->place.y == b->width)
+	if (g->place.y == b->height || g->place.x == b->width)
 	{
-		g->target.y = b->width;
+		g->target.y = 0;
 		g->target.x = 0;
+		dprintf(2, "\n\n ---> hello i've reached a corner\n");
+		reset_board(b, g);
 		compute_dist(b, g);
+		dprintf(2, "g->place.x = %d\n g->place.y = %d\n", g->place.x, g->place.y);
 		if (place_check(b, g) == 0)
 		{
 			g->play = E_ATTACK;
@@ -245,54 +315,8 @@ void strategy(t_board *b, t_game *g)
 
 	i = 0;
 	while (i == 0)
-		i = trigger_strategy[g->play](b, g);
-}
-
-/*
-
-static void		mark(t_board *b, t_game *g)
-{
-	b->tab[g->target.y][g->target.x] = '/';
-}
-static int		place_check(t_board *b, t_game *g)
-{
-	int		x;
-	int 	y;
-	int 	i;
-	t_posi	tmp;
-
-	tmp.x = b->piece->pos[0].x;
-	tmp.y = b->piece->pos[0].y;
-	if (ft_left(b->piece) == 0)
-		return (0);
-	i = 1;
-	if (b->piece->width > b->width || b->piece->height > b->height)
-		return (0);
-	while (i < b->piece->size)
 	{
-		x = b->piece->pos[i].x + g->place.x;
-		y = b->piece->pos[i].y + g->place.y;
-		i++;
-		if (b->tab[y][x] != '.')
-		{
-			if (b->tab[y][x] == g->ennemy || b->tab[y][x] == ft_tolower(g->ennemy))
-			{
-				
-			}
-			if (b->tab[y][x] != '\0' && b->tab[y][x] != '/' && b->tab[y])
-			{
-				mark(b, g);
-				get_closest_op(b, g); 
-				if (place_check(b, g) == 0)
-					return (0);
-			}
-			if (b->tab[y][x] == '\0' && b->tab[y] == NULL)
-				return (0);
-			i = 1;
-		}
+		i = trigger_strategy[g->play](b, g);
+		reset_board(b, g);
 	}
-	g->place.x -= tmp.x;
-	g->place.y -= tmp.y;
-	return (1);
 }
-*/
