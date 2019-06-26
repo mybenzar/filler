@@ -31,9 +31,8 @@ enum				e_state
 
 enum				e_play
 {
-	E_ATTACK,
 	E_SETTLE,
-	E_MIRROR,
+	E_FILL,
 };
 
 enum				e_parse
