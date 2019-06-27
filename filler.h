@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/27 10:08:45 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/27 12:29:49 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@
 enum				e_state
 {
 	E_EMPTY,
-	E_FULL
+	E_FULL,
+	E_PLAYER,
+	E_ENNEMY
 };
 
 enum				e_play
@@ -91,7 +93,7 @@ int						get_player(void);
 t_piece					*get_piece(void);
 int						get_piece_size(t_piece *piece, char **tab);
 int						nb_adj_piece(char **tab, int x, int y);
-int					ft_left(t_piece *piece);
+int						ft_left(t_piece *piece, int start);
 /*
 **	Memory Handlers
 */

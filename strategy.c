@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/27 10:08:45 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/27 12:29:48 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ static void	get_closest_op(t_board *b, t_game *g)
 	}
 	g->place = place;
 }
+/*
 static int find_possible_place(t_board *b, t_game *g)
 {
 	int i;
@@ -98,7 +99,7 @@ static int find_possible_place(t_board *b, t_game *g)
 		j = 0;
 		while (b->tab[i][j] != '\0')
 		{
-			if (b->tab[i][j] == g->player || b->tab[i][j] == ft_tolower(g->player))
+			if (b->tab[i][j] == g->player)
 			{
 				g->place.x = j;
 				g->place.y = i;
@@ -111,6 +112,8 @@ static int find_possible_place(t_board *b, t_game *g)
 	}
 	return (0);
 }
+*/
+
 /*
 **	--> Place Check : checks if there is enough space to place the piece
 **	starting from the target coordinates
@@ -200,118 +203,46 @@ static t_piece	*piece_cpy(t_piece *src)
 	return (dest);
 }
 
-static int		place_check(t_board *b, t_game *g)
+static int		scan(t_board *b, t_game *g, t_piece *p_rel, left)
 {
 	int		x;
-	int 	y;
+	int 	y;	
 	int 	i;
-	t_piece	*p_rel;
-	int		left;
 
 	i = 1;
-	left = 0;
-	p_rel = piece_cpy(b->piece);
-	dprintf(2, "\n im in place check\n");
-	dprintf(2, "\nbefore b->piece->pos[0].x = %d\n", b->piece->pos[0].x); 
-	dprintf(2, "before b->piece->pos[0].y = %d\n", b->piece->pos[0].y); 
-	if (ft_left(p_rel) == 0
-		|| p_rel->width > b->width || p_rel->height > b->height)
-		return (0);
 	while (i < b->piece->size)
 	{
 		if (left == 1)
 			place_left(g, &x, &y, p_rel->pos[i]);
 		else
-			place_right(g, &x, &y, p_rel->pos[i]);	
-		if (x >= b->width || y >= b->height || x < 0 || y < 0)
-		{
-			dprintf(2, "quits because x, y >\n");
-			dprintf(2, "x = %d, y = %d\n", x, y);
-			mark(b, g->place.x, g->place.y);
-			if (find_possible_place(b, g) == 0)
-				return (0);
-			display_board(b);
-			dprintf(2, "possible places found are g->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);  
-			i = 1;
-			continue ;
-		}
+			place_right(g, &x, &y, p_rel->pos[i]);
+		if (x >= b->width || y >= b->height || x < 0 || y < 0
+			|| (b->tab[y][x] != '\0' && b->tab[y][x] != '.'))
+			 return (0);
 		if (b->tab[y][x] == '.')
-		{
-			dprintf(2, "b->piece->pos[%d].x = %d +/- g->place.x = %d\n", i, p_rel->pos[i].x, g->place.x); 
-			dprintf(2, "b->piece->pos[%d].y = %d +/- g->place.y = %d\n", i, p_rel->pos[i].y, g->place.y); 
-			dprintf(2, "tab[%d][%d] = %c\n", y, x, b->tab[y][x]);
-			dprintf(2, "i before being incremented = %d\n", i);
 			i++;
-		}
-		else if (count_char(b, g->player) == 0)
-		{
-			dprintf(2, "i should be here before the end\n");
-			if (left == 1)
-				return (0);
-			reset_board(b, g);
-			i = 1;
-			left = 1;
-			find_possible_place(b, g);
-		}
-		if (b->tab[y][x] != '\0' && b->tab[y][x] != '.')
-		{
-			dprintf(2, "\n-->marks board and tries another place\n");
-			mark(b, g->place.x, g->place.y);
-			find_possible_place(b, g);
-			display_board(b);
-			i = 1;
-		}
+		if (i == b->piece->size)
+			return (1);
+}
+//while scan = 0, start++
+static int		place_check(t_board *b, t_game *g, int left, int *start)
+{
+	t_piece	*p_rel;
 
+	p_rel = piece_cpy(b->piece);
+	if (p_rel->width > b->width || p_rel->height > b->height)
+		return (0);
+	while (*start < b->piece->size)
+	{
+		ft_left(p_rel, start);
+		if (scan(b, g, p_rel, left) == 1)
+			return (1);
+		*start += 1;
 	}
 	free_piece(p_rel);
-	g->place.x += (left == 0) ? - b->piece->pos[0].x : b->piece->pos[0].x;
-	g->place.y += (left == 0) ? - b->piece->pos[0].y : b->piece->pos[0].y;
-	dprintf(2, "when quitting check place: \n g->place.x = %d, g->place.y = %d\n", g->place.x, g->place.y);
-	dprintf(2, "\nafter ->piece->pos[0].x = %d\n", b->piece->pos[0].x); 
-	dprintf(2, "after->piece->pos[0].y = %d\n", b->piece->pos[0].y); 
-	dprintf(2, "end of place check \n\n");
-	reset_board(b, g);
-	return (1);
+	return (0);
 }
 
-/*
-**	--> Settle : Covers most of the field in diagonal in order to block oponent
-**	when reaches the top right corner and then the bottom left corner, starts 
-**	attacking again
-*/
-
-/*
-static int	settle(t_board *b, t_game *g)
-{
-	dprintf(2, "\n\n--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------\n\n");
-	g->target.y = b->height - 1;
-	g->target.x = b->width - 1;
-	compute_dist(b, g);
-	dprintf(2, "g->place.x = %d\n g->place.y = %d\n", g->place.x, g->place.y);
-	if (place_check(b, g) == 0 || g->place.y == b->height - 1 || g->place.x == b->width - 1)
-	{
-		if (g->place.y == b->height || g->place.x == b->width)
-		{
-			g->target.y = 0;
-			g->target.x = 0;
-			dprintf(2, "\n\n ---> hello i've reached a corner\n");
-			compute_dist(b, g);
-			dprintf(2, "g->place.x = %d\n g->place.y = %d\n", g->place.x, g->place.y);
-			if (place_check(b, g) == 0)
-			{
-				g->play = E_FILL;
-				return (0);
-			}
-		reset_board(b, g);
-		dprintf(2, "\n\n-->board has been reseted, new board:\n");
-		display_board(b);
-		g->play = E_FILL;
-		return (0);
-		}
-	}
-	return (1);
-}
-*/
 static int	surrender(t_board *b, t_game *g)
 {
 	reset_board(b, g);
@@ -320,29 +251,32 @@ static int	surrender(t_board *b, t_game *g)
 	return (1);
 }
 
-/*
-static int	fill(t_board *b, t_game *g)
+static int	attack(t_board *b, t_game *g)
 {
-	dprintf(2, "\n\n--------------->>>FILL TRIGGERED<<<<<<<<<<<<<<---------------\n\n");
-	if (find_possible_place(b, g) == 1 && place_check(b, g) == 1)
-		return (1);
-	else
-	{
-		g->play = E_SURRENDER;
-		return (0);
-	}
-}
-*/
-/*
-** --> Strategy : if oponent is close then attack, if they're far, defend
-*/
+	int left;
+	int start;
 
-static int	attack(t_board *board, t_game *game)
-{
 	dprintf(2, "\n\n--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------\n\n");
-	get_closest_op(board, game);
-	if (place_check(board, game) == 0)
-		return (0);
+	left = 0;
+	get_closest_op(b, g);
+	while (place_check(b, g, left, &start) == 0)
+	{
+		mark(b, g->place.x, g->place.y);
+		get_closest_op(b, g);
+		dprintf(2, "coordinates to be tried :\ng->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
+		display_board(b);
+		if (count_char(b, g->player) == 0)
+		{
+			if (left == 1)
+				return (0);
+			left = 1;
+			reset_board(b, g);
+			dprintf(2, "board reseted\n");
+			display_board(b);
+		}
+	}
+	g->place.x += (left == 0) ? - b->piece->pos[start].x : b->piece->pos[start].x;
+	g->place.y += (left == 0) ? - b->piece->pos[start].y : b->piece->pos[start].y;
 	return (1);
 }
 
@@ -393,4 +327,58 @@ static int  mirror(t_board *b, t_game *g)
 	}
 	return (1);
 }
+*/
+/*
+**	--> Settle : Covers most of the field in diagonal in order to block oponent
+**	when reaches the top right corner and then the bottom left corner, starts 
+**	attacking again
+*/
+
+/*
+static int	settle(t_board *b, t_game *g)
+{
+	dprintf(2, "\n\n--------------->>>SETTLE TRIGGERED<<<<<<<<<<<<<<---------------\n\n");
+	g->target.y = b->height - 1;
+	g->target.x = b->width - 1;
+	compute_dist(b, g);
+	dprintf(2, "g->place.x = %d\n g->place.y = %d\n", g->place.x, g->place.y);
+	if (place_check(b, g) == 0 || g->place.y == b->height - 1 || g->place.x == b->width - 1)
+	{
+		if (g->place.y == b->height || g->place.x == b->width)
+		{
+			g->target.y = 0;
+			g->target.x = 0;
+			dprintf(2, "\n\n ---> hello i've reached a corner\n");
+			compute_dist(b, g);
+			dprintf(2, "g->place.x = %d\n g->place.y = %d\n", g->place.x, g->place.y);
+			if (place_check(b, g) == 0)
+			{
+				g->play = E_FILL;
+				return (0);
+			}
+		reset_board(b, g);
+		dprintf(2, "\n\n-->board has been reseted, new board:\n");
+		display_board(b);
+		g->play = E_FILL;
+		return (0);
+		}
+	}
+	return (1);
+}
+*/
+/*
+static int	fill(t_board *b, t_game *g)
+{
+	dprintf(2, "\n\n--------------->>>FILL TRIGGERED<<<<<<<<<<<<<<---------------\n\n");
+	if (find_possible_place(b, g) == 1 && place_check(b, g) == 1)
+		return (1);
+	else
+	{
+		g->play = E_SURRENDER;
+		return (0);
+	}
+}
+*/
+/*
+** --> Strategy : if oponent is close then attack, if they're far, defend
 */

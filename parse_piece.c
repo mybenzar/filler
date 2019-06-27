@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/27 10:08:46 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/27 12:29:49 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,17 +105,17 @@ int	get_piece_size(t_piece *piece, char **tab)
 }
 
 
-int	ft_left(t_piece *piece)
+int	ft_left(t_piece *piece, int start)
 {
 	int p;
 
-	while (piece->pos[0].x != 0)
+	while (piece->pos[start].x != 0)
 	{
 		p = -1;
 		while (++p < piece->size)
 			piece->pos[p].x -= 1;
 	}
-	while (piece->pos[0].y != 0)
+	while (piece->pos[start].y != 0)
 	{
 		p = -1;
 		while (++p < piece->size)
