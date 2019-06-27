@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/27 12:29:49 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/27 15:56:44 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,10 @@ enum				e_play
 
 enum				e_parse
 {
-	E_GET_TAB,
 	E_GET_SIZE,
-	E_GET_POS,
-	E_CHECK,
-	E_END
+	E_GET_TAB,
+	E_ANALYZE,
+	E_CHECK
 };
 
 typedef struct		s_posi
@@ -53,36 +52,29 @@ typedef struct		s_posi
 	int				y;
 }					t_posi;
 
-typedef struct		s_piece
-{
-	t_posi			*pos;
-	int				width;
-	int				height;
-	int				size;
-	char			pad[4];
-}					t_piece;
-
 typedef struct		s_board
 {
 	char			**tab;
 	int				width;
 	int				height;
-	t_piece			*piece;
 }					t_board;
 
 typedef struct 		s_game
 {
 	int				player;
 	int				ennemy;
-	t_posi			ennemy_pos;
 	int				end;
 	enum e_state	state;
 	enum e_play		play;
+	enum e_parse	parse;
 	t_posi			target;
 	t_posi			place;
+	t_board			*board;
+	t_board			*piece;
 }					t_game;
 
 typedef int	(*t_strategy)(t_board *, t_game *);
+typedef int (*t_parse)(t_board *);
 
 /*
 **	Parsing Functions
@@ -90,10 +82,9 @@ typedef int	(*t_strategy)(t_board *, t_game *);
 
 int						get_board(t_board *board);
 int						get_player(void);
-t_piece					*get_piece(void);
-int						get_piece_size(t_piece *piece, char **tab);
-int						nb_adj_piece(char **tab, int x, int y);
+int						get_piece(t_board *piece);
 int						ft_left(t_piece *piece, int start);
+int						count_char(t_board *b, char c);
 /*
 **	Memory Handlers
 */

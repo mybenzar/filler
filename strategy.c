@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/27 12:29:48 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/27 15:56:43 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,13 +126,11 @@ static void		mark(t_board *b, int x, int y)
 
 static int		place_left(t_game *g, int *x, int *y, t_posi pos)
 {
-	if (pos.x - g->place.x >= 0 && pos.y - g->place.y >= 0)
-	{
-		*x = pos.x - g->place.x;
-		*y = pos.y - g->place.y;
-		return (1);
-	}
-	return (0);
+	*x = pos.x - g->place.x;
+	*y = pos.y - g->place.y;
+	dprintf(2, "pos.x (%d) - g->place.x (%d) = x(%d)\n", pos.x, g->place.x, *x);
+	dprintf(2, "pos.y (%d) - g->place.y (%d) = y(%d)\n", pos.y, g->place.y, *y);
+	return (1);
 }
 
 static int		place_right(t_game *g, int *x, int *y, t_posi pos)
@@ -142,7 +140,7 @@ static int		place_right(t_game *g, int *x, int *y, t_posi pos)
 	return (1);
 }
 
-static int	count_char(t_board *b, char c)
+int	count_char(t_board *b, char c)
 {
 	int		i;
 	int 	j;
@@ -203,41 +201,53 @@ static t_piece	*piece_cpy(t_piece *src)
 	return (dest);
 }
 
-static int		scan(t_board *b, t_game *g, t_piece *p_rel, left)
+static int		scan(t_board *b, t_game *g, t_piece *p_rel, int left)
 {
 	int		x;
 	int 	y;	
 	int 	i;
 
 	i = 1;
+	x = 0;
+	y = 0;
 	while (i < b->piece->size)
 	{
+		dprintf(2, "LEFT = %d\n", left);
 		if (left == 1)
 			place_left(g, &x, &y, p_rel->pos[i]);
 		else
 			place_right(g, &x, &y, p_rel->pos[i]);
+		dprintf(2, "p_rel->pos[%d].x = %d and p_rel->pos[%d].y = %d\n", i, p_rel->pos[i].x, i, p_rel->pos[i].y);
+		dprintf(2, "x = %d and y = %d and b->width = %d and b->height = %d\n", x, y, b->width, b->height);
 		if (x >= b->width || y >= b->height || x < 0 || y < 0
 			|| (b->tab[y][x] != '\0' && b->tab[y][x] != '.'))
-			 return (0);
+		{ 
+			dprintf(2, "exits because x, y < >\n");
+			return (0);
+		}
+		dprintf(2, "tab[%d][%d] = %c\n", y, x, b->tab[y][x]);
 		if (b->tab[y][x] == '.')
 			i++;
-		if (i == b->piece->size)
-			return (1);
+	}
+	return (1);
 }
-//while scan = 0, start++
+
 static int		place_check(t_board *b, t_game *g, int left, int *start)
 {
 	t_piece	*p_rel;
 
+	dprintf(2, "\n\n--------------->>>place_check<<<<<<<<<<<<<<---------------\n\n");
 	p_rel = piece_cpy(b->piece);
 	if (p_rel->width > b->width || p_rel->height > b->height)
 		return (0);
+	*start = 0;
 	while (*start < b->piece->size)
 	{
-		ft_left(p_rel, start);
+		ft_left(p_rel, *start);
 		if (scan(b, g, p_rel, left) == 1)
 			return (1);
 		*start += 1;
+		dprintf(2, "start = %d, and piece->size = %d\n", *start, b->piece->size);
 	}
 	free_piece(p_rel);
 	return (0);
@@ -259,6 +269,8 @@ static int	attack(t_board *b, t_game *g)
 	dprintf(2, "\n\n--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------\n\n");
 	left = 0;
 	get_closest_op(b, g);
+	start = 0;
+	dprintf(2, "coordinates to be tried :\ng->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
 	while (place_check(b, g, left, &start) == 0)
 	{
 		mark(b, g->place.x, g->place.y);
@@ -273,6 +285,8 @@ static int	attack(t_board *b, t_game *g)
 			reset_board(b, g);
 			dprintf(2, "board reseted\n");
 			display_board(b);
+			get_closest_op(b, g);
+			dprintf(2, "coordinates to be tried :\ng->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
 		}
 	}
 	g->place.x += (left == 0) ? - b->piece->pos[start].x : b->piece->pos[start].x;
@@ -365,8 +379,6 @@ static int	settle(t_board *b, t_game *g)
 	}
 	return (1);
 }
-*/
-/*
 static int	fill(t_board *b, t_game *g)
 {
 	dprintf(2, "\n\n--------------->>>FILL TRIGGERED<<<<<<<<<<<<<<---------------\n\n");
@@ -378,7 +390,4 @@ static int	fill(t_board *b, t_game *g)
 		return (0);
 	}
 }
-*/
-/*
-** --> Strategy : if oponent is close then attack, if they're far, defend
 */
