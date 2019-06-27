@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/26 12:02:00 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/27 10:08:46 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,44 +108,28 @@ int	get_piece_size(t_piece *piece, char **tab)
 int	ft_left(t_piece *piece)
 {
 	int p;
-	int flag;
 
-	p = 0;
-	flag = 0;
-	while (p < piece->size && piece->pos[p].x > 0)
-	{
-		flag = 1;
-		if (piece->pos[p].x == 0)
-		{
-			flag = 0;
-			return (0);
-		}
-		p++;
-	}
-	if (flag == 1)
+	while (piece->pos[0].x != 0)
 	{
 		p = -1;
 		while (++p < piece->size)
 			piece->pos[p].x -= 1;
 	}
-	p = 0;
-	flag = 0;
-	while (p < piece->size && piece->pos[p].y > 0)
-	{
-		flag = 1;
-		if (piece->pos[p].y == 0)
-		{
-			flag = 0;
-			return (0);
-		}
-		p++;
-	}
-	if (flag == 1)
+	while (piece->pos[0].y != 0)
 	{
 		p = -1;
 		while (++p < piece->size)
 			piece->pos[p].y -= 1;
 	}
+	dprintf(2, "\n\n ________relative coordinates_______ \n\n");
+	p = 0;
+	while (p < piece->size)
+	{
+		dprintf(2, "piece->pos[%d].y = %d\n", p, piece->pos[p].y);
+		dprintf(2, "piece->pos[%d].x = %d\n", p, piece->pos[p].x);
+		p++;
+	}
+	dprintf(2, "______________________________________ \n");
 	return (1);
 }
 
