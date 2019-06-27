@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:21:14 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/27 15:22:55 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/27 16:55:29 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ int	main(void)
 		game->player = player_id;
 		if (get_board(board) != 0)
 		{
-			if (get_piece(game->piece) == 0)
+			if (!(board->piece = get_piece()))
 				return (0);
-			break ;
 			play(board, game);
 		}
 		else
 			end = 1;
 	}
+	free_board(board);
 	free_game(game);
 	return (1);
 }

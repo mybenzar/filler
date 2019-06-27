@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/27 15:56:43 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/27 18:14:05 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 **		>> compute_dist compares distances between the target and the player
 **		>> get_closest_op for each ennemy, finds the closest player coordinates
 */
-
+/*
 static int		get_distance(int x, int y, int j, int i)
 {
 	return (ft_abs(x - j) + ft_abs(y - i));
@@ -87,7 +87,7 @@ static void	get_closest_op(t_board *b, t_game *g)
 	}
 	g->place = place;
 }
-/*
+*/
 static int find_possible_place(t_board *b, t_game *g)
 {
 	int i;
@@ -99,11 +99,10 @@ static int find_possible_place(t_board *b, t_game *g)
 		j = 0;
 		while (b->tab[i][j] != '\0')
 		{
-			if (b->tab[i][j] == g->player)
+			if (b->tab[i][j] == '.')
 			{
 				g->place.x = j;
 				g->place.y = i;
-				dprintf(2, "\n--> in find posible place, places found are:\n g->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
 				return (1);
 			}
 			j++;
@@ -112,7 +111,6 @@ static int find_possible_place(t_board *b, t_game *g)
 	}
 	return (0);
 }
-*/
 
 /*
 **	--> Place Check : checks if there is enough space to place the piece
@@ -123,7 +121,7 @@ static void		mark(t_board *b, int x, int y)
 {
 	b->tab[y][x] = '/';
 }
-
+/*
 static int		place_left(t_game *g, int *x, int *y, t_posi pos)
 {
 	*x = pos.x - g->place.x;
@@ -132,8 +130,8 @@ static int		place_left(t_game *g, int *x, int *y, t_posi pos)
 	dprintf(2, "pos.y (%d) - g->place.y (%d) = y(%d)\n", pos.y, g->place.y, *y);
 	return (1);
 }
-
-static int		place_right(t_game *g, int *x, int *y, t_posi pos)
+*/
+static int		place(t_game *g, int *x, int *y, t_posi pos)
 {
 	*x = pos.x + g->place.x;
 	*y = pos.y + g->place.y;
@@ -201,7 +199,7 @@ static t_piece	*piece_cpy(t_piece *src)
 	return (dest);
 }
 
-static int		scan(t_board *b, t_game *g, t_piece *p_rel, int left)
+static int		scan(t_board *b, t_game *g, t_piece *p_rel)
 {
 	int		x;
 	int 	y;	
@@ -212,11 +210,7 @@ static int		scan(t_board *b, t_game *g, t_piece *p_rel, int left)
 	y = 0;
 	while (i < b->piece->size)
 	{
-		dprintf(2, "LEFT = %d\n", left);
-		if (left == 1)
-			place_left(g, &x, &y, p_rel->pos[i]);
-		else
-			place_right(g, &x, &y, p_rel->pos[i]);
+		place(g, &x, &y, p_rel->pos[i]);
 		dprintf(2, "p_rel->pos[%d].x = %d and p_rel->pos[%d].y = %d\n", i, p_rel->pos[i].x, i, p_rel->pos[i].y);
 		dprintf(2, "x = %d and y = %d and b->width = %d and b->height = %d\n", x, y, b->width, b->height);
 		if (x >= b->width || y >= b->height || x < 0 || y < 0
@@ -232,22 +226,22 @@ static int		scan(t_board *b, t_game *g, t_piece *p_rel, int left)
 	return (1);
 }
 
-static int		place_check(t_board *b, t_game *g, int left, int *start)
+static int		place_check(t_board *b, t_game *g)
 {
 	t_piece	*p_rel;
 
 	dprintf(2, "\n\n--------------->>>place_check<<<<<<<<<<<<<<---------------\n\n");
 	p_rel = piece_cpy(b->piece);
 	if (p_rel->width > b->width || p_rel->height > b->height)
-		return (0);
-	*start = 0;
-	while (*start < b->piece->size)
 	{
-		ft_left(p_rel, *start);
-		if (scan(b, g, p_rel, left) == 1)
-			return (1);
-		*start += 1;
-		dprintf(2, "start = %d, and piece->size = %d\n", *start, b->piece->size);
+		free_piece(p_rel);
+		return (0);
+	}
+	ft_left(p_rel);
+	if (scan(b, g, p_rel) == 1)
+	{
+		free_piece(p_rel);
+		return (1);
 	}
 	free_piece(p_rel);
 	return (0);
@@ -263,34 +257,27 @@ static int	surrender(t_board *b, t_game *g)
 
 static int	attack(t_board *b, t_game *g)
 {
-	int left;
-	int start;
+//	int start;
 
 	dprintf(2, "\n\n--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------\n\n");
-	left = 0;
-	get_closest_op(b, g);
-	start = 0;
+//	get_closest_op(b, g);
+//	start = 0;
+	find_possible_place(b, g);
 	dprintf(2, "coordinates to be tried :\ng->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
-	while (place_check(b, g, left, &start) == 0)
+	while (place_check(b, g) == 0)
 	{
 		mark(b, g->place.x, g->place.y);
-		get_closest_op(b, g);
+		//get_closest_op(b, g);
+		find_possible_place(b, g);
 		dprintf(2, "coordinates to be tried :\ng->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
 		display_board(b);
 		if (count_char(b, g->player) == 0)
-		{
-			if (left == 1)
-				return (0);
-			left = 1;
-			reset_board(b, g);
-			dprintf(2, "board reseted\n");
-			display_board(b);
-			get_closest_op(b, g);
-			dprintf(2, "coordinates to be tried :\ng->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
-		}
+			return (0);
 	}
-	g->place.x += (left == 0) ? - b->piece->pos[start].x : b->piece->pos[start].x;
-	g->place.y += (left == 0) ? - b->piece->pos[start].y : b->piece->pos[start].y;
+/*	g->place.x -= b->piece->pos[start].x;
+	g->place.y -= b->piece->pos[start].y;*/
+	g->place.x -= b->piece->pos[0].x;
+	g->place.y -= b->piece->pos[0].y;
 	return (1);
 }
 
@@ -389,5 +376,56 @@ static int	fill(t_board *b, t_game *g)
 		g->play = E_SURRENDER;
 		return (0);
 	}
+}
+static int		scan(t_board *b, t_game *g, t_piece *p_rel, int left)
+{
+	int		x;
+	int 	y;	
+	int 	i;
+
+	i = 1;
+	x = 0;
+	y = 0;
+	while (i < b->piece->size)
+	{
+		dprintf(2, "LEFT = %d\n", left);
+		if (left == 1)
+			place_left(g, &x, &y, p_rel->pos[i]);
+		else
+			place_right(g, &x, &y, p_rel->pos[i]);
+		dprintf(2, "p_rel->pos[%d].x = %d and p_rel->pos[%d].y = %d\n", i, p_rel->pos[i].x, i, p_rel->pos[i].y);
+		dprintf(2, "x = %d and y = %d and b->width = %d and b->height = %d\n", x, y, b->width, b->height);
+		if (x >= b->width || y >= b->height || x < 0 || y < 0
+			|| (b->tab[y][x] != '\0' && b->tab[y][x] != '.'))
+		{ 
+			dprintf(2, "exits because x, y < >\n");
+			return (0);
+		}
+		dprintf(2, "tab[%d][%d] = %c\n", y, x, b->tab[y][x]);
+		if (b->tab[y][x] == '.')
+			i++;
+	}
+	return (1);
+}
+
+static int		place_check(t_board *b, t_game *g, int left, int *start)
+{
+	t_piece	*p_rel;
+
+	dprintf(2, "\n\n--------------->>>place_check<<<<<<<<<<<<<<---------------\n\n");
+	p_rel = piece_cpy(b->piece);
+	if (p_rel->width > b->width || p_rel->height > b->height)
+		return (0);
+	*start = 0;
+	while (*start < b->piece->size)
+	{
+		ft_left(p_rel, *start);
+		if (scan(b, g, p_rel, left) == 1)
+			return (1);
+		*start += 1;
+		dprintf(2, "start = %d, and piece->size = %d\n", *start, b->piece->size);
+	}
+	free_piece(p_rel);
+	return (0);
 }
 */

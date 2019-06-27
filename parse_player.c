@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/27 15:45:55 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/06/27 17:17:09 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ static int	clean_board(t_board *board)
 	return (1);
 }
 
+/*
 static int	analyze(t_board *board)
 {
 	int i;
@@ -102,6 +103,7 @@ static int	analyze(t_board *board)
 	}
 	return (1);
 }
+*/
 
 int		get_board(t_board *board)
 {
@@ -131,8 +133,8 @@ int		get_board(t_board *board)
 	board->tab[i] = NULL;
 	if (clean_board(board) == 0)
 		return (0);
-	if (analyze(board) == 0)
-		return (0);
+/*	if (analyze(board) == 0)
+		return (0);*/
 	return (1);
 }
 
