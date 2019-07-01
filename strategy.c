@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/01 12:14:39 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/01 12:34:53 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,11 +164,10 @@ static t_piece	*piece_cpy(t_piece *src)
 	return (dest);
 }
 
-static int		place(t_game *g, int *x, int *y, t_posi pos)
+static void		place(t_game *g, int *x, int *y, t_posi pos)
 {
-	*x += pos.x + g->place.x;
-	*y += pos.y + g->place.y;
-	return (1);
+	*x = pos.x + g->place.x;
+	*y = pos.y + g->place.y;
 }
 
 static int		shift(t_board *b, int *x, int *y)
@@ -187,7 +186,7 @@ static int		shift(t_board *b, int *x, int *y)
 	return (1);
 }
 
-static int		scan(t_board *b, t_game *g, t_piece *p_rel)
+static int		test_piece(t_board *b, t_game *g, t_piece *p_rel)
 {
 	int		x;
 	int 	y;	
@@ -195,21 +194,14 @@ static int		scan(t_board *b, t_game *g, t_piece *p_rel)
 	int		overlap;
 
 	i = 0;
-	x = 0;
-	y = 0;
+
 	overlap = 0;
 	while (i < b->piece->size)
 	{
-		place(g, &x, &y, p_rel->pos[i]);
 		if (x >= b->width || y >= b->height || x < 0 || y < 0
 			|| (b->tab[y][x] != '\0' && b->tab[y][x] != '.'
 			&& b->tab[y][x] != g->player))
-		{
-			if (shift(b, &x, &y) == 0)
 				return (0);
-			overlap = 0;
-			i = 0;
-		}
 		if (b->tab[y][x] == '.' || b->tab[y][x] == g->player)
 		{	
 			display_board(b);
@@ -220,16 +212,38 @@ static int		scan(t_board *b, t_game *g, t_piece *p_rel)
 			dprintf(2, "overlap = %d\n", overlap);
 		}
 		if (overlap > 1)
-		{
-			if (shift(b, &x, &y) == 0)
-				return (0);
-			overlap = 0;
-			i = 0;
-		}
+			return (0);
 		if (i == b->piece->size && overlap == 1)
 			return (1);
 	}
 	return (0);
+}
+
+static int		scan(t_board *b, t_game *g, t_piece *p_rel)
+{
+	int	first_x_place;
+	int		x;
+	int 	y;	
+
+	x = 0;
+	y = 0;
+	first_x_place = g_place.x;
+	place(g, &x, &y, p_rel->pos[i]);
+	while (test_piece == 0)
+	{
+		if (*x + 1 < b->width)
+			g->place.x += 1;
+		else if (b->tab[*y][*x] == '\0' && *y + 1 < b->height)
+		{
+			g->place.y += 1;
+			g->place.x = first_x_place;
+		}
+		else if (b->tab[*y][*x] == '\0' && *y + 1 >= b->height)
+			return (0);
+		dprintf(2, "shift was successful and returns x = %d and y = %d\n", *x, *y);
+		place(g, &x, &y, p_rel->pos[i]);
+	}
+	return (1);
 }
 
 static int		place_check(t_board *b, t_game *g)
