@@ -21,16 +21,6 @@ piece->pos[1].x = 1
 piece->pos[2].y = 0
 piece->pos[2].x = 2
 ______________________________________ 
-p_rel->pos[1].x = 1 and p_rel->pos[1].y = 0
-x = 3 and y = 8 and b->width = 17 and b->height = 15
-tab[8][3] = .
-p_rel->pos[2].x = 2 and p_rel->pos[2].y = 0
-x = 4 and y = 8 and b->width = 17 and b->height = 15
-tab[8][4] = .
-
-
- im in play 
-coordinates = 8 2
 board->height = 15, board->width = 17
 .................
 .................
@@ -47,56 +37,58 @@ board->height = 15, board->width = 17
 ..............X..
 .................
 .................
+tab[8][2] == O
+overlap = 1
+--------------> im in shift
+shift was successful and returns x = 6 and y = 16
+=================================================================
+==16391==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60c000000180 at pc 0x00010d058d46 bp 0x7fff52bf3f90 sp 0x7fff52bf3f88
+READ of size 8 at 0x60c000000180 thread T0
+    #0 0x10d058d45 in scan strategy.c:213
+    #1 0x10d054cad in place_check strategy.c:247
+    #2 0x10d0525ec in attack strategy.c:269
+    #3 0x10d05235c in strategy strategy.c:285
+    #4 0x10d04685b in play main.c:19
+    #5 0x10d046f8d in main main.c:51
+    #6 0x7fff9bd42234 in start (libdyld.dylib:x86_64+0x5234)
 
+0x60c000000180 is located 0 bytes to the right of 128-byte region [0x60c000000100,0x60c000000180)
+allocated by thread T0 here:
+    #0 0x10d0e2f5c in wrap_malloc (libclang_rt.asan_osx_dynamic.dylib:x86_64+0x55f5c)
+    #1 0x10d047158 in get_board parse_player.c:117
+    #2 0x10d046ea1 in main main.c:47
+    #3 0x7fff9bd42234 in start (libdyld.dylib:x86_64+0x5234)
 
-________________end of turn 
-
-display piece 
-..
-**
-
-
---------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
-
-coordinates to be tried :
-g->place.x = 4 and g->place.y = 7
-
-
---------------->>>place_check<<<<<<<<<<<<<<---------------
-
-
-
- ________relative coordinates_______ 
-
-piece->pos[0].y = 0
-piece->pos[0].x = 0
-piece->pos[1].y = 0
-piece->pos[1].x = 1
-______________________________________ 
-p_rel->pos[1].x = 1 and p_rel->pos[1].y = 0
-x = 5 and y = 7 and b->width = 17 and b->height = 15
-tab[7][5] = .
-
-
- im in play 
-coordinates = 6 4
-board->height = 15, board->width = 17
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-.................
-..OOO............
-.................
-.................
-..............X..
-..............X..
-.................
-.................
-
-
-________________end of turn 
-
+SUMMARY: AddressSanitizer: heap-buffer-overflow strategy.c:213 in scan
+Shadow bytes around the buggy address:
+  0x1c17ffffffe0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1c17fffffff0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1c1800000000: fa fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+  0x1c1800000010: 00 00 00 00 00 00 00 04 fa fa fa fa fa fa fa fa
+  0x1c1800000020: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x1c1800000030:[fa]fa fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+  0x1c1800000040: 00 00 00 00 00 00 00 00 fa fa fa fa fa fa fa fa
+  0x1c1800000050: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x1c1800000060: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x1c1800000070: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x1c1800000080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==16391==ABORTING

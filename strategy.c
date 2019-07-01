@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/27 18:14:05 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/01 12:14:39 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static int		get_distance(int x, int y, int j, int i)
 {
 	return (ft_abs(x - j) + ft_abs(y - i));
 }
-// redesign with peice
+// redesign with piece
+
 static int		compute_dist(t_board *b, t_game *g)
 {
 	int	dist;
@@ -32,10 +33,10 @@ static int		compute_dist(t_board *b, t_game *g)
 	int j;
 
 	i = 0;
-	while (i < b->piece->size)
+	while (i < b->height)
 	{
 		j = 0;
-		while (j < b->piece->width)
+		while (j < b->width)
 		{
 			if (b->tab[i][j] == g->player)
 			{
@@ -70,10 +71,10 @@ static void	get_closest_op(t_board *b, t_game *g)
 		j = 0;
 		while (b->tab[i][j] != '\0')
 		{
-			if (b->tab[i][j] == g->ennemy || b->tab[i][j] == ft_tolower(g->ennemy))
+			if (b->tab[i][j] == ft_toupper(g->ennemy))
 			{
-				g->target.x = j - b->piece->min.x;
-				g->target.y = i - b->piece->min.y;
+				g->target.x = j;
+				g->target.y = i;
 				if ((tmp = compute_dist(b, g)) && dist > tmp && dist != 0) 
 				{
 					dist = tmp;
@@ -86,32 +87,9 @@ static void	get_closest_op(t_board *b, t_game *g)
 	}
 	g->place = place;
 }
-/*
 
-static int find_possible_place(t_board *b, t_game *g)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while (b->tab[i] != NULL)
-	{
-		j = 0;
-		while (b->tab[i][j] != '\0')
-		{
-			if (b->tab[i][j] == '.')
-			{
-				g->place.x = j;
-				g->place.y = i;
-				return (1);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-*/
+// get_closest_op renvoie la place la plus proche de l'ennemi decalee de xmin et ymin piece
+// il faut ensuite essayer de placer la piece
 
 /*
 **	--> Place Check : checks if there is enough space to place the piece
@@ -122,22 +100,8 @@ static void		mark(t_board *b, int x, int y)
 {
 	b->tab[y][x] = '/';
 }
-/*
-static int		place_left(t_game *g, int *x, int *y, t_posi pos)
-{
-	*x = pos.x - g->place.x;
-	*y = pos.y - g->place.y;
-	dprintf(2, "pos.x (%d) - g->place.x (%d) = x(%d)\n", pos.x, g->place.x, *x);
-	dprintf(2, "pos.y (%d) - g->place.y (%d) = y(%d)\n", pos.y, g->place.y, *y);
-	return (1);
-}
-*/
-static int		place(t_game *g, int *x, int *y, t_posi pos)
-{
-	*x = pos.x + g->place.x;
-	*y = pos.y + g->place.y;
-	return (1);
-}
+
+
 
 int	count_char(t_board *b, char c)
 {
@@ -200,31 +164,72 @@ static t_piece	*piece_cpy(t_piece *src)
 	return (dest);
 }
 
+static int		place(t_game *g, int *x, int *y, t_posi pos)
+{
+	*x += pos.x + g->place.x;
+	*y += pos.y + g->place.y;
+	return (1);
+}
+
+static int		shift(t_board *b, int *x, int *y)
+{
+	dprintf(2, "--------------> im in shift\n");
+	if (*x + 1 < b->width)
+		*x += 1;
+	else if (b->tab[*y][*x] == '\0' && *y + 1 < b->height)
+	{
+		*y += 1;
+		*x = 0;
+	}
+	else if (b->tab[*y][*x] == '\0' && *y + 1 >= b->height)
+		return (0);
+	dprintf(2, "shift was successful and returns x = %d and y = %d\n", *x, *y);
+	return (1);
+}
+
 static int		scan(t_board *b, t_game *g, t_piece *p_rel)
 {
 	int		x;
 	int 	y;	
 	int 	i;
+	int		overlap;
 
-	i = 1;
+	i = 0;
+	x = 0;
+	y = 0;
+	overlap = 0;
 	while (i < b->piece->size)
 	{
-		x = 0;//- b->piece->min.x;
-		y = 0;//- b->piece->min.y;
 		place(g, &x, &y, p_rel->pos[i]);
-		dprintf(2, "p_rel->pos[%d].x = %d and p_rel->pos[%d].y = %d\n", i, p_rel->pos[i].x, i, p_rel->pos[i].y);
-		dprintf(2, "x = %d and y = %d and b->width = %d and b->height = %d\n", x, y, b->width, b->height);
 		if (x >= b->width || y >= b->height || x < 0 || y < 0
-			|| (b->tab[y][x] != '\0' && b->tab[y][x] != '.'))
-		{ 
-			dprintf(2, "exits because x, y < >\n");
-			return (0);
+			|| (b->tab[y][x] != '\0' && b->tab[y][x] != '.'
+			&& b->tab[y][x] != g->player))
+		{
+			if (shift(b, &x, &y) == 0)
+				return (0);
+			overlap = 0;
+			i = 0;
 		}
-		dprintf(2, "tab[%d][%d] = %c\n", y, x, b->tab[y][x]);
-		if (b->tab[y][x] == '.')
+		if (b->tab[y][x] == '.' || b->tab[y][x] == g->player)
+		{	
+			display_board(b);
+			dprintf(2, "tab[%d][%d] == %c\n", y, x, b->tab[y][x]);
 			i++;
+			if (b->tab[y][x] == g->player)
+				overlap++;
+			dprintf(2, "overlap = %d\n", overlap);
+		}
+		if (overlap > 1)
+		{
+			if (shift(b, &x, &y) == 0)
+				return (0);
+			overlap = 0;
+			i = 0;
+		}
+		if (i == b->piece->size && overlap == 1)
+			return (1);
 	}
-	return (1);
+	return (0);
 }
 
 static int		place_check(t_board *b, t_game *g)
@@ -423,3 +428,30 @@ static int		place_check(t_board *b, t_game *g, int left, int *start)
 	return (0);
 }
 */
+/*
+
+static int find_possible_place(t_board *b, t_game *g)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (b->tab[i] != NULL)
+	{
+		j = 0;
+		while (b->tab[i][j] != '\0')
+		{
+			if (b->tab[i][j] == '.')
+			{
+				g->place.x = j;
+				g->place.y = i;
+				return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+*/
+
