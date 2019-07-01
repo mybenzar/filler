@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/01 16:00:46 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/01 17:49:53 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,6 +238,7 @@ t_piece	*get_piece(void)
 {
 	t_piece *piece;
 	char 	**tab;
+	int			p;
 
 	if (!(piece = (t_piece*)ft_memalloc(sizeof(t_piece))))
 		return (NULL);
@@ -266,5 +267,14 @@ t_piece	*get_piece(void)
 		free_piece(piece);
 		return (NULL);
 	}
+	dprintf(2, "\n\n ________ coordinates_______ \n\n");
+	p = 0;
+	while (p < piece->size)
+	{
+		dprintf(2, "piece->pos[%d].y = %d\n", p, piece->pos[p].y);
+		dprintf(2, "piece->pos[%d].x = %d\n", p, piece->pos[p].x);
+		p++;
+	}
+	dprintf(2, "______________________________________ \n");
 	return (piece);
 }

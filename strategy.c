@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/01 16:00:45 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/01 17:49:52 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static int		compute_dist(t_board *b, t_game *g)
 	int j;
 
 	i = 0;
+	dist = b->height + b->width;
 	while (i < b->height)
 	{
 		j = 0;
@@ -43,8 +44,10 @@ static int		compute_dist(t_board *b, t_game *g)
 				if (dist > get_distance(g->target.x, g->target.y, j, i))
 				{
 					dist = get_distance(g->target.x, g->target.y, j, i);
-					g->place.x = j - b->piece->min.x;
-					g->place.y = i - b->piece->min.y;
+					g->place.x = ft_max(j - b->piece->width, 0);
+					g->place.y = ft_max(i - b->piece->height, 0);
+					g->to_mark.x = j;
+					g->to_mark.y = i;
 				}
 			}
 			j++;
@@ -86,6 +89,7 @@ static void	get_closest_op(t_board *b, t_game *g)
 		i++;
 	}
 	g->place = place;
+	dprintf(2, "\n\n -------------->>> in get closest op <<-----------\n g->place.x = %d, g->place.y = %d\n", g->place.x, g->place.y);
 }
 
 // get_closest_op renvoie la place la plus proche de l'ennemi decalee de xmin et ymin piece
@@ -221,17 +225,16 @@ static int		scan(t_board *b, t_game *g, t_piece *p_rel)
 	countx = 0;
 	county = 0;
 	first_x_place = g->place.x;
-	g->to_mark.x = g->place.x;
-	g->to_mark.y = g->place.y;
 	while (test_piece(b, g, p_rel, &pos) == 0)
 	{
-		if (countx < b->piece->width && b->tab[pos.y][pos.x + 1] != '\0')
+		dprintf(2, "countx = %d and county = %d\n", countx, county);
+		if (countx + 1 <= b->piece->width && b->tab[pos.y][pos.x + 1] != '\0')
 		{
 			g->place.x += 1;
 			countx++;
 			dprintf(2, "g->place.x is now : %d\n", g->place.x);
 		}
-		else if (countx == b->piece->width && county < b->piece->height)
+		if (countx == b->piece->width && county + 1 <= b->piece->height)
 		{
 			g->place.y += 1;
 			countx = 0;
@@ -241,7 +244,7 @@ static int		scan(t_board *b, t_game *g, t_piece *p_rel)
 		}
 		dprintf(2, "countx = %d and county = %d, b->piece->width = %d and b->piece->height = %d\n", countx,
 				county, b->piece->width, b->piece->height);
-		if (b->tab[pos.y][pos.x] == '\0' || (countx == b->piece->width && county == b->piece->height))
+		if (b->tab[pos.y][pos.x] == '\0' || (countx + 1 == b->piece->width && county + 1== b->piece->height))
 		{
 			dprintf(2, "returns 0 in scan, with countx = %d and county = %d\n", countx, county);
 			return (0);
@@ -262,7 +265,7 @@ static int		place_check(t_board *b, t_game *g)
 		free_piece(p_rel);
 		return (0);
 	}
-	ft_left(p_rel);
+	//ft_left(p_rel);
 	if (scan(b, g, p_rel) == 1)
 	{
 		free_piece(p_rel);
@@ -287,15 +290,16 @@ static int	attack(t_board *b, t_game *g)
 	dprintf(2, "coordinates to be tried :\ng->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
 	while (place_check(b, g) == 0)
 	{
-		mark(b, g->to_mark.y, g->to_mark.x);
+		dprintf(2, "to mark ======> g->to_mark.y =%d , g->to_mark.x = %d\n", g->to_mark.y, g->to_mark.x);
+		mark(b, g->to_mark.x, g->to_mark.y);
 		get_closest_op(b, g);
 		dprintf(2, "coordinates to be tried :\ng->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
 		display_board(b);
 		if (count_char(b, g->player) == 0)
 			return (0);
 	}
-	g->place.x -= b->piece->pos[0].x;
-	g->place.y -= b->piece->pos[0].y;
+//	g->place.x -= b->piece->pos[0].x;
+//	g->place.y -= b->piece->pos[0].y;
 	return (1);
 }
 

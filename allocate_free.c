@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:08:04 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/27 16:58:45 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/01 16:31:07 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void		free_game(t_game *game)
 	{
 		game->player = 0;
 		game->end = 0;
-		game->ennemy_pos.x = 0;
-		game->ennemy_pos.y = 0;
+		game->to_mark.x = 0;
+		game->to_mark.y = 0;
 		game->target.x = 0;
 		game->target.y = 0;
 		free(game);
