@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/01 12:34:53 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/01 16:00:45 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	get_closest_op(t_board *b, t_game *g)
 		j = 0;
 		while (b->tab[i][j] != '\0')
 		{
-			if (b->tab[i][j] == ft_toupper(g->ennemy))
+			if (ft_toupper(b->tab[i][j]) == ft_toupper(g->ennemy))
 			{
 				g->target.x = j;
 				g->target.y = i;
@@ -170,78 +170,83 @@ static void		place(t_game *g, int *x, int *y, t_posi pos)
 	*y = pos.y + g->place.y;
 }
 
-static int		shift(t_board *b, int *x, int *y)
+static int		test_piece(t_board *b, t_game *g, t_piece *p_rel, t_posi *pos)
 {
-	dprintf(2, "--------------> im in shift\n");
-	if (*x + 1 < b->width)
-		*x += 1;
-	else if (b->tab[*y][*x] == '\0' && *y + 1 < b->height)
-	{
-		*y += 1;
-		*x = 0;
-	}
-	else if (b->tab[*y][*x] == '\0' && *y + 1 >= b->height)
-		return (0);
-	dprintf(2, "shift was successful and returns x = %d and y = %d\n", *x, *y);
-	return (1);
-}
-
-static int		test_piece(t_board *b, t_game *g, t_piece *p_rel)
-{
-	int		x;
-	int 	y;	
 	int 	i;
 	int		overlap;
 
 	i = 0;
-
 	overlap = 0;
+	dprintf(2, "\n\n--------------->>>test_piece<<<<<<<<<<<<<<---------------\n\n");
 	while (i < b->piece->size)
 	{
-		if (x >= b->width || y >= b->height || x < 0 || y < 0
-			|| (b->tab[y][x] != '\0' && b->tab[y][x] != '.'
-			&& b->tab[y][x] != g->player))
-				return (0);
-		if (b->tab[y][x] == '.' || b->tab[y][x] == g->player)
+		place(g, &pos->x, &pos->y, p_rel->pos[i]);
+		if (pos->x >= b->width || pos->y >= b->height || pos->x < 0 || pos->y < 0
+			|| (b->tab[pos->y][pos->x] != '\0' && b->tab[pos->y][pos->x] != '.'
+			&& b->tab[pos->y][pos->x] != g->player))
+		{	
+			dprintf(2, "i exit through here\n");
+			return (0);
+		}
+		if (b->tab[pos->y][pos->x] == '.' || b->tab[pos->y][pos->x] == g->player)
 		{	
 			display_board(b);
-			dprintf(2, "tab[%d][%d] == %c\n", y, x, b->tab[y][x]);
+			dprintf(2, "tab[%d][%d] == %c\n", pos->y, pos->x, b->tab[pos->y][pos->x]);
 			i++;
-			if (b->tab[y][x] == g->player)
+			if (b->tab[pos->y][pos->x] == g->player)
 				overlap++;
 			dprintf(2, "overlap = %d\n", overlap);
 		}
 		if (overlap > 1)
+		{
+			dprintf(2, "i exit through overlap\n");
 			return (0);
-		if (i == b->piece->size && overlap == 1)
-			return (1);
+		}
 	}
+	if (overlap == 1 && i == b->piece->size)
+		return (1);
 	return (0);
 }
 
 static int		scan(t_board *b, t_game *g, t_piece *p_rel)
 {
-	int	first_x_place;
-	int		x;
-	int 	y;	
+	int		first_x_place;
+	t_posi	pos;
+	int		county;
+	int		countx;
 
-	x = 0;
-	y = 0;
-	first_x_place = g_place.x;
-	place(g, &x, &y, p_rel->pos[i]);
-	while (test_piece == 0)
+	dprintf(2, "\n\n--------------->>>scan<<<<<<<<<<<<<<---------------\n\n");
+	pos.x = 0;
+	pos.y = 0;
+	countx = 0;
+	county = 0;
+	first_x_place = g->place.x;
+	g->to_mark.x = g->place.x;
+	g->to_mark.y = g->place.y;
+	while (test_piece(b, g, p_rel, &pos) == 0)
 	{
-		if (*x + 1 < b->width)
+		if (countx < b->piece->width && b->tab[pos.y][pos.x + 1] != '\0')
+		{
 			g->place.x += 1;
-		else if (b->tab[*y][*x] == '\0' && *y + 1 < b->height)
+			countx++;
+			dprintf(2, "g->place.x is now : %d\n", g->place.x);
+		}
+		else if (countx == b->piece->width && county < b->piece->height)
 		{
 			g->place.y += 1;
+			countx = 0;
+			county++;
 			g->place.x = first_x_place;
+			dprintf(2, "g->place.y is now : %d\n", g->place.y);
 		}
-		else if (b->tab[*y][*x] == '\0' && *y + 1 >= b->height)
+		dprintf(2, "countx = %d and county = %d, b->piece->width = %d and b->piece->height = %d\n", countx,
+				county, b->piece->width, b->piece->height);
+		if (b->tab[pos.y][pos.x] == '\0' || (countx == b->piece->width && county == b->piece->height))
+		{
+			dprintf(2, "returns 0 in scan, with countx = %d and county = %d\n", countx, county);
 			return (0);
-		dprintf(2, "shift was successful and returns x = %d and y = %d\n", *x, *y);
-		place(g, &x, &y, p_rel->pos[i]);
+		}
+		dprintf(2, "shift was successful and returns g->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
 	}
 	return (1);
 }
@@ -282,7 +287,7 @@ static int	attack(t_board *b, t_game *g)
 	dprintf(2, "coordinates to be tried :\ng->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
 	while (place_check(b, g) == 0)
 	{
-		mark(b, g->place.x, g->place.y);
+		mark(b, g->to_mark.y, g->to_mark.x);
 		get_closest_op(b, g);
 		dprintf(2, "coordinates to be tried :\ng->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
 		display_board(b);

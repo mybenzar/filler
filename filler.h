@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/01 12:34:54 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/01 16:00:46 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ typedef struct 		s_game
 {
 	int				player;
 	int				ennemy;
-	t_posi			ennemy_pos;
+	t_posi			to_mark;
 	int				end;
 	enum e_state	state;
 	enum e_play		play;
