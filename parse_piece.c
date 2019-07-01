@@ -65,7 +65,12 @@ static char	**get_tab_piece(t_piece *piece)
 		i++;
 	}
 	tab[i] = NULL;
-	display_piece(piece);
+	dprintf(2, "display piece \n");
+	i = 0;
+	while (i < piece->height)
+	{
+		dprintf(2, "%s\n", tab[i++]);
+	}
 	return (tab);
 }
 
@@ -132,51 +137,7 @@ int	ft_left(t_piece *piece)
 	dprintf(2, "______________________________________ \n");
 	return (1);
 }
-/*
-int	ft_left(t_piece *piece, int start)
-{
-	int p;
 
-	while (piece->pos[start].x != 0)
-	{
-		p = -1;
-		if (piece->pos[start].x > 0)
-		{
-			while (++p < piece->size)
-				piece->pos[p].x -= 1;
-		}
-		if (piece->pos[start].x < 0)
-		{
-			while (++p < piece->size)
-				piece->pos[p].x += 1;
-		}
-	}
-	while (piece->pos[start].y != 0)
-	{
-		p = -1;
-		if (piece->pos[start].y > 0)
-		{
-			while (++p < piece->size)
-				piece->pos[p].y -= 1;
-		}
-		if (piece->pos[start].y < 0)
-		{
-			while (++p < piece->size)
-				piece->pos[p].y += 1;
-		}
-	}
-	dprintf(2, "\n\n ________relative coordinates_______ \n for START = %d\n", start);
-	p = 0;
-	while (p < piece->size)
-	{
-		dprintf(2, "piece->pos[%d].y = %d\n", p, piece->pos[p].y);
-		dprintf(2, "piece->pos[%d].x = %d\n", p, piece->pos[p].x);
-		p++;
-	}
-	dprintf(2, "______________________________________ \n");
-	return (1);
-}
-*/
 int		nb_adj_piece(char **tab, int x, int y)
 {
 	int count;
@@ -227,6 +188,24 @@ static int		get_pos(t_piece *piece, char **tab)
 	return (1);
 }
 
+static int		get_min(t_piece *piece)
+{
+	int p;
+
+	p = 0;
+	piece->min.x = -1;
+	piece->min.y = -1;
+	while (p < piece->size)
+	{
+		if (piece->pos[p].x < piece->min.x || piece->min.x == -1)
+			piece->min.x = piece->pos[p].x;
+		if (piece->pos[p].y < piece->min.y || piece->min.y == -1)
+			piece->min.y = piece->pos[p].y;
+		p++;
+	}
+	return (1);
+}
+
 static int		check_piece(t_piece *piece, char **tab)
 {
 	int x;
@@ -261,31 +240,29 @@ t_piece	*get_piece(void)
 	char 	**tab;
 
 	if (!(piece = (t_piece*)ft_memalloc(sizeof(t_piece))))
-	{
-		DD("malloc");
 		return (NULL);
-	}
 	if ((tab = get_tab_piece(piece)) == NULL)
 	{
-		DD("get_tab_piece");
 		free_piece(piece);
 		return (NULL);
 	}
 	if (get_piece_size(piece, tab) == 0)
 	{
-		DD("get_piece_size");
 		free_piece(piece);
 		return (NULL);
 	}
 	if (piece->size == 0 || get_pos(piece, tab) == 0)
 	{
-		DD("get_pos");
+		free_piece(piece);
+		return (NULL);
+	}
+	if (get_min(piece) != 1)
+	{
 		free_piece(piece);
 		return (NULL);
 	}
 	if (check_piece(piece, tab) == 0)
 	{
-		DD("check_piece");
 		free_piece(piece);
 		return (NULL);
 	}

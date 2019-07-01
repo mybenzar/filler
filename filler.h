@@ -57,6 +57,7 @@ typedef struct		s_piece
 	int				width;
 	int				height;
 	int				size;
+	t_posi			min;
 	char			pad[4];
 }					t_piece;
 

@@ -1,12 +1,11 @@
-board->piece->size = 0
-board->piece->height = 1
-board->piece->width = 3
+display piece 
+***
 
 
 --------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
 
 coordinates to be tried :
-g->place.x = 0 and g->place.y = 0
+g->place.x = 2 and g->place.y = 8
 
 
 --------------->>>place_check<<<<<<<<<<<<<<---------------
@@ -23,15 +22,15 @@ piece->pos[2].y = 0
 piece->pos[2].x = 2
 ______________________________________ 
 p_rel->pos[1].x = 1 and p_rel->pos[1].y = 0
-x = 1 and y = 0 and b->width = 17 and b->height = 15
-tab[0][1] = .
+x = 3 and y = 8 and b->width = 17 and b->height = 15
+tab[8][3] = .
 p_rel->pos[2].x = 2 and p_rel->pos[2].y = 0
-x = 2 and y = 0 and b->width = 17 and b->height = 15
-tab[0][2] = .
+x = 4 and y = 8 and b->width = 17 and b->height = 15
+tab[8][4] = .
 
 
  im in play 
-coordinates = 0 0
+coordinates = 8 2
 board->height = 15, board->width = 17
 .................
 .................
@@ -45,6 +44,55 @@ board->height = 15, board->width = 17
 .................
 .................
 .................
+..............X..
+.................
+.................
+
+
+________________end of turn 
+
+display piece 
+..
+**
+
+
+--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------
+
+coordinates to be tried :
+g->place.x = 4 and g->place.y = 7
+
+
+--------------->>>place_check<<<<<<<<<<<<<<---------------
+
+
+
+ ________relative coordinates_______ 
+
+piece->pos[0].y = 0
+piece->pos[0].x = 0
+piece->pos[1].y = 0
+piece->pos[1].x = 1
+______________________________________ 
+p_rel->pos[1].x = 1 and p_rel->pos[1].y = 0
+x = 5 and y = 7 and b->width = 17 and b->height = 15
+tab[7][5] = .
+
+
+ im in play 
+coordinates = 6 4
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+..OOO............
+.................
+.................
+..............X..
 ..............X..
 .................
 .................

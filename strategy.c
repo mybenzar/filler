@@ -19,12 +19,12 @@
 **		>> compute_dist compares distances between the target and the player
 **		>> get_closest_op for each ennemy, finds the closest player coordinates
 */
-/*
+
 static int		get_distance(int x, int y, int j, int i)
 {
 	return (ft_abs(x - j) + ft_abs(y - i));
 }
-
+// redesign with peice
 static int		compute_dist(t_board *b, t_game *g)
 {
 	int	dist;
@@ -32,19 +32,18 @@ static int		compute_dist(t_board *b, t_game *g)
 	int j;
 
 	i = 0;
-	dist = b->height + b->width;
-	while (b->tab[i] != NULL)
+	while (i < b->piece->size)
 	{
 		j = 0;
-		while (b->tab[i][j] != '\0')
+		while (j < b->piece->width)
 		{
 			if (b->tab[i][j] == g->player)
 			{
 				if (dist > get_distance(g->target.x, g->target.y, j, i))
 				{
 					dist = get_distance(g->target.x, g->target.y, j, i);
-					g->place.x = j;
-					g->place.y = i;
+					g->place.x = j - b->piece->min.x;
+					g->place.y = i - b->piece->min.y;
 				}
 			}
 			j++;
@@ -73,8 +72,8 @@ static void	get_closest_op(t_board *b, t_game *g)
 		{
 			if (b->tab[i][j] == g->ennemy || b->tab[i][j] == ft_tolower(g->ennemy))
 			{
-				g->target.x = j;
-				g->target.y = i;
+				g->target.x = j - b->piece->min.x;
+				g->target.y = i - b->piece->min.y;
 				if ((tmp = compute_dist(b, g)) && dist > tmp && dist != 0) 
 				{
 					dist = tmp;
@@ -87,7 +86,8 @@ static void	get_closest_op(t_board *b, t_game *g)
 	}
 	g->place = place;
 }
-*/
+/*
+
 static int find_possible_place(t_board *b, t_game *g)
 {
 	int i;
@@ -111,6 +111,7 @@ static int find_possible_place(t_board *b, t_game *g)
 	}
 	return (0);
 }
+*/
 
 /*
 **	--> Place Check : checks if there is enough space to place the piece
@@ -206,10 +207,10 @@ static int		scan(t_board *b, t_game *g, t_piece *p_rel)
 	int 	i;
 
 	i = 1;
-	x = 0;
-	y = 0;
 	while (i < b->piece->size)
 	{
+		x = 0;//- b->piece->min.x;
+		y = 0;//- b->piece->min.y;
 		place(g, &x, &y, p_rel->pos[i]);
 		dprintf(2, "p_rel->pos[%d].x = %d and p_rel->pos[%d].y = %d\n", i, p_rel->pos[i].x, i, p_rel->pos[i].y);
 		dprintf(2, "x = %d and y = %d and b->width = %d and b->height = %d\n", x, y, b->width, b->height);
@@ -257,25 +258,18 @@ static int	surrender(t_board *b, t_game *g)
 
 static int	attack(t_board *b, t_game *g)
 {
-//	int start;
-
 	dprintf(2, "\n\n--------------->>>ATTACK TRIGGERED<<<<<<<<<<<<<<---------------\n\n");
-//	get_closest_op(b, g);
-//	start = 0;
-	find_possible_place(b, g);
+	get_closest_op(b, g);
 	dprintf(2, "coordinates to be tried :\ng->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
 	while (place_check(b, g) == 0)
 	{
 		mark(b, g->place.x, g->place.y);
-		//get_closest_op(b, g);
-		find_possible_place(b, g);
+		get_closest_op(b, g);
 		dprintf(2, "coordinates to be tried :\ng->place.x = %d and g->place.y = %d\n", g->place.x, g->place.y);
 		display_board(b);
 		if (count_char(b, g->player) == 0)
 			return (0);
 	}
-/*	g->place.x -= b->piece->pos[start].x;
-	g->place.y -= b->piece->pos[start].y;*/
 	g->place.x -= b->piece->pos[0].x;
 	g->place.y -= b->piece->pos[0].y;
 	return (1);
