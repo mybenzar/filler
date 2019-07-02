@@ -46,8 +46,8 @@ void		free_game(t_game *game)
 	{
 		game->player = 0;
 		game->end = 0;
-		game->to_mark.x = 0;
-		game->to_mark.y = 0;
+		game->pos_tmp.x = 0;
+		game->pos_tmp.y = 0;
 		game->target.x = 0;
 		game->target.y = 0;
 		free(game);

@@ -74,7 +74,7 @@ typedef struct 		s_game
 {
 	int				player;
 	int				ennemy;
-	t_posi			to_mark;
+	t_posi			pos_tmp;
 	int				end;
 	int				distance;
 	int				overlap;
