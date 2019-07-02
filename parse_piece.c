@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/01 17:49:53 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/02 10:49:03 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,37 +41,36 @@ int	get_dim_piece(t_piece *piece)
 	return (1);
 }
 
-static char	**get_tab_piece(t_piece *piece)
+static int get_tab_piece(t_piece *piece)
 {
 	int		i;
-	char	**tab;
 
 	i = 0;
 	if (get_dim_piece(piece) == 0)
-		return (NULL);
-	if (!(tab = (char **)malloc(sizeof(char *) * (size_t)(piece->height + 1))))
-		return (NULL);
+		return (0);
+	if (!(piece->tab = (char **)malloc(sizeof(char *) * (size_t)(piece->height + 1))))
+		return (0);
 	while (i < piece->height)
 	{
-		tab[i] = NULL;
-		if (get_next_line(FD, &tab[i]) < 0
-				|| (int)ft_strlen(tab[i]) != piece->width)
+		piece->tab[i] = NULL;
+		if (get_next_line(FD, &piece->tab[i]) < 0
+				|| (int)ft_strlen(piece->tab[i]) != piece->width)
 		{
-			ft_strdel(&tab[i]);
-			ft_strdel(tab);
+			ft_strdel(&piece->tab[i]);
+			ft_strdel(piece->tab);
 			ft_printf("error in get tab piece\n");
-			return (NULL);
+			return (0);
 		}
 		i++;
 	}
-	tab[i] = NULL;
+	piece->tab[i] = NULL;
 	dprintf(2, "display piece \n");
 	i = 0;
 	while (i < piece->height)
 	{
-		dprintf(2, "%s\n", tab[i++]);
+		dprintf(2, "%s\n", piece->tab[i++]);
 	}
-	return (tab);
+	return (1);
 }
 
 static int check_piece_elem(char c)
@@ -85,20 +84,20 @@ static int check_piece_elem(char c)
 	return (1);
 }
 
-int	get_piece_size(t_piece *piece, char **tab)
+int	get_piece_size(t_piece *piece)
 {
 	int	i;
 	int j;
 
 	i = 0;
-	while (tab[i] != NULL)
+	while (piece->tab[i] != NULL)
 	{
 		j = 0;
-		while (tab[i][j] != '\0')
+		while (piece->tab[i][j] != '\0')
 		{
-			if (tab[i][j] == '*')
+			if (piece->tab[i][j] == '*')
 				piece->size++;
-			else if (tab[i][j] != '\0' && check_piece_elem(tab[i][j]) == 0)
+			else if (piece->tab[i][j] != '\0' && check_piece_elem(piece->tab[i][j]) == 0)
 				return (0);
 			j++;
 		}
@@ -160,7 +159,7 @@ int		nb_adj_piece(char **tab, int x, int y)
 	return (0);
 }
 
-static int		get_pos(t_piece *piece, char **tab)
+static int		get_pos(t_piece *piece)
 {
 	int i;
 	int j;
@@ -170,12 +169,12 @@ static int		get_pos(t_piece *piece, char **tab)
 	p = 0;
 	if (!(piece->pos = (t_posi*)malloc(sizeof(t_posi) * (size_t)piece->size)))
 		return (0);
-	while (tab[i] != NULL)
+	while (piece->tab[i] != NULL)
 	{
 		j = 0;
-		while (tab[i][j] != '\0')
+		while (piece->tab[i][j] != '\0')
 		{
-			if (tab[i][j] == '*')
+			if (piece->tab[i][j] == '*')
 			{
 				piece->pos[p].x = j;
 				piece->pos[p].y = i;
@@ -206,7 +205,7 @@ static int		get_min(t_piece *piece)
 	return (1);
 }
 
-static int		check_piece(t_piece *piece, char **tab)
+static int		check_piece(t_piece *piece)
 {
 	int x;
 	int y;
@@ -214,11 +213,11 @@ static int		check_piece(t_piece *piece, char **tab)
 
 	x = piece->pos[0].x;
 	y = piece->pos[0].y;
-	nb = nb_adj_piece(tab, x, y);
+	nb = nb_adj_piece(piece->tab, x, y);
 	y = 0;
-	while (tab[y] != NULL)
+	/*while (tab[y] != NULL)
 		ft_strdel(&tab[y++]);
-	ft_strdel(tab);
+	ft_strdel(tab);*/
 	if (nb != piece->size)
 	{
 		ft_printf("error in check piece\n");
@@ -237,22 +236,21 @@ void	init_piece(t_piece *piece)
 t_piece	*get_piece(void)
 {
 	t_piece *piece;
-	char 	**tab;
 	int			p;
 
 	if (!(piece = (t_piece*)ft_memalloc(sizeof(t_piece))))
 		return (NULL);
-	if ((tab = get_tab_piece(piece)) == NULL)
+	if (get_tab_piece(piece) == 0)
 	{
 		free_piece(piece);
 		return (NULL);
 	}
-	if (get_piece_size(piece, tab) == 0)
+	if (get_piece_size(piece) == 0)
 	{
 		free_piece(piece);
 		return (NULL);
 	}
-	if (piece->size == 0 || get_pos(piece, tab) == 0)
+	if (piece->size == 0 || get_pos(piece) == 0)
 	{
 		free_piece(piece);
 		return (NULL);
@@ -262,7 +260,7 @@ t_piece	*get_piece(void)
 		free_piece(piece);
 		return (NULL);
 	}
-	if (check_piece(piece, tab) == 0)
+	if (check_piece(piece) == 0)
 	{
 		free_piece(piece);
 		return (NULL);
