@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/03 12:22:26 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/03 14:34:31 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,10 @@ static int		start_piece(t_board *b, t_game *g, int x, int y)
 {
 	int		i;
 	int		j;
-	int		count;
+	int		overlap;
 
 	i = 0;
-	count = 0;
+	overlap = 0;
 //	dprintf(2, "\n------->>>>>>start piece<<<<<<<<--------\n for x = %d and y = %d\n", x, y);
 	while (i < b->piece->height)
 	{
@@ -96,7 +96,7 @@ static int		start_piece(t_board *b, t_game *g, int x, int y)
 		{
 			if (b->piece->tab[i][j] == '*' &&
 				b->tab[y + i][x + j] == g->player)
-				count++;
+				overlap++;
 			if (b->piece->tab[i][j] == '*' &&
 				ft_toupper(b->tab[y + i][x + j]) == g->ennemy)
 				return (0);
@@ -104,7 +104,7 @@ static int		start_piece(t_board *b, t_game *g, int x, int y)
 		}
 		i++;
 	}
-	if (count == 1)
+	if (overlap == 1)
 		return (1);
 	return (0);
 }
@@ -126,8 +126,8 @@ static void		attack(t_board *b, t_game *g)
 			if (check_piece(b, j, i) == 1 && start_piece(b, g, j, i) == 1)
 			{
 				dprintf(2, "==========>>>> check piece and start piece OK VV\n");
-				g->pos_tmp.x = j - b->piece->min.x;
-				g->pos_tmp.y = i - b->piece->min.y;
+				g->pos_tmp.x = j; //- b->piece->min.x;
+				g->pos_tmp.y = i; //- b->piece->min.y;
 				dprintf(2, "g->pos_tmp.x = %d and g->pos_tmp.y = %d\n", g->pos_tmp.x, g->pos_tmp.y);
 				find_target(b, g);
 				if (g->distance < dist || dist == -2)
