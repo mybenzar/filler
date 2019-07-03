@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/03 14:34:31 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/03 15:49:44 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,8 +126,8 @@ static void		attack(t_board *b, t_game *g)
 			if (check_piece(b, j, i) == 1 && start_piece(b, g, j, i) == 1)
 			{
 				dprintf(2, "==========>>>> check piece and start piece OK VV\n");
-				g->pos_tmp.x = j; //- b->piece->min.x;
-				g->pos_tmp.y = i; //- b->piece->min.y;
+				g->pos_tmp.x = j - b->piece->min.x;
+				g->pos_tmp.y = i - b->piece->min.y;
 				dprintf(2, "g->pos_tmp.x = %d and g->pos_tmp.y = %d\n", g->pos_tmp.x, g->pos_tmp.y);
 				find_target(b, g);
 				if (g->distance < dist || dist == -2)

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:08:04 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/03 10:50:35 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/03 15:20:22 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,17 @@ void		free_piece(t_piece *piece)
 	i = 0;
 	if (piece != NULL)
 	{
+		ft_bzero(piece, sizeof(t_piece));
 		free(piece->pos);
 		piece->pos = NULL;
-		while (piece->tab[i] != NULL)
-			ft_strdel(&piece->tab[i++]);
+		if (piece->tab != NULL)
+		{
+			while (i < piece->height)
+			{
+				ft_strdel(&piece->tab[i]);
+				i++;
+			}
+		}
 		ft_strdel(piece->tab);
 		free(piece);
 		piece = NULL;
@@ -50,12 +57,7 @@ void		free_game(t_game *game)
 {
 	if (game != NULL)
 	{
-		game->player = 0;
-		game->end = 0;
-		game->pos_tmp.x = 0;
-		game->pos_tmp.y = 0;
-		game->target.x = 0;
-		game->target.y = 0;
+		ft_bzero(game, sizeof(t_game));
 		free(game);
 		game = NULL;
 	}
