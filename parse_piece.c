@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/02 10:49:03 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/03 12:22:28 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,7 +187,7 @@ static int		get_pos(t_piece *piece)
 	return (1);
 }
 
-static int		get_min(t_piece *piece)
+int		get_min(t_piece *piece)
 {
 	int p;
 
@@ -205,19 +205,42 @@ static int		get_min(t_piece *piece)
 	return (1);
 }
 
+static char		**tabcpy(char **tab)
+{
+	int		i;
+	char	**ret;
+
+	i = 0;
+	while (tab[i] != NULL)
+		i++;
+	if (!(ret = (char **)malloc(sizeof(char*) * (i + 1))))
+		return (NULL);
+	i = -1;
+	while (tab[++i] != NULL)
+	{
+		if (!(ret[i] = ft_strdup(tab[i])))
+			return (NULL);
+	}
+	ret[i] = NULL;
+	return (ret);
+}
+
 static int		check_piece(t_piece *piece)
 {
 	int x;
 	int y;
 	int nb;
+	char **tab;
 
 	x = piece->pos[0].x;
 	y = piece->pos[0].y;
-	nb = nb_adj_piece(piece->tab, x, y);
+	if (!(tab = tabcpy(piece->tab)))
+		return (0);
+	nb = nb_adj_piece(tab, x, y);
 	y = 0;
-	/*while (tab[y] != NULL)
+	while (tab[y] != NULL)
 		ft_strdel(&tab[y++]);
-	ft_strdel(tab);*/
+	ft_strdel(tab);
 	if (nb != piece->size)
 	{
 		ft_printf("error in check piece\n");

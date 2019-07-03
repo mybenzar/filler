@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/02 10:49:02 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/03 12:22:26 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ int						get_player(void);
 t_piece					*get_piece(void);
 int						ft_left(t_piece *piece);
 int						count_char(t_board *b, char c);
+int						get_min(t_piece *piece);
 /*
  **	Memory Handlers
  */

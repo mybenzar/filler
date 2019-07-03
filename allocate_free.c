@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:08:04 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/01 16:31:07 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/03 10:50:35 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 
 void		free_piece(t_piece *piece)
 {
+	int i;
+
+	i = 0;
 	if (piece != NULL)
 	{
 		free(piece->pos);
 		piece->pos = NULL;
+		while (piece->tab[i] != NULL)
+			ft_strdel(&piece->tab[i++]);
+		ft_strdel(piece->tab);
 		free(piece);
 		piece = NULL;
 	}

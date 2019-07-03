@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:21:14 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/01 12:34:54 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/03 12:22:25 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main(void)
 	{
 		//init_gb(game, board);
 		game->player = player_id;
+		dprintf(2, "game->player = %d\n", game->player);
 		if (get_board(board) != 0)
 		{
 			if (!(board->piece = get_piece()))
