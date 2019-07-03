@@ -133,8 +133,6 @@ int		get_board(t_board *board)
 	board->tab[i] = NULL;
 	if (clean_board(board) == 0)
 		return (0);
-/*	if (analyze(board) == 0)
-		return (0);*/
 	return (1);
 }
 

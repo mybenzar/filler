@@ -40,9 +40,10 @@ enum				e_play
 
 enum				e_parse
 {
-	E_GET_SIZE,
 	E_GET_TAB,
 	E_ANALYZE,
+	E_GET_POS,
+	E_GET_MIN,
 	E_CHECK
 };
 typedef struct		s_posi
@@ -60,6 +61,7 @@ typedef struct		s_piece
 	int				size;
 	t_posi			min;
 	char			pad[4];
+	enum e_parse	parse;
 }					t_piece;
 
 typedef struct		s_board
@@ -80,40 +82,14 @@ typedef struct 		s_game
 	int				overlap;
 	enum e_state	state;
 	enum e_play		play;
+
 	t_posi			target;
 	t_posi			place;
 	int				round;
 }					t_game;
-/*
-typedef struct		s_posi
-{
-	int				x;
-	int				y;
-}					t_posi;
 
-typedef struct		s_board
-{
-	char			**tab;
-	int				width;
-	int				height;
-}					t_board;
-
-typedef struct 		s_game
-{
-	int				player;
-	int				ennemy;
-	int				end;
-	enum e_state	state;
-	enum e_play		play;
-	enum e_parse	parse;
-	t_posi			target;
-	t_posi			place;
-	t_board			*board;
-	t_board			*piece;
-}					t_game;
-*/
 typedef int	(*t_strategy)(t_board *, t_game *);
-typedef int (*t_parse)(t_board *);
+typedef int (*t_parse_piece)(t_piece *);
 
 /*
  **	Parsing Functions

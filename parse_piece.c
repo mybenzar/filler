@@ -12,7 +12,7 @@
 
 #include "filler.h"
 
-int	get_dim_piece(t_piece *piece)
+static int	get_dim(t_piece *piece)
 {
 	char *line;
 	char **split;
@@ -41,12 +41,12 @@ int	get_dim_piece(t_piece *piece)
 	return (1);
 }
 
-static int get_tab_piece(t_piece *piece)
+static int get_tab(t_piece *piece)
 {
 	int		i;
 
 	i = 0;
-	if (get_dim_piece(piece) == 0)
+	if (get_dim(piece) == 0)
 		return (0);
 	if (!(piece->tab = (char **)malloc(sizeof(char *) * (size_t)(piece->height + 1))))
 		return (0);
@@ -58,18 +58,12 @@ static int get_tab_piece(t_piece *piece)
 		{
 			ft_strdel(&piece->tab[i]);
 			ft_strdel(piece->tab);
-			ft_printf("error in get tab piece\n");
 			return (0);
 		}
 		i++;
 	}
 	piece->tab[i] = NULL;
-	dprintf(2, "display piece \n");
-	i = 0;
-	while (i < piece->height)
-	{
-		dprintf(2, "%s\n", piece->tab[i++]);
-	}
+	piece->parse = E_ANALYZE;
 	return (1);
 }
 
@@ -84,7 +78,7 @@ static int check_piece_elem(char c)
 	return (1);
 }
 
-int	get_piece_size(t_piece *piece)
+static int	analyze(t_piece *piece)
 {
 	int	i;
 	int j;
@@ -105,39 +99,34 @@ int	get_piece_size(t_piece *piece)
 	}
 	if (piece->size == 0)
 		return (0);
+	piece->parse = E_GET_POS;
 	return (1);
 }
-
 
 int	ft_left(t_piece *piece)
 {
-	int p;
+	int		y;
+	int		x;
 
-	while (piece->pos[0].x != 0)
+	y = 0;
+	while (y < piece->height)
 	{
-		p = -1;
-		while (++p < piece->size)
-			piece->pos[p].x -= 1;
+		x = 0;
+		while (piece->tab[y][x] != '\0')
+		{
+			if (piece->tab[y][x] == '*')
+			{
+				piece->tab[y - piece->min.y][x - piece->min.x] = '*';
+				piece->tab[y][x] = '.';
+			}
+			x++;
+		}
+		y++;
 	}
-	while (piece->pos[0].y != 0)
-	{
-		p = -1;
-		while (++p < piece->size)
-			piece->pos[p].y -= 1;
-	}
-	dprintf(2, "\n\n ________relative coordinates_______ \n\n");
-	p = 0;
-	while (p < piece->size)
-	{
-		dprintf(2, "piece->pos[%d].y = %d\n", p, piece->pos[p].y);
-		dprintf(2, "piece->pos[%d].x = %d\n", p, piece->pos[p].x);
-		p++;
-	}
-	dprintf(2, "______________________________________ \n");
 	return (1);
 }
 
-int		nb_adj_piece(char **tab, int x, int y)
+static int		nb_adj_piece(char **tab, int x, int y)
 {
 	int count;
 
@@ -184,6 +173,7 @@ static int		get_pos(t_piece *piece)
 		}
 		i++;
 	}
+	piece->parse = E_GET_MIN;
 	return (1);
 }
 
@@ -202,6 +192,7 @@ int		get_min(t_piece *piece)
 			piece->min.y = piece->pos[p].y;
 		p++;
 	}
+	piece->parse = E_CHECK;
 	return (1);
 }
 
@@ -225,7 +216,7 @@ static char		**tabcpy(char **tab)
 	return (ret);
 }
 
-static int		check_piece(t_piece *piece)
+static int		check(t_piece *piece)
 {
 	int x;
 	int y;
@@ -242,11 +233,8 @@ static int		check_piece(t_piece *piece)
 		ft_strdel(&tab[y++]);
 	ft_strdel(tab);
 	if (nb != piece->size)
-	{
-		ft_printf("error in check piece\n");
 		return (0);
-	}
-	return (1);
+	return (2);
 }
 
 void	init_piece(t_piece *piece)
@@ -256,46 +244,20 @@ void	init_piece(t_piece *piece)
 	piece->size = 0;
 }
 
-t_piece	*get_piece(void)
+t_piece	*get_piece()
 {
 	t_piece *piece;
-	int			p;
+	static t_parse_piece	trigger_parsing[] = {get_tab, analyze, get_pos, get_min, check};
+	int		i;
 
+	i = 0;
 	if (!(piece = (t_piece*)ft_memalloc(sizeof(t_piece))))
 		return (NULL);
-	if (get_tab_piece(piece) == 0)
+	while (i != 2)
 	{
-		free_piece(piece);
-		return (NULL);
+		i = trigger_parsing[piece->parse](piece);
+		if (i == 0)
+			return (NULL);
 	}
-	if (get_piece_size(piece) == 0)
-	{
-		free_piece(piece);
-		return (NULL);
-	}
-	if (piece->size == 0 || get_pos(piece) == 0)
-	{
-		free_piece(piece);
-		return (NULL);
-	}
-	if (get_min(piece) != 1)
-	{
-		free_piece(piece);
-		return (NULL);
-	}
-	if (check_piece(piece) == 0)
-	{
-		free_piece(piece);
-		return (NULL);
-	}
-	dprintf(2, "\n\n ________ coordinates_______ \n\n");
-	p = 0;
-	while (p < piece->size)
-	{
-		dprintf(2, "piece->pos[%d].y = %d\n", p, piece->pos[p].y);
-		dprintf(2, "piece->pos[%d].x = %d\n", p, piece->pos[p].x);
-		p++;
-	}
-	dprintf(2, "______________________________________ \n");
 	return (piece);
 }
