@@ -6,7 +6,7 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/15 11:25:47 by mybenzar          #+#    #+#              #
-#    Updated: 2019/07/04 12:19:21 by mybenzar         ###   ########.fr        #
+#    Updated: 2019/07/04 15:24:35 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SRCS =	ft_bzero.c ft_itoa.c ft_memalloc.c ft_memccpy.c ft_memchr.c ft_toupper.c\
 		ft_convert_dec.c ft_intsize.c ft_strjoin_free.c ft_swap.c ft_strrev.c\
 		ft_putnstr.c ft_strupper.c print_nchar.c ft_dftoa.c ft_max.c ft_min.c\
 		ft_str_isdigit.c vlq_cmp.c ft_abs.c ft_free_tab.c\
-		get_next_line.c \
+		get_next_line.c ft_tabcpy.c\
 		print_utils.c args_conv.c ft_printf.c print_float.c get_flags.c\
 		parsing_utils.c get_size.c free_functions.c fill_padding.c\
 		print_nb.c print_char.c print_str.c print_nb_padding.c get_res.c\

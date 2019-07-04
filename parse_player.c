@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/04 12:21:27 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 15:42:12 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ static int	clean_board(t_board *board)
 	int		i;
 	char	*tmp;
 
-	i = -1;
-	while (++i < board->height)
+	i = 0;
+	while (i < board->height)
 	{
 		if (!(tmp = ft_strdup(board->tab[i])))
 			return (0);
@@ -77,6 +77,7 @@ static int	clean_board(t_board *board)
 		if (!(board->tab[i] = ft_strdup(tmp + 4)))
 			return (0);
 		ft_strdel(&tmp);
+		i++;
 	}
 	return (1);
 }
@@ -89,26 +90,22 @@ int		get_board(t_board *board)
 	i = 0;
 	j = 0;
 	if (get_dim(board) == 0)
-		return (free_board(board));
+		return (0);
 	if (!(board->tab = (char**)malloc(sizeof(char*) * (size_t)(board->height + 1))))
-		return (free_board(board));
+		return (0);
 	if (check_first_line(board) == 0)
-		return (free_board(board));
+		return (0);
 	while (i < board->height)
 	{
+		board->tab[i] = NULL;
 		if (get_next_line(FD, &board->tab[i]) < 0
 			|| ft_atoi(board->tab[i]) != i)
-		{
-			while (j <= i)
-				ft_strdel(&board->tab[j++]);
-			ft_strdel(board->tab);
 			return (0);
-		}
 		i++;
 	}
 	board->tab[i] = NULL;
 	if (clean_board(board) == 0)
-		return (free_board(board));
+		return (0);
 	return (1);
 }
 

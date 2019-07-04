@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/03 15:49:43 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 15:24:20 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,12 @@ static int	get_dim(t_piece *piece)
 			|| !(piece->height = ft_atoi(split[1]))
 			|| !(piece->width = ft_atoi(split[2])))
 		return (0);
+	ft_free_tab(split, 3);
 	if (piece->height == 0 || piece->width == 0 || ft_isdigit(piece->height)
 			|| ft_isdigit(piece->width))
 		return (0);
 	ft_strdel(&tmp);
 	ft_strdel(&line);
-	ft_strdel(&split[0]);
-	ft_strdel(&split[1]);
-	ft_strdel(&split[2]);
-	ft_strdel(split);
 	return (1);
 }
 
@@ -54,12 +51,8 @@ static int get_tab(t_piece *piece)
 	{
 		piece->tab[i] = NULL;
 		if (get_next_line(FD, &piece->tab[i]) < 0
-				|| (int)ft_strlen(piece->tab[i]) != piece->width)
-		{
-			ft_strdel(&piece->tab[i]);
-			ft_strdel(piece->tab);
+			|| (int)ft_strlen(piece->tab[i]) != piece->width)
 			return (0);
-		}
 		i++;
 	}
 	piece->tab[i] = NULL;
@@ -196,26 +189,6 @@ int		get_min(t_piece *piece)
 	return (1);
 }
 
-static char		**tabcpy(char **tab)
-{
-	int		i;
-	char	**ret;
-
-	i = 0;
-	while (tab[i] != NULL)
-		i++;
-	if (!(ret = (char **)malloc(sizeof(char*) * (i + 1))))
-		return (NULL);
-	i = -1;
-	while (tab[++i] != NULL)
-	{
-		if (!(ret[i] = ft_strdup(tab[i])))
-			return (NULL);
-	}
-	ret[i] = NULL;
-	return (ret);
-}
-
 static int		check(t_piece *piece)
 {
 	int x;
@@ -225,13 +198,11 @@ static int		check(t_piece *piece)
 
 	x = piece->pos[0].x;
 	y = piece->pos[0].y;
-	if (!(tab = tabcpy(piece->tab)))
+	if (!(tab = ft_tabcpy(piece->tab)))
 		return (0);
 	nb = nb_adj_piece(tab, x, y);
 	y = 0;
-	while (tab[y] != NULL)
-		ft_strdel(&tab[y++]);
-	ft_strdel(tab);
+	ft_free_tab(tab, piece->height);
 	if (nb != piece->size)
 		return (0);
 	return (2);

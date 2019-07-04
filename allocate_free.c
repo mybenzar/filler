@@ -6,11 +6,18 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:08:04 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/04 12:25:46 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 15:42:09 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+
+static int	init_pos(t_posi pos)
+{
+	pos.x = 0;
+	pos.y = 0;
+	return (0);
+}
 
 int		free_piece(t_piece *piece)
 {
@@ -19,18 +26,13 @@ int		free_piece(t_piece *piece)
 	i = 0;
 	if (piece != NULL)
 	{
-		ft_bzero(piece, sizeof(t_piece));
-		free(piece->pos);
-		piece->pos = NULL;
 		if (piece->tab != NULL)
+			ft_free_tab(piece->tab, piece->height);
+		if (piece->pos != NULL)
 		{
-			while (i < piece->height)
-			{
-				ft_strdel(&piece->tab[i]);
-				i++;
-			}
+			free(piece->pos);
+			piece->pos = NULL;
 		}
-		ft_strdel(piece->tab);
 		free(piece);
 		piece = NULL;
 	}
@@ -44,13 +46,9 @@ int			free_board(t_board *board)
 	i = 0;
 	if (board != NULL)
 	{
-		ft_bzero(board, sizeof(t_board));
-		if (board->tab != NULL)
-		{
-			while (i < board->height)
-				ft_strdel(&board->tab[i++]);
-			ft_strdel(board->tab);
-		}
+		board->width = 0;
+		board->height = 0;
+			ft_free_tab(board->tab, board->height);
 		if (board->piece != NULL)
 			free_piece(board->piece);
 		free(board);
@@ -63,7 +61,13 @@ int			free_game(t_game *game)
 {
 	if (game != NULL)
 	{
-		ft_bzero(game, sizeof(t_game));
+		game->player = 0;
+		game->ennemy = 0;
+		game->distance = -2;
+		game->overlap = 0;
+		init_pos(game->target);
+		init_pos(game->pos_tmp);
+		init_pos(game->place);
 		free(game);
 		game = NULL;
 	}

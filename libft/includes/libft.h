@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:49:53 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/04 12:20:26 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 15:24:16 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,4 +126,5 @@ int					get_next_line(const int fd, char **line);
 **				Added for Filler
 */
 int					ft_abs(int nb);
+char				**ft_tabcpy(char **tab);
 #endif
