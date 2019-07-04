@@ -13,12 +13,12 @@
 CC = clang
 CFLAGS += -Wall
 CFLAGS += -Werror
-CFLAGS += -Wextra
-SAN ?= 1
-ifeq ($(SAN), 1)
-CFLAGS += -fsanitize=address,undefined
-CFLAGS += -g3
-endif
+CFLAGS += -Wextra -g
+#SAN ?= 1
+#ifeq ($(SAN), 1)
+#CFLAGS += -fsanitize=address,undefined
+#CFLAGS += -g3
+#endif
 NAME = libft.a
 INCLUDES = includes/
 HEADERS += $(INCLUDES)libft.h

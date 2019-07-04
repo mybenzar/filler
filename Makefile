@@ -14,17 +14,17 @@ NAME	= mybenzar.filler
 CC		= clang 
 CFLAGS += -Wall
 CFLAGS += -Werror
-CFLAGS += -Wextra 
+CFLAGS += -Wextra -g 
 # CFLAGS += -Weverything -pedantic 
-SAN ?= 1
-DEB ?= 1
-ifeq ($(SAN), 1)
-	CFLAGS += -fsanitize=address,undefined
-endif
-ifeq ($(DEB), 1)
-	CFLAGS += -D DEB
-endif
-CFLAGS += -g3
+#SAN ?= 1
+#DEB ?= 1
+#ifeq ($(SAN), 1)
+#	CFLAGS += -fsanitize=address,undefined
+#endif
+#ifeq ($(DEB), 1)
+#	CFLAGS += -D DEB
+#endif
+#CFLAGS += -g3
 #CFLAGS += -Wno-missing-prototypes
 SOURCES = main.c parse_player.c allocate_free.c parse_piece.c strategy.c debug.c
 OBJECTS	= $(SOURCES:.c=.o)
