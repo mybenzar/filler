@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:49:53 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/06/25 10:24:51 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 12:20:26 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ char				*ft_itoabase(uintmax_t value, int base);
 int					ft_intsize(int n);
 char				*ft_strrev(char *str);
 void				ft_swap(char *a, char *b);
-
+int					ft_free_tab(char **tab, int size);
 /*
 **				Added functions for ft_printf
 */

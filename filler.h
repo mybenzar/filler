@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/03 15:49:43 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 12:11:22 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,9 @@ int						get_min(t_piece *piece);
  */
 
 //t_board	*allocate_board(t_board *board);
-void					free_board(t_board *board);
-void					free_piece(t_piece *piece);
-void					free_game(t_game *game);
+int					free_board(t_board *board);
+int						free_piece(t_piece *piece);
+int						free_game(t_game *game);
 void					init_piece(t_piece *piece);
 void					init_gb(t_game *game, t_board *board);
 
