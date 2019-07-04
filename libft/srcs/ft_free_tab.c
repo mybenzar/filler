@@ -6,11 +6,13 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/18 12:17:16 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/04 12:20:12 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 16:11:30 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+# include <stdio.h>
 
 int	ft_free_tab(char **tab, int size)
 {
@@ -19,8 +21,11 @@ int	ft_free_tab(char **tab, int size)
 	i = 0;
 	while (i <= size)
 	{
-		free(tab[i]);
-		tab[i] = NULL;
+		if (tab[i] != NULL)
+		{
+			free(tab[i]);
+			tab[i] = NULL;
+		}
 		i++;
 	}
 	free(tab);

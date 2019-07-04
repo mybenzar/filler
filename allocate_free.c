@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:08:04 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/04 15:42:09 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 16:11:30 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ int			free_board(t_board *board)
 	i = 0;
 	if (board != NULL)
 	{
-		board->width = 0;
-		board->height = 0;
-			ft_free_tab(board->tab, board->height);
+		ft_free_tab(board->tab, board->height);
 		if (board->piece != NULL)
 			free_piece(board->piece);
+		board->width = 0;
+		board->height = 0;
 		free(board);
 		board = NULL;
 	}
