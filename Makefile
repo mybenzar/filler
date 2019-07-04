@@ -6,7 +6,7 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/22 11:56:55 by mybenzar          #+#    #+#              #
-#    Updated: 2019/07/04 16:39:03 by mybenzar         ###   ########.fr        #
+#    Updated: 2019/07/04 17:19:56 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,18 +14,11 @@ NAME	= mybenzar.filler
 CC		= clang 
 CFLAGS += -Wall
 CFLAGS += -Werror
-CFLAGS += -Wextra -g 
-# CFLAGS += -Weverything -pedantic 
-#SAN ?= 1
-#DEB ?= 1
-#ifeq ($(SAN), 1)
-#	CFLAGS += -fsanitize=address,undefined
-#endif
-#ifeq ($(DEB), 1)
-#	CFLAGS += -D DEB
-#endif
-#CFLAGS += -g3
-#CFLAGS += -Wno-missing-prototypes
+CFLAGS += -Wextra 
+CFLAGS += -Weverything -pedantic 
+CFLAGS += -fsanitize=address,undefined
+CFLAGS += -g3
+CFLAGS += -Wno-padded
 SOURCES = main.c parse_player.c ft_free.c parse_piece.c strategy.c check_place.c \
 		  distance.c parse_helper.c debug.c
 

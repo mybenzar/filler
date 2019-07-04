@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/04 16:23:43 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 17:09:18 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	check_first_line(t_board *board)
 	return (1);
 }
 
-static int	get_dim(t_board *board)
+static int	get_dim_board(t_board *board)
 {
 	char	*line;
 	char	**split;
@@ -83,7 +83,7 @@ int			get_board(t_board *board)
 
 	i = 0;
 	j = 0;
-	if (get_dim(board) == 0
+	if (get_dim_board(board) == 0
 		|| !(board->tab = (char**)malloc(sizeof(char*)
 		* (size_t)(board->height + 1))))
 		return (0);

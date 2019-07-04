@@ -6,13 +6,13 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 16:25:51 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/04 16:40:54 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 17:09:43 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int check_piece(t_board *b, int x, int y)
+int	check_piece(t_board *b, int x, int y)
 {
 	if (x + b->piece->width <= b->width
 		&& y + b->piece->height <= b->height)
@@ -20,7 +20,7 @@ int check_piece(t_board *b, int x, int y)
 	return (0);
 }
 
-int		start_piece(t_board *b, t_game *g, int x, int y)
+int	start_piece(t_board *b, t_game *g, int x, int y)
 {
 	int		i;
 	int		j;

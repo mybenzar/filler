@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 16:36:41 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/04 16:47:25 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 17:08:32 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		nb_adj_piece(char **tab, int x, int y)
 	return (0);
 }
 
-int check_piece_elem(char c)
+int		check_piece_elem(char c)
 {
 	if (c != 'X' && c != 'O' && c != 'x'
 			&& c != 'o' && c != '.')
@@ -45,7 +45,7 @@ int check_piece_elem(char c)
 	return (1);
 }
 
-int	get_dim(t_piece *piece)
+int		get_dim(t_piece *piece)
 {
 	char *line;
 	char **split;
