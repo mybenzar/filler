@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:08:04 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/04 16:11:30 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 16:20:16 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	init_pos(t_posi pos)
 	return (0);
 }
 
-int		free_piece(t_piece *piece)
+int			free_piece(t_piece *piece)
 {
 	int i;
 
@@ -71,5 +71,11 @@ int			free_game(t_game *game)
 		free(game);
 		game = NULL;
 	}
+	return (0);
+}
+
+int			free_line(char *line)
+{
+	ft_strdel(&line);
 	return (0);
 }

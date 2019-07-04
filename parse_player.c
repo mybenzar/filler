@@ -6,17 +6,11 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/04 16:11:29 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 16:23:43 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-
-static int	free_line(char *line)
-{
-	ft_strdel(&line);
-	return (0);
-}
 
 static int	check_first_line(t_board *board)
 {
@@ -82,16 +76,16 @@ static int	clean_board(t_board *board)
 	return (1);
 }
 
-int		get_board(t_board *board)
+int			get_board(t_board *board)
 {
 	int i;
 	int j;
 
 	i = 0;
 	j = 0;
-	if (get_dim(board) == 0)
-		return (0);
-	if (!(board->tab = (char**)malloc(sizeof(char*) * (size_t)(board->height + 1))))
+	if (get_dim(board) == 0
+		|| !(board->tab = (char**)malloc(sizeof(char*)
+		* (size_t)(board->height + 1))))
 		return (0);
 	if (check_first_line(board) == 0)
 		return (0);
@@ -109,7 +103,7 @@ int		get_board(t_board *board)
 	return (1);
 }
 
-int		get_player(void)
+int			get_player(void)
 {
 	char	*line;
 	int		id;

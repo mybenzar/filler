@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/04 15:42:10 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/04 16:47:24 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ typedef struct 		s_game
 	t_posi			place;
 }					t_game;
 
-typedef int	(*t_strategy)(t_board *, t_game *);
 typedef int (*t_parse_piece)(t_piece *);
 
 /*
@@ -75,30 +74,37 @@ int						get_board(t_board *board);
 int						get_player(void);
 t_piece					*get_piece(void);
 int						ft_left(t_piece *piece);
-int						count_char(t_board *b, char c);
 int						get_min(t_piece *piece);
+int						nb_adj_piece(char **tab, int x, int y);
+int						check_piece_elem(char c);
+int						get_dim(t_piece *piece);
 
 /*
- **	Memory Handlers
- */
+**	Memory Handlers
+*/
 
 int						free_board(t_board *board);
 int						free_piece(t_piece *piece);
 int						free_game(t_game *game);
 void					init_piece(t_piece *piece);
-void					init_gb(t_game *game, t_board *board);
+int						free_line(char *line);
 
 /*
- **	Play Functions
- */
+**	Play Functions
+*/
 
+int						check_piece(t_board *b, int x, int y);
+int						start_piece(t_board *b, t_game *g, int x, int y);
+int						get_distance(int x, int y, int j, int i);
+void					get_min_distance(t_board *b, t_game *g);
 void					strategy(t_board *b, t_game *g);
 void					play(t_board *board, t_game *game);
 
 /*
- **	Debug Functions
- */
+**	Debug Functions
+*/
 
 void					display_board(t_board *board);
 void					display_piece(t_piece *piece);
+
 #endif
