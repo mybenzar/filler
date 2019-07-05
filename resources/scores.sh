@@ -17,12 +17,12 @@ do
 	do
 		echo "\n----->${ORANGE}TESTING FOR $file"
 		echo "${YELLOW}PLAYING AGAINST $file AS P1${NC}"
-		echo "SJ vs me\n" >> scores.csv
-		for i in 1 2 3 4 5
+		local_win=0
+		for i in 1 2 3 4 5 6 7 8 9 10
 		do
 			echo "${CYAN}game $i${NC}"
 			./filler_vm -f "$map" -p1 "$file" -p2 ./mybenzar.filler > my_trace.txt 2> err.log
-			if grep -q "O: error on input" filler.trace; then
+			if grep -q "X: error on input" filler.trace; then
 				echo "${RED}ERROR ON INPUT${NC}"
 				grep -i "seed" filler.trace
 				let "error++"
@@ -30,6 +30,7 @@ do
 			if grep -q "./mybenzar.filler won" filler.trace; then
 				echo "${GREEN}I WON${NC}"
 				let " won++"
+				let "local_win++"
 			fi 
 			if grep -q "$file won" filler.trace; then
 				echo "${RED}I LOST${NC}"
@@ -39,14 +40,18 @@ do
 			cat filler.trace >> scores.csv
 			let "total++"
 		done
-	
+		if [[ "$local_win" -ge 3 ]]; then
+			echo "${GREEN}>>>>>won $local_win / $i games"
+		else
+			echo "${RED}>>>>>won $local_win / $i games"
+		fi
 		echo "${YELLOW}PLAYING AGAINST $file AS P2${NC}"
-		echo "me vs SJ\n" >> scores.csv
-		for i in 1 2 3 4 5
+		local_win=0
+		for i in 1 2 3 4 5 6 7 8 9 10
 		do
 			echo "${CYAN}game $i${NC}"
 			./filler_vm -f "$map" -p2 "$file" -p1 ./mybenzar.filler > my_trace.txt 2> err.log
-			if grep -q "X: error on input" filler.trace; then
+			if grep -q "O: error on input" filler.trace; then
 				echo "${RED}ERROR ON INPUT${NC}"
 				grep -i "seed" filler.trace
 				let "error++"
@@ -54,6 +59,7 @@ do
 			if grep -q "./mybenzar.filler won" filler.trace; then
 				echo "${GREEN}I WON${NC}"
 				let " won++" 
+				let "local_win++"
 			fi
 			if grep -q "$file won" filler.trace; then
 				echo "${RED}I LOST${NC}"
@@ -63,6 +69,11 @@ do
 			cat filler.trace >> scores.csv
 			let "total++"
 		done
+		if [[ "$local_win" -ge 3 ]]; then
+			echo "${GREEN}>>>>>won $local_win / $i games"
+		else
+			echo "${RED}>>>>>won $local_win / $i games"
+		fi
 	done
 done
 echo "${GREEN}WON $won OVER $total${NC}"
