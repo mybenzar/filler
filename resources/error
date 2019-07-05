@@ -1,0 +1,2607 @@
+turn = 1
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 0 and g->place.y = 7
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 0 and g->place.y = 7
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+..O..............
+.................
+.................
+.................
+..............X..
+.................
+.................
+board->piece->size = 2
+piece->pos[0].x = 2 // piece->pos[0].y = 0
+piece->pos[1].x = 2 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 0 and g->place.y = 6
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 0 and g->place.y = 6
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+..O..............
+..O..............
+.................
+.................
+.................
+.............XX..
+.............XX..
+.................
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 1
+piece->pos[1].x = 1 // piece->pos[1].y = 1
+piece->pos[2].x = 2 // piece->pos[2].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 2 and g->place.y = 7
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 2 and g->place.y = 7
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+OOO..............
+..O..............
+.................
+.................
+.................
+............XXX..
+.............XX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 2 and g->place.y = 6
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 2 and g->place.y = 6
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+OOOO.............
+..O..............
+.................
+.................
+.................
+............XXX..
+............XXX..
+.................
+board->piece->size = 4
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 2 // piece->pos[1].y = 0
+piece->pos[2].x = 1 // piece->pos[2].y = 1
+piece->pos[3].x = 2 // piece->pos[3].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 2 and g->place.y = 5
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 2 and g->place.y = 5
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+.................
+.................
+...OO............
+OOOOO............
+..O..............
+.................
+.................
+.............X...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 3 and g->place.y = 4
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 3 and g->place.y = 4
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+.................
+...O.............
+...OO............
+OOOOO............
+..O..............
+.................
+............X....
+...........XXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 1
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 2 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 2 and g->place.y = 3
+board->height = 15, board->width = 17
+.................
+.................
+.................
+.................
+...O.............
+...O.............
+...OO............
+OOOOO............
+..O..............
+.................
+............XX...
+...........XXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+piece->pos[2].x = 1 // piece->pos[2].y = 1
+board->piece->height = 2
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 0 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 0 and g->place.y = 3
+board->height = 15, board->width = 17
+.................
+.................
+.................
+..O..............
+..OO.............
+...O.............
+...OO............
+OOOOO............
+..O..............
+.................
+...........XXX...
+...........XXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 2 // piece->pos[2].y = 0
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 2 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 2 and g->place.y = 3
+board->height = 15, board->width = 17
+.................
+.................
+.................
+OOO..............
+..OO.............
+...O.............
+...OO............
+OOOOO............
+..O..............
+..........XXX....
+...........XXX...
+...........XXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 3 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 3 and g->place.y = 3
+board->height = 15, board->width = 17
+.................
+.................
+.................
+OOOO.............
+..OO.............
+...O.............
+...OO............
+OOOOO............
+..O.......XX.....
+..........XXX....
+...........XXX...
+...........XXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 0 and g->place.y = 2
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 0 and g->place.y = 2
+board->height = 15, board->width = 17
+.................
+.................
+.................
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO............
+..O.......XXX....
+..........XXX....
+...........XXX...
+...........XXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 1
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 0 and g->place.y = 2
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 0 and g->place.y = 2
+board->height = 15, board->width = 17
+.................
+.................
+O................
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO............
+..O......XXXX....
+..........XXX....
+...........XXX...
+...........XXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 0 and g->place.y = 2
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 0 and g->place.y = 2
+board->height = 15, board->width = 17
+.................
+.................
+OO...............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO............
+..O......XXXX....
+..........XXXX...
+...........XXX...
+...........XXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 2 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 2 and g->place.y = 1
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 2 and g->place.y = 1
+board->height = 15, board->width = 17
+.................
+.................
+OOO..............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO............
+..O.....XXXXX....
+..........XXXX...
+...........XXX...
+...........XXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 4
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 0 // piece->pos[2].y = 1
+piece->pos[3].x = 1 // piece->pos[3].y = 1
+board->piece->height = 2
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 0 and g->place.y = 1
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 0 and g->place.y = 1
+board->height = 15, board->width = 17
+.................
+..OO.............
+OOOO.............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO............
+..O.....XXXXX....
+..........XXXX...
+..........XXXX...
+..........XXXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 2 // piece->pos[2].y = 0
+board->piece->height = 1
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 0 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 0 and g->place.y = 0
+board->height = 15, board->width = 17
+.................
+OOOO.............
+OOOO.............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO.....XXX....
+..O.....XXXXX....
+..........XXXX...
+..........XXXX...
+..........XXXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 1 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 1 and g->place.y = 0
+board->height = 15, board->width = 17
+O................
+OOOO.............
+OOOO.............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO....XXXX....
+..O.....XXXXX....
+..........XXXX...
+..........XXXX...
+..........XXXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 1
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 2 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 2 and g->place.y = 0
+board->height = 15, board->width = 17
+OO...............
+OOOO.............
+OOOO.............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO....XXXX....
+..O.....XXXXX....
+........XXXXXX...
+........XXXXXX...
+..........XXXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 1
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 2 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 2 and g->place.y = 0
+board->height = 15, board->width = 17
+OOO..............
+OOOO.............
+OOOO.............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO...XXXXX....
+..O.....XXXXX....
+........XXXXXX...
+........XXXXXX...
+..........XXXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 4
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 2 // piece->pos[1].y = 0
+piece->pos[2].x = 1 // piece->pos[2].y = 1
+piece->pos[3].x = 2 // piece->pos[3].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 4 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 4 and g->place.y = 0
+board->height = 15, board->width = 17
+OOOOO............
+OOOOO............
+OOOO.............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO...XXXXX....
+..O.....XXXXX....
+.......XXXXXXX...
+........XXXXXX...
+..........XXXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 4
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 2 // piece->pos[2].y = 0
+piece->pos[3].x = 1 // piece->pos[3].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 6 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 6 and g->place.y = 0
+board->height = 15, board->width = 17
+OOOOOOO..........
+OOOOOO...........
+OOOO.............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO...XXXXX....
+..O.....XXXXX....
+.......XXXXXXX...
+.......XXXXXXX...
+..........XXXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 1
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 4 and g->place.y = 1
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 4 and g->place.y = 1
+board->height = 15, board->width = 17
+OOOOOOO..........
+OOOOOOO..........
+OOOO.............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO...XXXXX....
+..O.....XXXXXX...
+.......XXXXXXX...
+.......XXXXXXX...
+..........XXXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 6 and g->place.y = -1
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 6 and g->place.y = -1
+board->height = 15, board->width = 17
+OOOOOOO..........
+OOOOOOO..........
+OOOOO............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO...XXXXX....
+..O....XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXX...
+..........XXXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 1
+piece->pos[1].x = 1 // piece->pos[1].y = 1
+piece->pos[2].x = 2 // piece->pos[2].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 7 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 7 and g->place.y = 0
+board->height = 15, board->width = 17
+OOOOOOOOO........
+OOOOOOO..........
+OOOOO............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO..XXXXXX....
+..O....XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXX...
+..........XXXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 4
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 2 // piece->pos[1].y = 0
+piece->pos[2].x = 0 // piece->pos[2].y = 1
+piece->pos[3].x = 1 // piece->pos[3].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 9 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 9 and g->place.y = 0
+board->height = 15, board->width = 17
+OOOOOOOOOO.......
+OOOOOOOOO........
+OOOOO............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO..XXXXXXX...
+..O....XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXX...
+..........XXXX...
+............XXX..
+............XXX..
+.................
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 1
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 9 and g->place.y = 1
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 9 and g->place.y = 1
+board->height = 15, board->width = 17
+OOOOOOOOOO.......
+OOOOOOOOOO.......
+OOOOO............
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO..XXXXXXX...
+..O....XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXX...
+..........XXXX...
+...........XXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 4
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 0 // piece->pos[2].y = 1
+piece->pos[3].x = 1 // piece->pos[3].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 9 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 9 and g->place.y = 0
+board->height = 15, board->width = 17
+OOOOOOOOOO.......
+OOOOOOOOOOO......
+OOOOO....OO......
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO..XXXXXXX...
+..O....XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXX...
+.........XXXXX...
+...........XXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 10 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 10 and g->place.y = 0
+board->height = 15, board->width = 17
+OOOOOOOOOOO......
+OOOOOOOOOOO......
+OOOOO....OO......
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO..XXXXXXX...
+..O....XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXX.XXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 2 // piece->pos[2].y = 0
+board->piece->height = 1
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 12 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 12 and g->place.y = 0
+board->height = 15, board->width = 17
+OOOOOOOOOOOOO....
+OOOOOOOOOOO......
+OOOOO....OO......
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO..XXXXXXX...
+..O....XXXXXXX...
+.......XXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXX.XXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 13 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 13 and g->place.y = 0
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOO...
+OOOOOOOOOOO......
+OOOOO....OO......
+OOOOO............
+..OO.............
+...O.............
+...OO............
+OOOOO..XXXXXXX...
+..O....XXXXXXXX..
+.......XXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXX.XXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 2 // piece->pos[2].y = 0
+board->piece->height = 1
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 10 and g->place.y = 1
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 10 and g->place.y = 1
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOO.
+OOOOOOOOOOO......
+OOOOO....OO......
+OOOOO............
+..OO.............
+...O.............
+...OO........X...
+OOOOO..XXXXXXX...
+..O....XXXXXXXX..
+.......XXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXX.XXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 2 // piece->pos[2].y = 0
+board->piece->height = 1
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 13 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 13 and g->place.y = 0
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOO.
+OOOOOOOOOOOOO....
+OOOOO....OO......
+OOOOO............
+..OO.............
+...O.............
+...OO......X.X...
+OOOOO..XXXXXXX...
+..O....XXXXXXXX..
+.......XXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXX.XXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 1
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 13 and g->place.y = 1
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 13 and g->place.y = 1
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOO.
+OOOOOOOOOOOOOO...
+OOOOO....OO......
+OOOOO............
+..OO.............
+...O.............
+...OO.....XX.X...
+OOOOO..XXXXXXX...
+..O....XXXXXXXX..
+.......XXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXX.XXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 2 // piece->pos[2].y = 0
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 3 and g->place.y = 2
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 3 and g->place.y = 2
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOO.
+OOOOOOOOOOOOOOOO.
+OOOOO....OO......
+OOOOO............
+..OO.............
+...O....X........
+...OO...XXXX.X...
+OOOOO..XXXXXXX...
+..O....XXXXXXXX..
+.......XXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXX.XXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 2 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 6 and g->place.y = 1
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 6 and g->place.y = 1
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOO.
+OOOOOOOOOOOOOOOO.
+OOOOOO...OO......
+OOOOO............
+..OO.............
+...O....X........
+...OO...XXXXXX...
+OOOOO..XXXXXXX...
+..O....XXXXXXXX..
+.......XXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXX.XXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 1
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 6 and g->place.y = 1
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 6 and g->place.y = 1
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOO.
+OOOOOOOOOOOOOOOO.
+OOOOOOO..OO......
+OOOOO............
+..OO.............
+...O....X........
+...OO..XXXXXXX...
+OOOOO..XXXXXXX...
+..O....XXXXXXXX..
+.......XXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXX.XXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 3
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 1
+piece->pos[2].x = 2 // piece->pos[2].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 9 and g->place.y = 2
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 9 and g->place.y = 2
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOO.
+OOOOOOOOOOOOOOOO.
+OOOOOOOOOOO......
+OOOOO............
+..OO.............
+...O....X........
+...OO..XXXXXXX...
+OOOOO..XXXXXXX...
+..O....XXXXXXXX..
+.......XXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 2 // piece->pos[1].y = 0
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 15 and g->place.y = 0
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 15 and g->place.y = 0
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOO.
+OOOOOOOOOOOOOOOO.
+OOOOOOOOOOOO.....
+OOOOO............
+..OO....X.X......
+...O....XXX......
+...OO..XXXXXXX...
+OOOOO..XXXXXXX...
+..O....XXXXXXXX..
+.......XXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 11 and g->place.y = 2
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 11 and g->place.y = 2
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOO.
+OOOOOOOOOOOO.....
+OOOOO............
+..OO....X.X......
+...O....XXXXX....
+...OO..XXXXXXX...
+OOOOO..XXXXXXX...
+..O....XXXXXXXX..
+.......XXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 15 and g->place.y = 1
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 15 and g->place.y = 1
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOO.
+OOOOOOOOOOOOO....
+OOOOO............
+..OO....X.X......
+...O...XXXXXX....
+...OO..XXXXXXX...
+OOOOO..XXXXXXX...
+..O....XXXXXXXX..
+.......XXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 4
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 0 // piece->pos[2].y = 1
+piece->pos[3].x = 1 // piece->pos[3].y = 1
+board->piece->height = 2
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 13 and g->place.y = 1
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 13 and g->place.y = 1
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOO..OO
+OOOOO............
+..OO....X.X......
+...O...XXXXXX....
+...OO..XXXXXXX...
+OOOOO..XXXXXXX...
+..O....XXXXXXXX..
+......XXXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 1
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 13 and g->place.y = 2
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 13 and g->place.y = 2
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOO.OO
+OOOOO............
+..OO....X.X......
+...O...XXXXXX....
+...OO..XXXXXXX...
+OOOOO..XXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+.......XXXXXXX...
+.......XXXXXXX...
+.......XXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 0 and g->place.y = 4
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 0 and g->place.y = 4
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOO............
+..OO....X.X......
+...O...XXXXXX....
+...OO..XXXXXXX...
+OOOOO..XXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXX...
+.......XXXXXXX...
+.......XXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 5
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 2 // piece->pos[1].y = 0
+piece->pos[2].x = 0 // piece->pos[2].y = 1
+piece->pos[3].x = 1 // piece->pos[3].y = 1
+piece->pos[4].x = 2 // piece->pos[4].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 3 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 3 and g->place.y = 3
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOO............
+.OOO....X.X......
+OOOO...XXXXXX....
+...OO..XXXXXXX...
+OOOOO..XXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXX...
+......XXXXXXXX...
+.......XXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 2 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 5 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 5 and g->place.y = 3
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOO...........
+.OOO....X.X......
+OOOO...XXXXXXXX..
+...OO..XXXXXXX...
+OOOOO..XXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXX...
+......XXXXXXXX...
+.......XXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 6 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 6 and g->place.y = 3
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOO..........
+.OOO....X.X......
+OOOO...XXXXXXXX..
+...OO..XXXXXXX...
+OOOOO.XXXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXX...
+......XXXXXXXX...
+.......XXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 7 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 7 and g->place.y = 3
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOO.........
+.OOO....X.X......
+OOOO...XXXXXXXX..
+...OO..XXXXXXX...
+OOOOO.XXXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXX...
+.......XXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 2 // piece->pos[2].y = 0
+board->piece->height = 1
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 9 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 9 and g->place.y = 3
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOO.......
+.OOO....X.X......
+OOOO...XXXXXXXX..
+...OO.XXXXXXXX...
+OOOOO.XXXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXX...
+.......XXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 2
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 10 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 10 and g->place.y = 3
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOO......
+.OOO....X.X......
+OOOO...XXXXXXXX..
+...OO.XXXXXXXX...
+OOOOO.XXXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXX...
+......XXXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 2 // piece->pos[2].y = 0
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 12 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 12 and g->place.y = 3
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOO....
+.OOO....X.X......
+OOOO..XXXXXXXXX..
+...OO.XXXXXXXX...
+OOOOO.XXXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXX...
+......XXXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 13 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 13 and g->place.y = 3
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOO...
+.OOO....X.XX.....
+OOOO..XXXXXXXXX..
+...OO.XXXXXXXX...
+OOOOO.XXXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXX...
+......XXXXXXXXX..
+...........XXXX..
+...........XX....
+board->piece->size = 4
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 1 // piece->pos[2].y = 1
+piece->pos[3].x = 2 // piece->pos[3].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 14 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 14 and g->place.y = 3
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOO..
+.OOO....X.XX..OO.
+OOOO..XXXXXXXXX..
+...OO.XXXXXXXX...
+OOOOO.XXXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXX...
+......XXXXXXXXX..
+..........XXXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 15 and g->place.y = 3
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 15 and g->place.y = 3
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOO.
+.OOO....X.XX..OO.
+OOOO..XXXXXXXXX..
+...OO.XXXXXXXX...
+OOOOO.XXXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXX...
+......XXXXXXXXX..
+.........XXXXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 0 and g->place.y = 4
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 0 and g->place.y = 4
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+.OOO....X.XX..OO.
+OOOO..XXXXXXXXX..
+...OO.XXXXXXXX...
+OOOOO.XXXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXXX.
+......XXXXXXXXX..
+.........XXXXXX..
+...........XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 3 and g->place.y = 4
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 3 and g->place.y = 4
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOO....X.XX..OO.
+OOOO..XXXXXXXXX..
+...OO.XXXXXXXX...
+OOOOO.XXXXXXXX...
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXXX.
+......XXXXXXXXX..
+........XXXXXXX..
+........XX.XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 2
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 4 and g->place.y = 4
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 4 and g->place.y = 4
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOO...X.XX..OO.
+OOOO..XXXXXXXXX..
+...OO.XXXXXXXXX..
+OOOOO.XXXXXXXXX..
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXXX.
+......XXXXXXXXX..
+........XXXXXXX..
+........XX.XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 5 and g->place.y = 4
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 5 and g->place.y = 4
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOO..X.XXX.OO.
+OOOO..XXXXXXXXX..
+...OO.XXXXXXXXX..
+OOOOO.XXXXXXXXX..
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXXX.
+......XXXXXXXXX..
+........XXXXXXX..
+........XX.XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 2
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 4 and g->place.y = 4
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 4 and g->place.y = 4
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOO.X.XXX.OO.
+OOOO..XXXXXXXXX..
+...OO.XXXXXXXXX..
+OOOOO.XXXXXXXXX..
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXXX.
+......XXXXXXXXX..
+.......XXXXXXXX..
+......XXXX.XX....
+board->piece->size = 3
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+piece->pos[2].x = 1 // piece->pos[2].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 15 and g->place.y = 4
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 15 and g->place.y = 4
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOO.XXXXX.OO.
+OOOOOOXXXXXXXXX..
+...OO.XXXXXXXXX..
+OOOOO.XXXXXXXXX..
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXXX.
+......XXXXXXXXX..
+.......XXXXXXXX..
+......XXXX.XX....
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 1 // piece->pos[2].y = 1
+board->piece->height = 2
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 13 and g->place.y = 4
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 13 and g->place.y = 4
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOXXXXXX.OOO
+OOOOOOXXXXXXXXX.O
+...OO.XXXXXXXXX..
+OOOOO.XXXXXXXXX..
+..O...XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXXX.
+......XXXXXXXXX..
+.......XXXXXXXX..
+......XXXX.XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 2
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 15 and g->place.y = 5
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 15 and g->place.y = 5
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOXXXXXXOOOO
+OOOOOOXXXXXXXXX.O
+...OO.XXXXXXXXX..
+OOOOO.XXXXXXXXX..
+..O...XXXXXXXXX..
+.....XXXXXXXXXX..
+......XXXXXXXXX..
+......XXXXXXXXXX.
+......XXXXXXXXX..
+.......XXXXXXXX..
+......XXXX.XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 2 and g->place.y = 6
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 2 and g->place.y = 6
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOXXXXXXOOOO
+OOOOOOXXXXXXXXXOO
+...OO.XXXXXXXXX..
+OOOOO.XXXXXXXXX..
+..O...XXXXXXXXX..
+.....XXXXXXXXXX..
+......XXXXXXXXX..
+....XXXXXXXXXXXX.
+......XXXXXXXXX..
+.......XXXXXXXX..
+......XXXX.XX....
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 2
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 0 and g->place.y = 5
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 0 and g->place.y = 5
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOXXXXXXOOOO
+OOOOOOXXXXXXXXXOO
+..OOO.XXXXXXXXX..
+OOOOO.XXXXXXXXX..
+..O...XXXXXXXXX..
+.....XXXXXXXXXX..
+......XXXXXXXXX..
+....XXXXXXXXXXXX.
+......XXXXXXXXX..
+.......XXXXXXXX..
+......XXXX.XXX...
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 1 and g->place.y = 5
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 1 and g->place.y = 5
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOXXXXXXOOOO
+OOOOOOXXXXXXXXXOO
+O.OOO.XXXXXXXXX..
+OOOOO.XXXXXXXXX..
+..O...XXXXXXXXX..
+.....XXXXXXXXXX..
+.....XXXXXXXXXX..
+....XXXXXXXXXXXX.
+......XXXXXXXXX..
+.......XXXXXXXX..
+......XXXX.XXX...
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 1
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 0 and g->place.y = 8
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 0 and g->place.y = 8
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOXXXXXXOOOO
+OOOOOOXXXXXXXXXOO
+OOOOO.XXXXXXXXX..
+OOOOO.XXXXXXXXX..
+..O...XXXXXXXXX..
+.....XXXXXXXXXXX.
+.....XXXXXXXXXXX.
+....XXXXXXXXXXXX.
+......XXXXXXXXX..
+.......XXXXXXXX..
+......XXXX.XXX...
+board->piece->size = 3
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+piece->pos[2].x = 2 // piece->pos[2].y = 0
+board->piece->height = 1
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 5 and g->place.y = 5
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 5 and g->place.y = 5
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOXXXXXXOOOO
+OOOOOOXXXXXXXXXOO
+OOOOO.XXXXXXXXX..
+OOOOO.XXXXXXXXX..
+OOO..XXXXXXXXXX..
+.....XXXXXXXXXXX.
+.....XXXXXXXXXXX.
+....XXXXXXXXXXXX.
+......XXXXXXXXX..
+.......XXXXXXXX..
+......XXXX.XXX...
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 0 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 1
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 3 and g->place.y = 6
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+
+in possible place, g->place.x = 3 and g->place.y = 6
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOXXXXXXOOOO
+OOOOOOXXXXXXXXXOO
+OOOOOOXXXXXXXXX..
+OOOOO.XXXXXXXXX..
+OOO..XXXXXXXXXX..
+.....XXXXXXXXXXX.
+.....XXXXXXXXXXX.
+....XXXXXXXXXXXX.
+......XXXXXXXXX..
+.....XXXXXXXXXX..
+......XXXX.XXX...
+board->piece->size = 2
+piece->pos[0].x = 2 // piece->pos[0].y = 0
+piece->pos[1].x = 2 // piece->pos[1].y = 1
+board->piece->height = 2
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 1 and g->place.y = 8
+
+in possible place, g->place.x = 1 and g->place.y = 8
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOXXXXXXOOOO
+OOOOOOXXXXXXXXXOO
+OOOOOOXXXXXXXXX..
+OOOOOOXXXXXXXXX..
+OOO..XXXXXXXXXX..
+.....XXXXXXXXXXX.
+.....XXXXXXXXXXX.
+....XXXXXXXXXXXX.
+.....XXXXXXXXXX..
+.....XXXXXXXXXX..
+......XXXX.XXX...
+board->piece->size = 2
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 2 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+--------------->>>>>>>>>>TOP RIGHT LAUNCHED<<<<<<<<<<---------
+possible places : g->place.x = 3 and g->place.y = 8
+
+in possible place, g->place.x = 3 and g->place.y = 8
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOXXXXXXOOOO
+OOOOOOXXXXXXXXXOO
+OOOOOOXXXXXXXXX..
+OOOOOOXXXXXXXXX..
+OOOO.XXXXXXXXXX..
+.....XXXXXXXXXXX.
+....XXXXXXXXXXXX.
+....XXXXXXXXXXXX.
+.....XXXXXXXXXX..
+.....XXXXXXXXXX..
+......XXXX.XXX...
+board->piece->size = 2
+piece->pos[0].x = 0 // piece->pos[0].y = 0
+piece->pos[1].x = 1 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 3
+game->player = O
+game->ennemy = X
+
+in possible place, g->place.x = 3 and g->place.y = 8
+board->height = 15, board->width = 17
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOO
+OOOOOOOXXXXXXOOOO
+OOOOOOXXXXXXXXXOO
+OOOOOOXXXXXXXXX..
+OOOOOOXXXXXXXXX..
+OOOOOXXXXXXXXXX..
+....XXXXXXXXXXXX.
+....XXXXXXXXXXXX.
+....XXXXXXXXXXXX.
+.....XXXXXXXXXX..
+.....XXXXXXXXXX..
+......XXXX.XXX...
+board->piece->size = 2
+piece->pos[0].x = 1 // piece->pos[0].y = 0
+piece->pos[1].x = 2 // piece->pos[1].y = 0
+board->piece->height = 1
+board->piece->width = 3

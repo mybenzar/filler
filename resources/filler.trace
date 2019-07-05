@@ -1,6 +1,4 @@
-seed = 6568
-O: error on input
-X: error on input
+seed = 4709
 ./mybenzar.filler won
 Score:
-16AGAINST16
+320AGAINST43

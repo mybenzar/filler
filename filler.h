@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/04 17:13:29 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/05 11:50:55 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ enum				e_parse
 	E_GET_POS,
 	E_GET_MIN,
 	E_CHECK
+};
+
+enum				e_aim
+{
+	E_TOP_RIGHT,
+	E_BOTTOM_LEFT,
+	E_RUSH
 };
 
 typedef struct		s_posi
@@ -62,9 +69,11 @@ typedef struct 		s_game
 	t_posi			target;
 	t_posi			pos_tmp;
 	t_posi			place;
+	enum e_aim		aim;
 }					t_game;
 
 typedef int (*t_parse_piece)(t_piece *);
+typedef void (*t_aim)(t_board *b, t_game *g);
 
 /*
  **	Parsing Functions
