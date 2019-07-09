@@ -7,6 +7,8 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 YELLOW='\033[1;33m'
 
+player='./ffoissey.filler'
+
 total=0
 won=0
 error=0
@@ -19,10 +21,10 @@ do
 		echo "\n----->${ORANGE}TESTING FOR $file"
 		echo "${YELLOW}PLAYING AGAINST $file AS P1${NC}"
 		local_win=0
-		for i in 1 2 3 4 5 6 7 8 9 10
+		for i in 1 2 3
 		do
 			echo "${CYAN}game $i${NC}"
-			./filler_vm -f "$map" -p1 "$file" -p2 ./mybenzar.filler > my_trace.txt 2> err.log
+			./filler_vm -f "$map" -p1 "$file" -p2 $player > my_trace.txt 2> err.log
 			if grep -q "X: error on input" filler.trace; then
 				echo "${RED}ERROR ON INPUT${NC}"
 				grep -i "seed" filler.trace
@@ -33,7 +35,7 @@ do
 				grep -i "seed" filler.trace
 				let "timeout++"
 			fi
-			if grep -q "./mybenzar.filler won" filler.trace; then
+			if grep -q "$player won" filler.trace; then
 				echo "${GREEN}I WON${NC}"
 				let " won++"
 				let "local_win++"
@@ -47,17 +49,17 @@ do
 			cat filler.trace >> scores.csv
 			let "total++"
 		done
-		if [[ "$local_win" -ge 3 ]]; then
+		if [[ "$local_win" -ge 2 ]]; then
 			echo "${GREEN}>>>>>won $local_win / $i games"
 		else
 			echo "${RED}>>>>>won $local_win / $i games"
 		fi
 		echo "${YELLOW}PLAYING AGAINST $file AS P2${NC}"
 		local_win=0
-		for i in 1 2 3 4 5 6 7 8 9 10
+		for i in 1 2 3
 		do
 			echo "${CYAN}game $i${NC}"
-			./filler_vm -f "$map" -p2 "$file" -p1 ./mybenzar.filler > my_trace.txt 2> err.log
+			./filler_vm -f "$map" -p2 "$file" -p1 $player > my_trace.txt 2> err.log
 			if grep -q "O: error on input" filler.trace; then
 				echo "${RED}ERROR ON INPUT${NC}"
 				grep -i "seed" filler.trace
@@ -68,7 +70,7 @@ do
 				grep -i "seed" filler.trace
 				let "timeout++"
 			fi
-			if grep -q "./mybenzar.filler won" filler.trace; then
+			if grep -q "$player won" filler.trace; then
 				echo "${GREEN}I WON${NC}"
 				let " won++" 
 				let "local_win++"
@@ -82,7 +84,7 @@ do
 			cat filler.trace >> scores.csv
 			let "total++"
 		done
-		if [[ "$local_win" -ge 3 ]]; then
+		if [[ "$local_win" -ge 2 ]]; then
 			echo "${GREEN}>>>>>won $local_win / $i games"
 		else
 			echo "${RED}>>>>>won $local_win / $i games"

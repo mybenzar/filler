@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/05 11:50:55 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/09 16:00:17 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ enum				e_parse
 {
 	E_GET_TAB,
 	E_ANALYZE,
-	E_GET_POS,
+//	E_GET_POS,
 	E_GET_MIN,
-	E_CHECK
+//	E_CHECK
 };
 
 enum				e_aim

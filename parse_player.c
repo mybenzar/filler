@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/05 08:08:33 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/09 15:09:45 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,27 @@ static int	get_dim_board(t_board *board)
 {
 	char	*line;
 	char	**split;
+	char	*tmp;
 
 	line = NULL;
 	if (get_next_line(FD, &line) < 0)
 		return (free_line(line));
-	if (ft_strncmp(line, "Plateau", 7) != 0)
+	if (!(tmp = ft_strdup("Plateau")))
+		return (0);
+	if (ft_strncmp(line, tmp, 7) != 0)
+	{
+		ft_strdel(&tmp);
 		return (free_line(line));
+	}
 	if (!(split = ft_strsplit(line + 8, ' '))
 		|| !(board->height = ft_atoi(split[0]))
 		|| !(board->width = ft_atoi(split[1])))
 		return (free_line(line));
 	ft_free_tab(split, 2);
-	if (board->height == 0 || board->width == 0 || ft_isdigit(board->height)
-		|| ft_isdigit(board->width))
+	if (board->height == 0 || board->width == 0)
 		return (free_line(line));
 	ft_strdel(&line);
+	ft_strdel(&tmp);
 	return (1);
 }
 

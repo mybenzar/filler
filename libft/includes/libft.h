@@ -6,14 +6,14 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:49:53 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/05 14:19:19 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/09 15:26:06 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define BUFF_SIZE 1
+# define BUFF_SIZE 4096
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>

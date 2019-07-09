@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/05 14:11:25 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/09 18:10:50 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	find_target(t_board *b, t_game *g)
 		j = 0;
 		while (b->tab[i][j] != '\0')
 		{
-			if (ft_toupper(b->tab[i][j]) == ft_toupper(g->ennemy))
+			if (b->tab[i][j] == g->ennemy || b->tab[i][j] == g->ennemy - 32)
 			{
 				g->target.x = j;
 				g->target.y = i;
@@ -74,6 +74,6 @@ void		strategy(t_board *b, t_game *g)
 {
 	if (b->piece->min.x != 0 || b->piece->min.y != 0)
 		ft_left(b->piece);
-	get_min(b->piece);
+//	get_min(b->piece);
 	attack(b, g);
 }

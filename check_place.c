@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 16:25:51 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/05 12:23:01 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/09 09:53:04 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ int	start_piece(t_board *b, t_game *g, int x, int y)
 		j = 0;
 		while (b->piece->tab[i][j] != '\0')
 		{
-			if (b->piece->tab[i][j] == '*' &&
-				b->tab[y + i][x + j] == g->player)
+			if (b->piece->tab[i][j] == '*'
+				&& b->tab[y + i][x + j] == g->player)
 				overlap++;
-			if (b->piece->tab[i][j] == '*' &&
-				ft_toupper(b->tab[y + i][x + j]) == g->ennemy)
+			if (b->piece->tab[i][j] == '*'
+				&& (b->tab[y + i][x + j] == g->ennemy
+				|| b->tab[y + i][x + j] == g->ennemy - 32))
 				return (0);
 			j++;
 		}

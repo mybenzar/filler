@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/05 10:56:06 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/09 15:42:30 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,12 @@ static int	analyze(t_piece *piece)
 	}
 	if (piece->size == 0)
 		return (0);
-	piece->parse = E_GET_POS;
+	//piece->parse = E_GET_POS;
+	piece->parse = E_GET_MIN;
 	return (1);
 }
 
+/*
 static int	get_pos(t_piece *piece)
 {
 	int i;
@@ -108,13 +110,13 @@ static int	check(t_piece *piece)
 		return (0);
 	return (2);
 }
-
+*/
 t_piece		*get_piece(void)
 {
 	int						i;
 	t_piece					*piece;
 	static t_parse_piece	trigger_parsing[] = {get_tab, analyze,
-												get_pos, get_min, check};
+												/*get_pos, */get_min/*, check*/};
 
 	i = 0;
 	if (!(piece = (t_piece*)ft_memalloc(sizeof(t_piece))))
