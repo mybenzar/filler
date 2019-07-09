@@ -10,6 +10,7 @@ YELLOW='\033[1;33m'
 total=0
 won=0
 error=0
+timeout=0
 for map in ./maps/*
 do
 	echo "${PURPLE}TESTING FOR $map ${NC}"
@@ -27,6 +28,11 @@ do
 				grep -i "seed" filler.trace
 				let "error++"
 			fi
+			if grep -q "X: timedout" filler.trace; then
+				echo "${RED}TIMEDOUT${NC}"
+				grep -i "seed" filler.trace
+				let "timeout++"
+			fi
 			if grep -q "./mybenzar.filler won" filler.trace; then
 				echo "${GREEN}I WON${NC}"
 				let " won++"
@@ -34,6 +40,7 @@ do
 			fi 
 			if grep -q "$file won" filler.trace; then
 				echo "${RED}I LOST${NC}"
+				grep -i "seed" filler.trace
 			fi
 			grep -i "./" filler.trace
 			echo "game $i\n" >> scores.csv
@@ -56,6 +63,11 @@ do
 				grep -i "seed" filler.trace
 				let "error++"
 			fi
+			if grep -q "O: timedout" filler.trace; then
+				echo "${RED}TIMEDOUT${NC}"
+				grep -i "seed" filler.trace
+				let "timeout++"
+			fi
 			if grep -q "./mybenzar.filler won" filler.trace; then
 				echo "${GREEN}I WON${NC}"
 				let " won++" 
@@ -63,6 +75,7 @@ do
 			fi
 			if grep -q "$file won" filler.trace; then
 				echo "${RED}I LOST${NC}"
+				grep -i "seed" filler.trace
 			fi
 			grep -i "./" filler.trace
 			echo "\ngame $i\n" >> scores.csv

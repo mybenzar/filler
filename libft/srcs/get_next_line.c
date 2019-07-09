@@ -60,10 +60,12 @@ static char		*ft_strdup_and_free(char *str, int nb)
 int				get_next_line(const int fd, char **line)
 {
 	static t_list	*statictmp;
-	static char		buf[BUFF_SIZE + 1];
+	char			*buf;
 	t_list			*tmp;
 	int				nb;
 
+	if (!(buf = ft_memalloc(BUFF_SIZE + 1)))
+		return (-1);
 	if (fd < 0 || !line || read(fd, buf, 0) < 0 || BUFF_SIZE < 0)
 		return (-1);
 	tmp = find_fd(&statictmp, fd);
@@ -80,5 +82,6 @@ int				get_next_line(const int fd, char **line)
 	tmp->content = ft_strdup_and_free(tmp->content, nb);
 	if (!nb)
 		return (0);
+	ft_strdel(&buf);
 	return (1);
 }
