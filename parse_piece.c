@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/09 15:42:30 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/10 14:49:31 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,24 @@ static int	get_tab(t_piece *piece)
 
 	i = 0;
 	if (get_dim(piece) == 0)
-		return (0);
-	if (!(piece->tab = (char **)malloc(sizeof(char *)
-		* (size_t)(piece->height + 1))))
-		return (0);
+		return (FALSE);
+	piece->tab = (char **)malloc(sizeof(char *) * (size_t)(piece->height + 1));
+	if (piece->tab == NULL)
+		return (FALSE);
 	while (i < piece->height)
 	{
 		piece->tab[i] = NULL;
-		if (get_next_line(FD, &piece->tab[i]) < 0
+		if (get_next_line(STDIN_FILENO, &piece->tab[i]) <= 0
 			|| (int)ft_strlen(piece->tab[i]) != piece->width)
-			return (0);
+		{
+			ft_free_tab(piece->tab, piece->height);
+			return (FALSE);
+		}
 		i++;
 	}
 	piece->tab[i] = NULL;
 	piece->parse = E_ANALYZE;
-	return (1);
+	return (TRUE);
 }
 
 static int	analyze(t_piece *piece)
@@ -50,81 +53,55 @@ static int	analyze(t_piece *piece)
 				piece->size++;
 			else if (piece->tab[i][j] != '\0'
 				&& check_piece_elem(piece->tab[i][j]) == 0)
-				return (0);
+				return (FALSE);
 			j++;
 		}
 		i++;
 	}
-	if (piece->size == 0)
-		return (0);
-	//piece->parse = E_GET_POS;
 	piece->parse = E_GET_MIN;
-	return (1);
+	return (piece->size == 0 ? FALSE : TRUE);
 }
 
-/*
-static int	get_pos(t_piece *piece)
+int		get_min(t_piece *piece)
 {
-	int i;
-	int j;
-	int p;
+	int x;
+	int y;
 
-	i = -1;
-	p = 0;
-	if (!(piece->pos = (t_posi*)malloc(sizeof(t_posi)
-		* (size_t)piece->size)))
-		return (0);
-	while (piece->tab[++i] != NULL)
-	{
-		j = 0;
-		while (piece->tab[i][j] != '\0')
-		{
-			if (piece->tab[i][j] == '*')
-			{
-				piece->pos[p].x = j;
-				piece->pos[p].y = i;
-				p++;
-			}
-			j++;
-		}
-	}
-	piece->parse = E_GET_MIN;
-	return (1);
-}
-
-static int	check(t_piece *piece)
-{
-	int		x;
-	int		y;
-	int		nb;
-	char	**tab;
-
-	x = piece->pos[0].x;
-	y = piece->pos[0].y;
-	if (!(tab = ft_tabcpy(piece->tab)))
-		return (0);
-	nb = nb_adj_piece(tab, x, y);
 	y = 0;
-	ft_free_tab(tab, piece->height);
-	if (nb != piece->size)
-		return (0);
-	return (2);
+	piece->min.x = -1;
+	piece->min.y = -1;
+	while (piece->tab[y] != NULL)
+	{
+		x = 0;
+		while (piece->tab[y][x] != '\0')
+		{
+			if (piece->tab[y][x] == '*')
+			{
+				if (x < piece->min.x || piece->min.x == -1)
+					piece->min.x = x;
+				if (y < piece->min.y || piece->min.y == -1)
+					piece->min.y = y;
+			}
+			x++;
+		}
+		y++;
+	}
+	piece->parse = E_FINISH;
+	return (1);
 }
-*/
+
 t_piece		*get_piece(void)
 {
-	int						i;
 	t_piece					*piece;
-	static t_parse_piece	trigger_parsing[] = {get_tab, analyze,
-												/*get_pos, */get_min/*, check*/};
+	static t_parse_piece	trigger_parsing[] = {get_tab, analyze, get_min};
 
-	i = 0;
-	if (!(piece = (t_piece*)ft_memalloc(sizeof(t_piece))))
+	piece = (t_piece*)ft_memalloc(sizeof(t_piece));
+	if (piece == NULL)
 		return (NULL);
-	while (i != 2)
+	piece->parse = E_GET_TAB;
+	while (piece->parse != E_FINISH)
 	{
-		i = trigger_parsing[piece->parse](piece);
-		if (i == 0)
+		if (trigger_parsing[piece->parse](piece) == 0)
 			return (NULL);
 	}
 	return (piece);

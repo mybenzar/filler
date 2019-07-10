@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/09 15:09:45 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/10 14:32:35 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ static int	check_first_line(t_board *board)
 
 	i = 0;
 	line = NULL;
-	if (get_next_line(FD, &line) <= 0)
-		return (free_line(line));
-	while (line[i] == ' ')
+	if (get_next_line(STDIN_FILENO, &line) <= 0 || line == NULL)
+		return (free_line(&line));
+	while (line[i] == ' ' && i < 5)
 		i++;
 	if (i != 4)
-		return (free_line(line));
+		return (free_line(&line));
 	while (line[i] != '\0')
 	{
-		if ((i - 4) % 10 + 48 != line[i] || i - 4 > board->width)
-			return (free_line(line));
+		if ((i - 4) % 10 + '0' != line[i] || i - 4 > board->width)
+			return (free_line(&line));
 		i++;
 	}
 	ft_strdel(&line);
@@ -37,32 +37,26 @@ static int	check_first_line(t_board *board)
 
 static int	get_dim_board(t_board *board)
 {
-	char	*line;
-	char	**split;
-	char	*tmp;
+	char				*line;
+	char				**split;
+	static const char 	*tmp = "Plateau";
 
 	line = NULL;
-	if (get_next_line(FD, &line) < 0)
-		return (free_line(line));
-	if (!(tmp = ft_strdup("Plateau")))
-		return (0);
-	if (ft_strncmp(line, tmp, 7) != 0)
-	{
-		ft_strdel(&tmp);
-		return (free_line(line));
-	}
-	if (!(split = ft_strsplit(line + 8, ' '))
-		|| !(board->height = ft_atoi(split[0]))
-		|| !(board->width = ft_atoi(split[1])))
-		return (free_line(line));
-	ft_free_tab(split, 2);
+	if (get_next_line(STDIN_FILENO, &line) <= 0 || line == NULL)
+		return (free_line(&line));
+	if (ft_strnequ(line, tmp, 7) == FALSE)
+		return (free_line(&line));
+	split = ft_strsplit(line + 8, ' ');
+	if (split == NULL || split[0] == NULL || split[1] == NULL)
+		return (free_line(&line));
+	board->height = ft_atoi(split[0]);
+	board->width = ft_atoi(split[1]);
 	if (board->height == 0 || board->width == 0)
-		return (free_line(line));
+		return (free_line(&line));
+	ft_free_tab(split, 2);
 	ft_strdel(&line);
-	ft_strdel(&tmp);
 	return (1);
 }
-
 static int	clean_board(t_board *board)
 {
 	int		i;
@@ -71,10 +65,9 @@ static int	clean_board(t_board *board)
 	i = 0;
 	while (i < board->height)
 	{
-		if (!(tmp = ft_strdup(board->tab[i])))
-			return (0);
-		ft_strdel(&board->tab[i]);
-		if (!(board->tab[i] = ft_strdup(tmp + 4)))
+		tmp = board->tab[i];
+		board->tab[i] = ft_strdup(tmp + 4);
+		if (board->tab[i] == NULL)
 			return (0);
 		ft_strdel(&tmp);
 		i++;
@@ -85,28 +78,26 @@ static int	clean_board(t_board *board)
 int			get_board(t_board *board)
 {
 	int i;
-	int j;
 
 	i = 0;
-	j = 0;
-	if (get_dim_board(board) == 0
-		|| !(board->tab = (char**)malloc(sizeof(char*)
-		* (size_t)(board->height + 1))))
+	if (get_dim_board(board) == 0)
 		return (0);
-	if (check_first_line(board) == 0)
+	board->tab = (char **)malloc(sizeof(char *) * (size_t)(board->height + 1));
+	if (board->tab == NULL || check_first_line(board) == 0)
 		return (0);
 	while (i < board->height)
 	{
 		board->tab[i] = NULL;
-		if (get_next_line(FD, &board->tab[i]) < 0
-			|| ft_atoi(board->tab[i]) != i)
+		if (get_next_line(STDIN_FILENO, &board->tab[i]) <= 0
+			|| board->tab[i] == NULL || ft_atoi(board->tab[i]) != i)
+		{
+			ft_free_tab(board->tab, board->height);
 			return (0);
+		}
 		i++;
 	}
 	board->tab[i] = NULL;
-	if (clean_board(board) == 0)
-		return (0);
-	return (1);
+	return (clean_board(board));
 }
 
 int			get_player(void)
@@ -115,15 +106,14 @@ int			get_player(void)
 	int		id;
 
 	line = NULL;
-	if (get_next_line(FD, &line) < 0)
-		return (free_line(line));
-	if (ft_strncmp(line, "$$$ exec p", 10) != 0
-		|| (!(id = ft_atoi(line + 10))))
-		return (free_line(line));
+	if (get_next_line(STDIN_FILENO, &line) <= 0 || line == NULL)
+		return (free_line(&line));
+	if (ft_strnequ(line, "$$$ exec p", 10) == FALSE)
+		return (free_line(&line));
+	id = ft_atoi(line + 10);
 	if (id != 1 && id != 2)
-		return (free_line(line));
-	if (ft_strncmp(line + 11, " : [./mybenzar.filler]", 22) != 0)
-		return (free_line(line));
-	ft_strdel(&line);
-	return (id);
+		return (free_line(&line));
+	if (ft_strnequ(line + 11, " : [./mybenzar.filler]", 22) == FALSE)
+		return (free_line(&line));
+	return (id + free_line(&line));
 }

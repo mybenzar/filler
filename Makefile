@@ -6,7 +6,7 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/22 11:56:55 by mybenzar          #+#    #+#              #
-#    Updated: 2019/07/04 17:19:56 by mybenzar         ###   ########.fr        #
+#    Updated: 2019/07/10 10:35:14 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,34 +22,38 @@ CFLAGS += -Wno-padded
 SOURCES = main.c parse_player.c ft_free.c parse_piece.c strategy.c check_place.c \
 		  distance.c parse_helper.c debug.c
 
-OBJECTS	= $(SOURCES:.c=.o)
+OBJECTS = $(patsubst %.c, %.o, $(SOURCES))
 LIBPATH	= ./libft/
 LIBSRC = srcs/
 LIB		= $(LIBPATH)libft.a
 INC		= filler.h
+HEADER = .
 
 all : $(NAME)
 
-$(NAME): $(LIB) $(OBJECTS) $(INC)
+$(NAME): $(LIB) $(OBJECTS)
 	@echo "\033[92mFillit Objects compiled sucessfully with header.\033[0m"
 	@echo
 	@echo "\033[92mCompiling filler executable.\033[0m" 
-	$(CC) $(CFLAGS) -L$(LIBPATH) -lft -o $(NAME) $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -I$(HEADER) -L$(LIBPATH) -lft -o $(NAME)
+
+$(OBJECTS): %.o: %.c $(INC) Makefile
+	$(CC) $(CFLAGS) -I$(HEADER) -c $<
 
 $(LIB): $(LIBPATH)$(LIBSRC)*.c
-	make -C $(LIBPATH)
+	$(MAKE) -C $(LIBPATH)
 
 clean:
 	@echo "\033[92mCleaning filler object files.\033[0m" 
-	rm -f $(OBJECTS)
-	$(MAKE) -C $(LIBPATH) clean
+	$(RM) $(OBJECTS)
+	$(MAKE) clean -C $(LIBPATH)
 
 fclean: clean
 	@echo "\033[92mRemoving filler executable.\033[0m" 
-	rm -f $(NAME)
+	$(RM) $(NAME)
 	@echo "\033[92mRemoving libft.a.\033[0m" 
-	cd $(LIBPATH) && rm -f libft.a
+	$(MAKE) fclean -C $(LIBPATH)
 
 re:	fclean all
 
-.PHONY: clean fclean
+.PHONY: clean fclean re all
