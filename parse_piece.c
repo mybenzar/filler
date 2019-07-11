@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:14:10 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/10 14:49:31 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/11 18:54:47 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	get_tab(t_piece *piece)
 	i = 0;
 	if (get_dim(piece) == 0)
 		return (FALSE);
-	piece->tab = (char **)malloc(sizeof(char *) * (size_t)(piece->height + 1));
+	piece->tab = (char **)malloc(sizeof(char*) * (size_t)(piece->height + 1));
 	if (piece->tab == NULL)
 		return (FALSE);
 	while (i < piece->height)
@@ -62,7 +62,7 @@ static int	analyze(t_piece *piece)
 	return (piece->size == 0 ? FALSE : TRUE);
 }
 
-int		get_min(t_piece *piece)
+int			get_min(t_piece *piece)
 {
 	int x;
 	int y;
@@ -87,6 +87,76 @@ int		get_min(t_piece *piece)
 		y++;
 	}
 	piece->parse = E_FINISH;
+	return (1);
+}
+
+static int	trim_bottom(t_piece *piece)
+{
+	int i;
+	int j;
+	int size;
+	int tmp;
+
+	i = 0;
+	size = 0;
+	while (i < piece->height)
+	{
+		j = -1;
+		while (++j < piece->width)
+		{
+			if (piece->tab[i][j] == '*')
+				size++;
+		}
+		i++;
+		if (size == piece->size)
+			break ;
+	}
+	tmp = i;
+	while (i < piece->height)
+		ft_strdel(&piece->tab[i++]);
+	piece->height = tmp;
+	return (1);
+}
+
+static int	trim_right(t_piece *piece)
+{
+	int i;
+	int j;
+	int size;
+	int tmp;
+
+	i = 0;
+	size = 0;
+	while (i < piece->height)
+	{
+		j = 0;
+		while (++j < piece->width)
+		{
+			if (piece->tab[i][j] == '*')
+				size++;
+			j++;
+			if (size == piece->size)
+				break ;
+		}
+		i++;
+	}
+	tmp = j;
+	i = 0;
+	while (i < piece->height)
+	{
+		j = tmp;
+		while (j < piece->width)
+			piece->tab[i][j++] = '\0';
+		i++;
+	}
+	piece->width = tmp;
+	return (1);
+}
+
+int			trim(t_piece *piece)
+{
+	trim_bottom(piece);
+	trim_right(piece);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/11 12:08:03 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/11 18:00:12 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	get_dim_board(t_board *board)
 {
 	char				*line;
 	char				**split;
-	static const char 	*tmp = "Plateau";
+	static const char	*tmp = "Plateau";
 
 	line = NULL;
 	if (get_next_line(STDIN_FILENO, &line) <= 0 || line == NULL)
@@ -57,6 +57,7 @@ static int	get_dim_board(t_board *board)
 	ft_strdel(&line);
 	return (1);
 }
+
 static int	clean_board(t_board *board)
 {
 	int		i;

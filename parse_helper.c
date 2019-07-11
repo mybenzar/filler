@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 16:36:41 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/10 14:49:53 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/11 17:56:20 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int		check_piece_elem(char c)
 
 int		get_dim(t_piece *piece)
 {
-	char 				*line;
-	char 				**split;
+	char				*line;
+	char				**split;
 	static const char	*piece_str = "Piece";
 
 	line = NULL;

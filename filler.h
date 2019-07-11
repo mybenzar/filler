@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/11 09:27:57 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/11 17:40:08 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ enum				e_parse
 	E_GET_TAB,
 	E_ANALYZE,
 	E_GET_MIN,
+	E_TRIM,
 	E_FINISH
 };
 
@@ -50,6 +51,7 @@ typedef struct		s_board
 	char			**tab;
 	int				width;
 	int				height;
+	int				area;
 	t_piece			*piece;
 }					t_board;
 
@@ -79,6 +81,7 @@ int						get_min(t_piece *piece);
 int						nb_adj_piece(char **tab, int x, int y);
 int						check_piece_elem(char c);
 int						get_dim(t_piece *piece);
+int						trim(t_piece *piece);
 
 /*
 **	Memory Handlers
@@ -99,8 +102,12 @@ int						start_piece(t_board *b, t_game *g, int x, int y);
 int						get_distance(int x, int y, int j, int i);
 void					get_min_distance(t_board *b, t_game *g);
 void					strategy(t_board *b, t_game *g);
+void					bottom_corner(t_board *b, t_game *g, int c_x, int c_y);
+void					upper_corner(t_board *b, t_game *g, int c_x, int c_y);
+void					fill(t_board *b, t_game *g);
+int						count_char(t_board *b);
 void					play(t_board *board, t_game *game);
-
+void					possible_place(t_game *g, int *dist);
 /*
 **	Debug Functions
 */

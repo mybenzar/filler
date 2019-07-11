@@ -6,7 +6,7 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/22 11:56:55 by mybenzar          #+#    #+#              #
-#    Updated: 2019/07/10 10:35:14 by mybenzar         ###   ########.fr        #
+#    Updated: 2019/07/11 18:40:40 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,9 @@ CC		= clang
 CFLAGS += -Wall
 CFLAGS += -Werror
 CFLAGS += -Wextra 
-CFLAGS += -Weverything -pedantic 
-CFLAGS += -fsanitize=address,undefined
-CFLAGS += -g3
-CFLAGS += -Wno-padded
-SOURCES = main.c parse_player.c ft_free.c parse_piece.c strategy.c check_place.c \
-		  distance.c parse_helper.c debug.c
+SOURCES = main.c parse_player.c ft_free.c parse_piece.c strategy.c \
+		  check_place.c distance.c parse_helper.c strategy_helper.c \
+		  debug.c
 
 OBJECTS = $(patsubst %.c, %.o, $(SOURCES))
 LIBPATH	= ./libft/
@@ -56,4 +53,4 @@ fclean: clean
 
 re:	fclean all
 
-.PHONY: clean fclean re all
+#.PHONY: clean fclean re all

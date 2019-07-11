@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:49:53 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/09 15:26:06 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/11 18:33:58 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ int					ft_intsize(int n);
 char				*ft_strrev(char *str);
 void				ft_swap(char *a, char *b);
 int					ft_free_tab(char **tab, int size);
+
 /*
 **				Added functions for ft_printf
 */
@@ -121,10 +122,13 @@ int					vlq_cmp(char *s1, char *s2);
 /*
 **				GNL
 */
+
 int					get_next_line(const int fd, char **line);
+
 /*
 **				Added for Filler
 */
+
 int					ft_abs(int nb);
 char				**ft_tabcpy(char **tab);
 #endif

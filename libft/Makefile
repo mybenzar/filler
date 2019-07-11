@@ -6,16 +6,16 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/15 11:25:47 by mybenzar          #+#    #+#              #
-#    Updated: 2019/07/04 17:10:42 by mybenzar         ###   ########.fr        #
+#    Updated: 2019/07/11 18:25:19 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
 CFLAGS += -Wall
 CFLAGS += -Werror
-CFLAGS += -Wextra 
-CFLAGS += -fsanitize=address,undefined
-CFLAGS += -g3
+CFLAGS += -Wextra -g
+#CFLAGS += -fsanitize=address,undefined
+#CFLAGS += -g3
 NAME = libft.a
 INCLUDES = includes/
 HEADERS += $(INCLUDES)libft.h

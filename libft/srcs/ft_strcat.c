@@ -6,11 +6,11 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:37:27 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/05/15 11:37:29 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/11 18:33:10 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strcat(char *dest, const char *src)
 {
