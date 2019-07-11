@@ -6,14 +6,14 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:21:14 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/10 14:22:20 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/11 09:29:58 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
 void	play(t_board *board, t_game *game)
-{
+{	
 	strategy(board, game);
 	ft_printf("%d %d\n", game->place.y, game->place.x);
 }
@@ -29,8 +29,8 @@ static int	assign_players(t_game *game)
 
 int		main(void)
 {
-	t_board	board;
-	t_game	game;
+	t_board			board;
+	t_game			game;
 
 	ft_bzero(&game, sizeof(t_game));
 	if (assign_players(&game) == 1)

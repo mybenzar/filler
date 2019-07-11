@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 16:25:51 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/09 09:53:04 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/11 09:54:38 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ int	start_piece(t_board *b, t_game *g, int x, int y)
 		}
 		i++;
 	}
-	if (overlap == 1)
-		return (1);
-	return (0);
+	return (overlap == 1 ? 1 : 0);
 }
 
 int	ft_left(t_piece *piece)
