@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:21:14 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/11 18:54:47 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/12 10:22:13 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 void		play(t_board *board, t_game *game)
 {
 	strategy(board, game);
-	dprintf(2, "coordinates :\n");
-	dprintf(2, "%d %d\n", game->place.y, game->place.x);
-	display_board(board);
 	ft_printf("%d %d\n", game->place.y, game->place.x);
 }
 

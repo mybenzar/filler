@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/15 12:13:56 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/11 18:49:22 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/12 10:17:50 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ void		strategy(t_board *b, t_game *g)
 	{
 		ft_left(b->piece);
 		trim(b->piece);
-		dprintf(2, "\nnew piece\n");
-		display_piece(b->piece);
 	}
 	if (b->height > 30 && b->width > 30)
 	{

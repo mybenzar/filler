@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 16:25:51 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/11 16:00:18 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/12 10:15:18 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	check_piece(t_board *b, int x, int y)
 {
 	if (x + b->piece->width <= b->width
 		&& y + b->piece->height <= b->height)
-		return (1);
-	return (0);
+		return (TRUE);
+	return (FALSE);
 }
 
 int	start_piece(t_board *b, t_game *g, int x, int y)
@@ -67,5 +67,5 @@ int	ft_left(t_piece *piece)
 		}
 		y++;
 	}
-	return (1);
+	return (TRUE);
 }

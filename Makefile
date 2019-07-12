@@ -6,7 +6,7 @@
 #    By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/22 11:56:55 by mybenzar          #+#    #+#              #
-#    Updated: 2019/07/11 18:40:40 by mybenzar         ###   ########.fr        #
+#    Updated: 2019/07/12 11:07:38 by mybenzar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,11 @@ CFLAGS += -Wall
 CFLAGS += -Werror
 CFLAGS += -Wextra 
 SOURCES = main.c parse_player.c ft_free.c parse_piece.c strategy.c \
-		  check_place.c distance.c parse_helper.c strategy_helper.c \
-		  debug.c
+		  check_place.c distance.c parse_helper.c strategy_helper.c 
 
 OBJECTS = $(patsubst %.c, %.o, $(SOURCES))
 LIBPATH	= ./libft/
-LIBSRC = srcs/
+LIBSRC	= srcs/
 LIB		= $(LIBPATH)libft.a
 INC		= filler.h
 HEADER = .

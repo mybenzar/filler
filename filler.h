@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:12:02 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/11 17:40:08 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/12 09:38:01 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 # define FILLER_H
 
 # include "libft/includes/libft.h"
-#define FD 0
-#define DEBUG 0
 # define FALSE 0
 # define TRUE 1
-#include <stdio.h>
 
 enum				e_parse
 {
 	E_GET_TAB,
 	E_ANALYZE,
 	E_GET_MIN,
-	E_TRIM,
 	E_FINISH
 };
 
@@ -42,6 +38,7 @@ typedef struct		s_piece
 	int				height;
 	int				size;
 	t_posi			min;
+	t_posi			max;
 	t_posi			*pos;
 	enum e_parse	parse;
 }					t_piece;
@@ -70,8 +67,8 @@ typedef struct 		s_game
 typedef int (*t_parse_piece)(t_piece *);
 
 /*
- **	Parsing Functions
- */
+**	Parsing Functions
+*/
 
 int						get_board(t_board *board);
 int						get_player(void);
@@ -108,6 +105,7 @@ void					fill(t_board *b, t_game *g);
 int						count_char(t_board *b);
 void					play(t_board *board, t_game *game);
 void					possible_place(t_game *g, int *dist);
+
 /*
 **	Debug Functions
 */

@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 11:49:53 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/11 18:33:58 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/12 12:14:24 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int					vlq_cmp(char *s1, char *s2);
 **				GNL
 */
 
-int					get_next_line(const int fd, char **line);
+int					get_next_line(char **line);
 
 /*
 **				Added for Filler
@@ -131,4 +131,5 @@ int					get_next_line(const int fd, char **line);
 
 int					ft_abs(int nb);
 char				**ft_tabcpy(char **tab);
+int					free_line(char **line);
 #endif

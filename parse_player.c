@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 16:00:12 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/11 18:00:12 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/07/12 12:16:57 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	check_first_line(t_board *board)
 
 	i = 0;
 	line = NULL;
-	if (get_next_line(STDIN_FILENO, &line) <= 0 || line == NULL)
+	if (get_next_line(&line) <= 0 || line == NULL)
 		return (free_line(&line));
 	while (line[i] == ' ' && i < 5)
 		i++;
@@ -32,7 +32,7 @@ static int	check_first_line(t_board *board)
 		i++;
 	}
 	ft_strdel(&line);
-	return (1);
+	return (TRUE);
 }
 
 static int	get_dim_board(t_board *board)
@@ -42,7 +42,7 @@ static int	get_dim_board(t_board *board)
 	static const char	*tmp = "Plateau";
 
 	line = NULL;
-	if (get_next_line(STDIN_FILENO, &line) <= 0 || line == NULL)
+	if (get_next_line(&line) <= 0 || line == NULL)
 		return (free_line(&line));
 	if (ft_strnequ(line, tmp, 7) == FALSE)
 		return (free_line(&line));
@@ -55,7 +55,7 @@ static int	get_dim_board(t_board *board)
 		return (free_line(&line));
 	ft_free_tab(split, 2);
 	ft_strdel(&line);
-	return (1);
+	return (TRUE);
 }
 
 static int	clean_board(t_board *board)
@@ -73,7 +73,7 @@ static int	clean_board(t_board *board)
 		ft_strdel(&tmp);
 		i++;
 	}
-	return (1);
+	return (TRUE);
 }
 
 int			get_board(t_board *board)
@@ -82,18 +82,18 @@ int			get_board(t_board *board)
 
 	i = 0;
 	if (get_dim_board(board) == 0)
-		return (0);
+		return (FALSE);
 	board->tab = (char **)malloc(sizeof(char *) * (size_t)(board->height + 1));
 	if (board->tab == NULL || check_first_line(board) == 0)
-		return (0);
+		return (FALSE);
 	while (i < board->height)
 	{
 		board->tab[i] = NULL;
-		if (get_next_line(STDIN_FILENO, &board->tab[i]) <= 0
+		if (get_next_line(&board->tab[i]) <= 0
 			|| board->tab[i] == NULL || ft_atoi(board->tab[i]) != i)
 		{
 			ft_free_tab(board->tab, board->height);
-			return (0);
+			return (FALSE);
 		}
 		i++;
 	}
@@ -107,7 +107,7 @@ int			get_player(void)
 	int		id;
 
 	line = NULL;
-	if (get_next_line(STDIN_FILENO, &line) <= 0 || line == NULL)
+	if (get_next_line(&line) <= 0 || line == NULL)
 		return (free_line(&line));
 	if (ft_strnequ(line, "$$$ exec p", 10) == FALSE)
 		return (free_line(&line));

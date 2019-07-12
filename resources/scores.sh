@@ -20,7 +20,7 @@ do
 	echo "${PURPLE}TESTING FOR $map ${NC}"
 	for file in ./players/*
 	do
-		echo "\n----->${ORANGE}TESTING FOR $file"
+		echo "\n${ORANGE}----->TESTING FOR $file"
 		echo "${YELLOW}PLAYING AGAINST $file AS P1${NC}"
 		local_win=0
 		for i in 1 2 3
@@ -34,21 +34,22 @@ do
 			fi
 			if grep -q "X: timedout" filler.trace; then
 				echo "${RED}TIMEDOUT${NC}"
+				echo "TIMEDOUT" >> results
 				grep -i "seed" filler.trace
 				let "timeout++"
 			fi
 			if grep -q "$player won" filler.trace; then
 				echo "${GREEN}I WON${NC}"
+				echo "I WON" >> results
 				let " won++"
 				let "local_win++"
 			fi 
 			if grep -q "$file won" filler.trace; then
 				echo "${RED}I LOST${NC}"
+				echo "I LOST" > results
 				grep -i "seed" filler.trace
 			fi
 			grep -i "./" filler.trace
-			echo "game $i\n" >> scores.csv
-			cat filler.trace >> scores.csv
 			let "total++"
 		done
 		if [[ "$local_win" -ge 2 ]]; then
@@ -61,6 +62,7 @@ do
 		for i in 1 2 3
 		do
 			echo "${CYAN}game $i${NC}"
+			echo "game $i$" > results
 			./filler_vm -f "$map" -p2 "$file" -p1 $player > my_trace.txt 2> err.log
 			if grep -q "O: error on input" filler.trace; then
 				echo "${RED}ERROR ON INPUT${NC}"
@@ -79,11 +81,10 @@ do
 			fi
 			if grep -q "$file won" filler.trace; then
 				echo "${RED}I LOST${NC}"
+				echo "I LOST" >> results
 				grep -i "seed" filler.trace
 			fi
 			grep -i "./" filler.trace
-			echo "\ngame $i\n" >> scores.csv
-			cat filler.trace >> scores.csv
 			let "total++"
 		done
 		if [[ "$local_win" -ge 2 ]]; then
