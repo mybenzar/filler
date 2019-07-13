@@ -13,7 +13,7 @@
 CC = clang
 CFLAGS += -Wall
 CFLAGS += -Werror
-CFLAGS += -Wextra
+CFLAGS += -Wextra -g
 
 NAME = libft.a
 INCLUDES = includes/
@@ -37,7 +37,7 @@ SRCS =	ft_bzero.c ft_itoa.c ft_memalloc.c ft_memccpy.c ft_memchr.c ft_toupper.c\
 		ft_convert_dec.c ft_intsize.c ft_strjoin_free.c ft_swap.c ft_strrev.c\
 		ft_putnstr.c ft_strupper.c print_nchar.c ft_dftoa.c ft_max.c ft_min.c\
 		ft_str_isdigit.c vlq_cmp.c ft_abs.c ft_free_tab.c\
-		get_next_line.c ft_tabcpy.c free_line.c\
+		get_next_line.c ft_tabcpy.c free_line.c \
 		print_utils.c args_conv.c ft_printf.c print_float.c get_flags.c\
 		parsing_utils.c get_size.c free_functions.c fill_padding.c\
 		print_nb.c print_char.c print_str.c print_nb_padding.c get_res.c\

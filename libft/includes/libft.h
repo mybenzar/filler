@@ -69,7 +69,7 @@ void				*ft_memchr(void const *s, int c, size_t n);
 int					ft_memcmp(void const *s1, void const *s2, size_t n);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack, const char *needle,
-size_t len);
+					size_t len);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -123,7 +123,7 @@ int					vlq_cmp(char *s1, char *s2);
 **				GNL
 */
 
-int					get_next_line(char **line);
+int					get_next_line(const int fd, char **line);
 
 /*
 **				Added for Filler

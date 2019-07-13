@@ -14,7 +14,7 @@ NAME	= mybenzar.filler
 CC		= clang 
 CFLAGS += -Wall
 CFLAGS += -Werror
-CFLAGS += -Wextra 
+CFLAGS += -Wextra -g
 SOURCES = main.c parse_player.c ft_free.c parse_piece.c strategy.c \
 		  check_place.c distance.c parse_helper.c strategy_helper.c 
 

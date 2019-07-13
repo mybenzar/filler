@@ -12,6 +12,24 @@
 
 #include "libft.h"
 
+static t_list	*find_fd(t_list **list, int fd)
+{
+	t_list *tmp;
+
+	tmp = *list;
+	while (tmp)
+	{
+		if ((int)tmp->content_size == fd)
+			return (tmp);
+		tmp = tmp->next;
+	}
+	if (!(tmp = (t_list*)ft_memalloc(sizeof(t_list)))
+		|| !(tmp->content = ft_strdup("\0")))
+		return (NULL);
+	ft_lstadd(list, tmp);
+	return (tmp);
+}
+
 static char		*ft_strncat_and_free(char *s1, char *s2, int nb)
 {
 	char *str;
@@ -39,42 +57,37 @@ static char		*ft_strdup_and_free(char *str, int nb)
 	return (str);
 }
 
-static int		free_error(char **line, char **tmp)
+static int		free_error(char **line)
 {
-	if (line != NULL)
-		ft_strdel(line);
-	if (tmp != NULL)
-		ft_strdel(tmp);
+	ft_strdel(line);
 	return (-1);
 }
 
-int				get_next_line(char **line)
+int				get_next_line(const int fd, char **line)
 {
+	static t_list	*statictmp;
 	char			*buf;
-	char			*tmp;
+	t_list			*tmp;
 	int				nb;
 
 	if (!(buf = ft_memalloc(BUFF_SIZE + 1)))
 		return (-1);
-	if (!line || read(STDIN_FILENO, buf, 0) < 0 || BUFF_SIZE < 0)
-		return (free_error(&buf, &tmp));
-	if (!(tmp = ft_strdup("\0")))
-		return (free_error(&buf, &tmp));
-	while (!(ft_strchr(tmp, '\n')) && (nb = read(STDIN_FILENO, buf, BUFF_SIZE)))
-		tmp = ft_strncat_and_free(tmp, buf, nb);
-	if (tmp == NULL)
-		return (free_error(&buf, &tmp));
+	if (fd < 0 || !line || read(fd, buf, 0) < 0 || BUFF_SIZE < 0)
+		return (free_error(&buf));
+	tmp = find_fd(&statictmp, fd);
+	while (!(ft_strchr(tmp->content, '\n')) && (nb = read(fd, buf, BUFF_SIZE)))
+		tmp->content = ft_strncat_and_free(tmp->content, buf, nb);
 	nb = 0;
-	while (tmp[nb] && tmp[nb] != '\n')
+	while (((char*)tmp->content)[nb] && ((char*)tmp->content)[nb] != '\n')
 		nb++;
 	if (!(*line = ft_strnew(nb)))
-		return (free_error(&buf, &tmp));
-	ft_strncat(*line, tmp, nb);
-	if (tmp[nb] == '\n')
+		return (free_error(&buf));
+	ft_strncat(*line, tmp->content, nb);
+	if (((char*)tmp->content)[nb] == '\n')
 		nb++;
-	tmp = ft_strdup_and_free(tmp, nb);
-	if (!nb)
-		return (free_line(&buf));
+	tmp->content = ft_strdup_and_free(tmp->content, nb);
 	ft_strdel(&buf);
+	if (!nb)
+		return (free_line(line));
 	return (1);
 }

@@ -28,7 +28,7 @@ int			get_dim(t_piece *piece)
 
 	line = NULL;
 	split = NULL;
-	if (get_next_line(&line) <= 0 || line == NULL)
+	if (get_next_line(STDIN_FILENO, &line) <= 0 || line == NULL)
 		return (free_line(&line));
 	split = ft_strsplit(line, ' ');
 	if (split == NULL || split[0] == NULL || split[1] == NULL)

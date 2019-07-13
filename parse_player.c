@@ -19,7 +19,7 @@ static int	check_first_line(t_board *board)
 
 	i = 0;
 	line = NULL;
-	if (get_next_line(&line) <= 0 || line == NULL)
+	if (get_next_line(STDIN_FILENO, &line) <= 0 || line == NULL)
 		return (free_line(&line));
 	while (line[i] == ' ' && i < 5)
 		i++;
@@ -42,7 +42,7 @@ static int	get_dim_board(t_board *board)
 	static const char	*tmp = "Plateau";
 
 	line = NULL;
-	if (get_next_line(&line) <= 0 || line == NULL)
+	if (get_next_line(STDIN_FILENO, &line) <= 0 || line == NULL)
 		return (free_line(&line));
 	if (ft_strnequ(line, tmp, 7) == FALSE)
 		return (free_line(&line));
@@ -89,7 +89,7 @@ int			get_board(t_board *board)
 	while (i < board->height)
 	{
 		board->tab[i] = NULL;
-		if (get_next_line(&board->tab[i]) <= 0
+		if (get_next_line(STDIN_FILENO, &board->tab[i]) <= 0
 			|| board->tab[i] == NULL || ft_atoi(board->tab[i]) != i)
 		{
 			ft_free_tab(board->tab, board->height);
@@ -107,7 +107,7 @@ int			get_player(void)
 	int		id;
 
 	line = NULL;
-	if (get_next_line(&line) <= 0 || line == NULL)
+	if (get_next_line(STDIN_FILENO, &line) <= 0 || line == NULL)
 		return (free_line(&line));
 	if (ft_strnequ(line, "$$$ exec p", 10) == FALSE)
 		return (free_line(&line));

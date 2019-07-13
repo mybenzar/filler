@@ -25,7 +25,7 @@ static int	get_tab(t_piece *piece)
 	while (i < piece->height)
 	{
 		piece->tab[i] = NULL;
-		if (get_next_line(&piece->tab[i]) <= 0
+		if (get_next_line(STDIN_FILENO, &piece->tab[i]) <= 0
 			|| (int)ft_strlen(piece->tab[i]) != piece->width)
 		{
 			ft_free_tab(piece->tab, piece->height);
