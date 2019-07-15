@@ -24,13 +24,9 @@ int			free_piece(t_piece *piece)
 	int i;
 
 	i = 0;
-	if (piece->tab != NULL)
-		ft_free_tab(piece->tab, piece->height);
-	if (piece->pos != NULL)
-	{
-		free(piece->pos);
-		piece->pos = NULL;
-	}
+//	ft_free_tab(piece->tab, piece->height);
+	free(piece->pos);
+	piece->pos = NULL;
 	free(piece);
 	piece = NULL;
 	return (0);
@@ -42,8 +38,7 @@ int			free_board(t_board *board)
 
 	i = 0;
 	ft_free_tab(board->tab, board->height);
-	if (board->piece != NULL)
-		free_piece(board->piece);
+	free_piece(board->piece);
 	board->width = 0;
 	board->height = 0;
 	return (0);

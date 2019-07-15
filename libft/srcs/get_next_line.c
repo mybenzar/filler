@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static t_list	*find_fd(t_list **list, int fd)
 {
@@ -30,7 +31,7 @@ static t_list	*find_fd(t_list **list, int fd)
 	return (tmp);
 }
 
-static char		*ft_strncat_and_free(char *s1, char *s2, int nb)
+static char		*ft_strncat_and_free(char *s1, char s2[BUFF_SIZE + 1], int nb)
 {
 	char *str;
 	char *tmp;
@@ -57,12 +58,6 @@ static char		*ft_strdup_and_free(char *str, int nb)
 	return (str);
 }
 
-static int		free_error(char **line)
-{
-	ft_strdel(line);
-	return (-1);
-}
-
 int				get_next_line(const int fd, char **line)
 {
 	static t_list	*statictmp;
@@ -73,7 +68,7 @@ int				get_next_line(const int fd, char **line)
 	if (!(buf = ft_memalloc(BUFF_SIZE + 1)))
 		return (-1);
 	if (fd < 0 || !line || read(fd, buf, 0) < 0 || BUFF_SIZE < 0)
-		return (free_error(&buf));
+		return (-1);
 	tmp = find_fd(&statictmp, fd);
 	while (!(ft_strchr(tmp->content, '\n')) && (nb = read(fd, buf, BUFF_SIZE)))
 		tmp->content = ft_strncat_and_free(tmp->content, buf, nb);
@@ -81,13 +76,20 @@ int				get_next_line(const int fd, char **line)
 	while (((char*)tmp->content)[nb] && ((char*)tmp->content)[nb] != '\n')
 		nb++;
 	if (!(*line = ft_strnew(nb)))
-		return (free_error(&buf));
+		return (-1);
 	ft_strncat(*line, tmp->content, nb);
 	if (((char*)tmp->content)[nb] == '\n')
 		nb++;
 	tmp->content = ft_strdup_and_free(tmp->content, nb);
-	ft_strdel(&buf);
 	if (!nb)
-		return (free_line(line));
+	{
+		ft_strdel(tmp->content);
+		ft_bzero(tmp, sizeof(t_list));
+		free(tmp);
+		ft_bzero(statictmp, sizeof(t_list));
+		free(statictmp);
+		return (0);
+	}
+	ft_strdel(&buf);
 	return (1);
 }

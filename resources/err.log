@@ -1,4 +1,2 @@
-/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems.rb:1261:in `require': Interrupt
-	from /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/rubygems.rb:1261:in `<top (required)>'
-	from <internal:gem_prelude>:4:in `require'
-	from <internal:gem_prelude>:4:in `<internal:gem_prelude>'
+mybenzar.filler(18674,0x7fffb69ce380) malloc: *** error for object 0x2000000000000000: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
