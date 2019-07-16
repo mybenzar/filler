@@ -13,7 +13,7 @@
 CC = clang
 CFLAGS += -Wall
 CFLAGS += -Werror
-CFLAGS += -Wextra -g
+CFLAGS += -Wextra -O3 -g
 
 NAME = libft.a
 INCLUDES = includes/

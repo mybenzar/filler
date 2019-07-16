@@ -78,17 +78,17 @@ void		strategy(t_board *b, t_game *g)
 		ft_left(b->piece);
 		trim(b->piece);
 	}
-	if (b->height > 30 && b->width > 30)
+	if (b->height > MAX_HEIGHT && b->width > MAX_WIDTH)
 	{
-		if (count_char(b) < b->area / 8)
+		if (count_char(b) < b->area / STEP1)
 			bottom_corner(b, g, b->width, b->height);
-		else if (count_char(b) < b->area / 6)
+		else if (count_char(b) < b->area / STEP2)
 			attack(b, g);
 		else
 		{
-			if (count_char(b) < b->area / 4)
+			if (count_char(b) < b->area / STEP3)
 				bottom_corner(b, g, 0, b->height);
-			else if (count_char(b) < b->area / 2)
+			else if (count_char(b) < b->area / STEP4)
 				upper_corner(b, g, b->width, 0);
 			else
 				fill(b, g);

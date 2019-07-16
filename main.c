@@ -21,19 +21,20 @@ void		play(t_board *board, t_game *game)
 static int	assign_players(t_game *game)
 {
 	if (!(game->player = get_player()))
-		return (1);
+		return (FALSE);
 	game->player = (game->player == 1) ? 'O' : 'X';
 	game->ennemy = (game->player == 'O') ? 'X' : 'O';
-	return (0);
+	return (TRUE);
 }
 
 int			main(void)
 {
 	t_board			board;
 	t_game			game;
+	char			*dummy;
 
 	ft_bzero(&game, sizeof(t_game));
-	if (assign_players(&game) == 1)
+	if (assign_players(&game) == FALSE)
 		return (EXIT_FAILURE);
 	ft_bzero(&board, sizeof(t_board));
 	while (1)
@@ -47,5 +48,7 @@ int			main(void)
 	}
 	free_board(&board);
 	free_game(&game);
+	dummy = NULL;
+	get_next_line(CLEANUP, &dummy);
 	return (EXIT_SUCCESS);
 }

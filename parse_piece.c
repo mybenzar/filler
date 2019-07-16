@@ -12,6 +12,8 @@
 
 #include "filler.h"
 
+# include <stdio.h>
+
 static int	get_tab(t_piece *piece)
 {
 	int		i;
@@ -34,6 +36,8 @@ static int	get_tab(t_piece *piece)
 		i++;
 	}
 	piece->tab[i] = NULL;
+//	if (get_next_line(CLEANUP, &piece->tab[i]) != 0)
+//		dprintf(2, "cleanup failed\n");
 	piece->parse = E_ANALYZE;
 	return (TRUE);
 }

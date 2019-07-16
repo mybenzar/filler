@@ -24,7 +24,7 @@ int			free_piece(t_piece *piece)
 	int i;
 
 	i = 0;
-//	ft_free_tab(piece->tab, piece->height);
+	ft_free_tab(piece->tab, piece->height);
 	free(piece->pos);
 	piece->pos = NULL;
 	free(piece);

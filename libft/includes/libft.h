@@ -14,6 +14,9 @@
 # define LIBFT_H
 
 # define BUFF_SIZE 4096
+# define CLEANUP -42
+# define FAILURE -1
+# define SUCCESS 1
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
